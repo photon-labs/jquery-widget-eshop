@@ -1,0 +1,22 @@
+<environments> 
+    <environment name="Production" default="true">
+        <server name="myserver">
+            <host>172.16.25.75</host>
+            <port>8080</port>
+            <protocol>http</protocol>
+            <context>html5widget</context>
+            <username>admin</username>
+            <password>admin</password>
+        </server>
+        <WebService name="mywebservice">
+            <host>172.16.25.75</host>
+			<port>2020</port>
+            <protocol>http</protocol>
+            <context>eshop</context>
+		    <username>admin</username>
+            <password>admin</password>
+        </WebService>
+    </environment>
+</environments>
+
+
