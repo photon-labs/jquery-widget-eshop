@@ -55,7 +55,7 @@
 				<version>2.2-beta-5</version>
 				<configuration>
                     <descriptors>
-                        <descriptor>war-config.xml</descriptor>
+                        <descriptor>.phresco/war-config.xml</descriptor>
                     </descriptors>
                 </configuration>
 				<executions>
