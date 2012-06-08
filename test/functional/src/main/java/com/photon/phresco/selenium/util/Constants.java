@@ -22,8 +22,6 @@ public class Constants {
 	 * Execute tests on safari browser
 	 */
 	public static final String BROWSER_SAFARI = "*safari";
-	
-	public static final String BROWSER_HTMLUNIT = "*htmlunit";
 
 	public static String DEFAULT_TIMEOUT = "180000";
 

@@ -4,23 +4,23 @@ import java.io.IOException;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import com.photon.phresco.Screens.MenuScreen;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.PhrescoHTML5widgUiConstants;
 import com.thoughtworks.selenium.Selenium;
 
-public class WelcomePage extends TestCase {
+public class TabletsAddCart extends TestCase {
 
 	
 	private PhrescoHTML5widgUiConstants phrsc;
-	private WelcomeScreen wel;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
 	private String browserAppends;
-	//private LoginScreen loginObject;
-	
+	private WelcomeScreen wel;
+	String methodName;
 
 	@Test
-	public void testWel() throws InterruptedException, IOException, Exception {
+	public void testTablets() throws InterruptedException, IOException, Exception {
 
 		try {
 
@@ -37,6 +37,10 @@ public class WelcomePage extends TestCase {
 					browserAppends, serverURL, phrsc.SPEED,
 					phrsc.CONTEXT );
 			assertNotNull(wel);
+			MenuScreen menu = wel.menuScreen(phrsc);
+			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+			System.out.println("methodName = " + methodName);
+			menu.Tablets(methodName);
 		} catch (Exception t) {
 			t.printStackTrace();
 			System.out.println("ScreenCaptured");
