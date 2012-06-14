@@ -14,7 +14,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import com.photon.phresco.selenium.util.Constants;
@@ -76,7 +75,7 @@ public class BaseScreen {
 				ChromeOptions chromeOption = new ChromeOptions();
 				chromeOption.addArguments("start-maximized");
 				driver = new ChromeDriver(chromeService, chromeOption);
-//				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.navigate().to(url + context);
 				
 				/*selenium = new WebDriverBackedSelenium(driver, url);
@@ -106,24 +105,12 @@ public class BaseScreen {
 			 * selenium = new WebDriverBackedSelenium(driver, url);
 			 * selenium.open(context);
 			 */
-		} 
-		 else if (browserName.equalsIgnoreCase(Constants.BROWSER_HTMLUNIT)) {
-				log.info("-------------***LAUNCHING HTMLUNIT***--------------");
-				driver = new HtmlUnitDriver(); 
-				//windowMaximizeFirefox();
-				driver.navigate().to(url + context);	
-				// driver.get(url+context);
-
-				/*
-				 * selenium = new WebDriverBackedSelenium(driver, url);
-				 * selenium.open(context);
-				 */
-			} 
-		else {
+		} else {
 			throw new ScreenException(
 					"------Only FireFox,InternetExplore and Chrome works-----------");
-		}			
-}
+		}
+
+	}
 
 	public static void windowMaximizeFirefox() {
 		driver.manage().window().setPosition(new Point(0, 0));
@@ -141,8 +128,6 @@ public class BaseScreen {
 		if(chromeService!=null){
 			chromeService.stop();
 			}
-		} else {
-			throw new NullPointerException();
 		}
 		// selenium.stop();
 		/*
