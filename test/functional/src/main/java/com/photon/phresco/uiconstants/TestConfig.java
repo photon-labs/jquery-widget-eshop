@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 public class TestConfig {
 	private ReadXMLFile readXml;
 
+
 	public String CONTEXT = "context";
 	public String SERVER_HOST ="server.host";
 	public String HOST = "host";

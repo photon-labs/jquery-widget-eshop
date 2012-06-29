@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 public class JQueryWidgetData {
 
 	private ReadXMLFile readXml;
+
 	
 	public String COMMENTS_VALUE="billInfoCommentsValue";
 	public String CARDNUMBER_VALUE="cardInfoCardNumberValue";
