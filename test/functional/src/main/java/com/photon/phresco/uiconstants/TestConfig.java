@@ -3,7 +3,7 @@ package com.photon.phresco.uiconstants;
 
 import java.lang.reflect.Field;
 
-public class PhrescoUiConstants {
+public class TestConfig {
 	private ReadXMLFile readXml;
 
 	public String CONTEXT = "context";
@@ -15,7 +15,7 @@ public class PhrescoUiConstants {
 	public String PORT= "port";
 	public String SPEED = "speed";
 
-    public PhrescoUiConstants() {
+    public TestConfig() {
 		try {
 			readXml = new ReadXMLFile();
 			Field[] arrayOfField1 = super.getClass().getFields();

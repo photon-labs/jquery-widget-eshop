@@ -7,13 +7,13 @@ import com.photon.phresco.Screens.MenuScreen;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.UIConstants;
-import com.photon.phresco.uiconstants.PhrescoUiConstants;
+import com.photon.phresco.uiconstants.TestConfig;
 import com.thoughtworks.selenium.Selenium;
 
 public class ComputersAddcart extends TestCase {
 
 	private UIConstants phrsc;
-	private PhrescoUiConstants phr;
+	private TestConfig phr;
 	private JQueryWidgetData jqrywidg;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
@@ -26,7 +26,7 @@ public class ComputersAddcart extends TestCase {
 
 		try {
 
-			phrsc = new UIConstants();
+			
 			jqrywidg = new JQueryWidgetData();
 			String serverURL = phr.PROTOCOL + "://" + phr.HOST + ":"
 					+ phr.PORT + "/";
@@ -52,7 +52,8 @@ public class ComputersAddcart extends TestCase {
 	}
 
 	public void setUp() throws Exception {
-		phr = new PhrescoUiConstants();
+		phr = new TestConfig();
+		phrsc = new UIConstants();
 	}
 
 	public void tearDown() {

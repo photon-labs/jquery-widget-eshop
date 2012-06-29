@@ -6,14 +6,14 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.UIConstants;
-import com.photon.phresco.uiconstants.PhrescoUiConstants;
+import com.photon.phresco.uiconstants.TestConfig;
 import com.thoughtworks.selenium.Selenium;
 
 public class WelcomePage extends TestCase {
 
 	
-	private UIConstants phrsc;
-	private PhrescoUiConstants phr;
+	
+	private TestConfig phr;
 	private WelcomeScreen wel;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
@@ -48,7 +48,7 @@ public class WelcomePage extends TestCase {
 	}
 
 	public void setUp() throws Exception {
-		phr = new PhrescoUiConstants();
+		phr = new TestConfig();
 	}
 
 	public void tearDown() {
