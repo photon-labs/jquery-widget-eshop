@@ -41,7 +41,6 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 		}
 
         self.api.getProductDetails(ProductId, function(jsonObject){
-
 			if(jsonObject.message === 'Product id unavailable'){
 				return;
 			}
@@ -178,11 +177,14 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 					}
 				});
 			loginAlertForm = $('<label for="name"><span>Please login to post review</span></label>');
-			if(self.api.loginresponse.userId === undefined){
-				tabtext.append(loginAlertForm);
-			}else{
-				tabtext.append(frm);
-			}
+			
+			if(self.api.loginresponse){
+				if(self.api.loginresponse.userId === undefined){
+					tabtext.append(loginAlertForm);
+				}else{
+					tabtext.append(frm);
+				}
+			}	
 
 			tabwrapper.append(tab1);
 			tabwrapper.append(tab2);
