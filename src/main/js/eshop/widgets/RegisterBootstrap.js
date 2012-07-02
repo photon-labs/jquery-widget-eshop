@@ -13,7 +13,7 @@ define( "eshop/widgets/RegisterBootstrap", [ "jquery", "eshop/widgets/Register" 
 
         if(this.container !== null ) {
             this.registerWidget = new Register();
-            this.registerWidget.initialize(this.container, listener, phrescoapi);
+            this.registerWidget.initialize(this.container, listener, api, phrescoapi);
             this.registerWidget.render(this.container);
         }
     };
