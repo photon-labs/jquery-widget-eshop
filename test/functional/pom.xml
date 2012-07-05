@@ -5,7 +5,7 @@
   <artifactId>HTML5Widget_WebDriver_new</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
-  <name>HTML5Widget_new</name>
+  <name>JQueryWidget</name>
   <url>http://maven.apache.org</url>
   
   <repositories>
@@ -34,11 +34,10 @@
 		
 		 <!--  ***************For Windows operadriver ******************--> 
 		 <dependency>
-      <groupId>com.opera</groupId>
-      <artifactId>operadriver</artifactId>
-      <version>0.14</version>
-    </dependency>
-		 
+         <groupId>com.opera</groupId>
+         <artifactId>operadriver</artifactId>
+         <version>0.14</version>
+        </dependency>
         
     <!--  ***************For Windows chromedriver ******************-->    
         <dependency>

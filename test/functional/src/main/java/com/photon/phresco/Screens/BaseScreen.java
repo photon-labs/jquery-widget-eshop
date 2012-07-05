@@ -150,14 +150,13 @@ public class BaseScreen {
 			 * selenium.open(context);
 			 */
 
+} else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
 		} else {
 			throw new ScreenException(
-			"------Only FireFox,InternetExplore,Chrome and Opera works-----------");
+					"------Only FireFox,InternetExplore,Chrome and Opera  works-----------");
 		}
 
 	}
-	
-	
 
 	public static void windowMaximizeFirefox() {
 		driver.manage().window().setPosition(new Point(0, 0));

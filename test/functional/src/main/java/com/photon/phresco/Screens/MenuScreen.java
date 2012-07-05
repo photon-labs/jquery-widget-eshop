@@ -4,19 +4,20 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.photon.phresco.uiconstants.PhrescoHTML5widgUiConstants;
+import com.photon.phresco.uiconstants.JQueryWidgetData;
+import com.photon.phresco.uiconstants.UIConstants;
 
 public class MenuScreen extends WebDriverAbstractBaseScreen {
 
-PhrescoHTML5widgUiConstants phrsc;
+UIConstants phrsc;
 private Log log = LogFactory.getLog(getClass());
 public WebDriverBaseScreen element;
 
-public MenuScreen(PhrescoHTML5widgUiConstants phrsc) throws Exception {
+public MenuScreen(UIConstants phrsc) throws Exception {
 this.phrsc = phrsc;
 }
 
-public void billingInfo(String methodName) throws Exception {
+public void billingInfo(JQueryWidgetData jqrywidg,String methodName) throws Exception {
 
 if (StringUtils.isEmpty(methodName)) {
 methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
@@ -27,29 +28,29 @@ System.out.println("----element ---------->1" + element);
 //element.type(phrsc.EMAIL_VALUE);
 element = getIdWebElement(phrsc.FIRSTNAME);
 System.out.println("----element-------------> 2" + element);
-element.type(phrsc.FIRSTNAME_VALUE);
+element.type(jqrywidg.FIRSTNAME_VALUE);
 element = getIdWebElement(phrsc.LASTNAME);
-element.type(phrsc.LASTNAME_VALUE);
+element.type(jqrywidg.LASTNAME_VALUE);
 element = getIdWebElement(phrsc.COMPANY);
 element.type(phrsc.COMPANY);
 element = getIdWebElement(phrsc.ADDRESS1);
-element.type(phrsc.ADDRESS1_VALUE);
+element.type(jqrywidg.ADDRESS1_VALUE);
 element = getIdWebElement(phrsc.ADDRESS2);
-element.type(phrsc.ADDRESS2_VALUE);
+element.type(jqrywidg.ADDRESS2_VALUE);
 element = getIdWebElement(phrsc.CITY);
-element.type(phrsc.CITY_VALUE);
+element.type(jqrywidg.CITY_VALUE);
 element = getIdWebElement(phrsc.STATE);
-element.type(phrsc.STATE_VALUE);
+element.type(jqrywidg.STATE_VALUE);
 element = getIdWebElement(phrsc.POSTALCODE);
-element.type(phrsc.POSTALCODE_VALUE);
+element.type(jqrywidg.POSTALCODE_VALUE);
 element = getIdWebElement(phrsc.PHONENUMBER);
-element.type(phrsc.PHONENUMBER_VALUE);
+element.type(jqrywidg.PHONENUMBER_VALUE);
 element = getIdWebElement(phrsc.CARDNUMBER);
-element.type(phrsc.CARDNUMBER_VALUE);
+element.type(jqrywidg.CARDNUMBER_VALUE);
 element = getIdWebElement(phrsc.SECURITYNUMBER);
-element.type(phrsc.SECURITYNUMBER_VALUE);
+element.type(jqrywidg.SECURITYNUMBER_VALUE);
 element = getIdWebElement(phrsc.NAMEONCARD);
-element.type(phrsc.NAMEONCARD_VALUE);
+element.type(jqrywidg.NAMEONCARD_VALUE);
 waitForElementPresent(phrsc.REVIEWORDER, methodName);
 element = getXpathWebElement(phrsc.REVIEWORDER);
 element.click();
@@ -77,7 +78,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 }
 
 public void Computers(String methodName) throws Exception {
@@ -97,7 +97,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 
@@ -118,7 +117,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 
@@ -139,7 +137,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 
@@ -160,7 +157,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 
@@ -181,7 +177,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 
@@ -202,7 +197,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT,methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 
@@ -223,7 +217,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 }
 
 public void MP3Players(String methodName) throws Exception {
@@ -243,7 +236,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 }
 
 public void Accessories(String methodName) throws Exception {
@@ -266,7 +258,6 @@ element.click();
 waitForElementPresent(phrsc.CHECKOUT, methodName);
 element = getXpathWebElement(phrsc.CHECKOUT);
 element.click();
-billingInfo(methodName);
 
 }
 }
