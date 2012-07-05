@@ -1,8 +1,8 @@
 /*global require */
 
-require([ "jquery", "./Category", "./EShopAPI", "qunit" ], function($, Category, EShopAPI, QUnit) {
+require([ "jquery", "./Category", "./EShopAPI", "./WSConfig", "qunit" ], function($, Category, EShopAPI, WSConfig, QUnit) {
 
-	var equal = QUnit.equal, expect = QUnit.expect, test = QUnit.test;
+	var equal = QUnit.equal, expect = QUnit.expect, test = QUnit.test, wsconfig;
 
 	/**
 	 * Test that the setMainContent method sets the text in the category-widget
@@ -14,14 +14,12 @@ require([ "jquery", "./Category", "./EShopAPI", "qunit" ], function($, Category,
 		// Setup view and call method under test
 		category = new Category();
 		api = new EShopAPI();
-
-        //api.wsURL = "http://172.16.25.75:2020/eshop";
-
-		api.getWsConfig();
-
+        wsconfig = new WSConfig();
+		api.wsURL = wsconfig.WSConfigurl;
+		//api.getWsConfig();
         category.api = api;
-		category.listener = undefined;
-		category.phrescoapi = undefined;
+		//category.listener = undefined;
+		//category.phrescoapi = undefined;
 
 		output1 = category.renderUI();
 

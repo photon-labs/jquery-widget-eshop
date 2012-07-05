@@ -79,6 +79,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+			async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -92,6 +93,31 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			}
 		});
     };
+	
+	EShopAPI.prototype.searchProducts = function (searchCriteria,callback) {
+		
+		var url = this.wsURL + '/rest/api/products/search/' + searchCriteria;
+		$.ajax({
+			url: url,
+			header:"Access-Control-Allow-Headers: x-requested-with",
+			type: "GET",
+			dataType: "json",
+			crossDomain: true,
+			cache: true,
+			async: false,
+			success : function(jo, e, xhr) {
+				if(callback !== null) {
+					callback(jo);
+				}
+			},
+			error : function(xhr, e, et){
+				var jo = {"status":"server error"};
+				if(callback !== null) {
+					callback(jo);
+				}
+			}
+		});
+	};
 
 	EShopAPI.prototype.getTopsellProducts = function (callback) {
 		
@@ -103,6 +129,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+			async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -168,12 +195,12 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 
     EShopAPI.prototype.getAllProducts = function (categoryId, callback) {
 		
-		var url = this.wsURL + '/rest/api/categories/' + categoryId + '?callback=?';
+		var url = this.wsURL + '/rest/api/categories/' + categoryId;
 
 		if(categoryId === 'All Products'){
-			url = this.wsURL + '/rest/api/products/?callback=?';
+			url = this.wsURL + '/rest/api/products';
 		} else if(categoryId === 'Special Products') {
-			url = this.wsURL + '/rest/api/specialproducts/?callback=?';
+			url = this.wsURL + '/rest/api/specialproducts';
         }
 
 		$.ajax({
@@ -183,6 +210,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+			async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -211,6 +239,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+			async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -239,6 +268,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+			async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -277,29 +307,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 		});
     };
 
-	EShopAPI.prototype.searchProducts = function (searchCriteria,callback) {
-		
-		var url = this.wsURL + '/rest/api/products/search/' + searchCriteria +'?callback=?';
-		$.ajax({
-			url: url,
-			header:"Access-Control-Allow-Headers: x-requested-with",
-			type: "GET",
-			dataType: "json",
-			crossDomain: true,
-			cache: true,
-			success : function(jo, e, xhr) {
-				if(callback !== null) {
-					callback(jo);
-				}
-			},
-			error : function(xhr, e, et){
-				var jo = {"status":"server error"};
-				if(callback !== null) {
-					callback(jo);
-				}
-			}
-		});
-	};
+	
 
     EShopAPI.prototype.doRegister = function (data) {
         var api = this,

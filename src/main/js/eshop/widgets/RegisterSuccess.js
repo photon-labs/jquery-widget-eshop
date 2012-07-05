@@ -40,19 +40,19 @@ define( "eshop/widgets/RegisterSuccess", [ "jquery", "framework/Clazz", "framewo
         userStatus = $('<div class="log_txt"></div>'),
         userstatusMsg = $('<div class="log_txt_lft">User Status :' + self.api.resgisterresponse.message+ ' </div>'),
         log_txtfname = $('<div class="log_txt">'),
-        log_txt_lftfname = $('<div class="log_txt_lft">Name : </div>'),
-        log_txt_rhtfname = $('<div class="log_txt_lft">' + self.phrescoapi.register.firstName + self.phrescoapi.register.lastName + '</div>'),
+        log_txt_lftfname = $('<div class="log_txt_lft">Name :' + self.phrescoapi.register.firstName + self.phrescoapi.register.lastName + ' </div>'),
+        //log_txt_rhtfname = $('<div class="log_txt_lft">' + self.phrescoapi.register.firstName + self.phrescoapi.register.lastName + '</div>'),
         log_txtEmail = $('<div class="log_txt">'),
-        log_txt_lftEmail = $('<div class="log_txt_lft">Email : </div>'),
-        log_txt_rhtEmail = $('<div class="log_txt_lft">' + self.phrescoapi.register.email + '</div>'),
+        log_txt_lftEmail = $('<div class="log_txt_lft">Email : ' + self.phrescoapi.register.email + ' </div>'),
+        //log_txt_rhtEmail = $('<div class="log_txt_lft">' + self.phrescoapi.register.email + '</div>'),
         cleardiv = $('<div class="clear"></div>');     
 
         registrationStatus.append(statusMsg);
         userStatus.append(userstatusMsg);
         log_txtfname.append(log_txt_lftfname);
-        log_txtfname.append(log_txt_rhtfname);
+        //log_txtfname.append(log_txt_rhtfname);
         log_txtEmail.append(log_txt_lftEmail);
-        log_txtEmail.append(log_txt_rhtEmail);
+        //log_txtEmail.append(log_txt_rhtEmail);
         log_txt_div.append(registrationStatus);
         log_txt_div.append(userStatus);
         log_txt_div.append(log_txtfname);
