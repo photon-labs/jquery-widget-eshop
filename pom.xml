@@ -5,7 +5,7 @@
     <artifactId>PHR_jquerywidget</artifactId>
     <packaging>js</packaging>
     <name>PHR_jquerywidget</name>
-    <version>1.0.0</version>
+    <version>1.2.0.6002-SNAPSHOT</version>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -99,6 +99,43 @@
           <argLine xmlns="" xmlns:ns2="http://maven.apache.org/POM/4.0.0">-Xmx512m</argLine>
         </configuration>
       </plugin>
+        <finalName>E-Shop</finalName>
+		
+		<extensions>
+			<extension>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javascript-maven-plugin</artifactId>
+				<version>1.2.0.6002-SNAPSHOT</version>
+			</extension>
+		</extensions>
+		
+        <plugins>
+			<!--
+            <plugin>
+                <groupId>com.photon.phresco.plugins</groupId>
+                <artifactId>java-maven-plugin</artifactId>
+                <version>1.1.15000</version>
+                <extensions>true</extensions>
+            </plugin>
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+					<executions>
+						<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+						<configuration>
+							<excludeScope>provided</excludeScope>
+							<includeTypes>jar</includeTypes>
+							<outputDirectory>target/lib</outputDirectory>
+						</configuration>
+						</execution>
+					</executions>
+			</plugin>
             <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
