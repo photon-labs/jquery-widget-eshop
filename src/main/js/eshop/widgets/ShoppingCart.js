@@ -10,6 +10,8 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 
     ShoppingCart.prototype.mainNode = undefined;
     ShoppingCart.prototype.mainContent = undefined;
+    ShoppingCart.prototype.apiHost = undefined;
+    ShoppingCart.prototype.apiPort = undefined;
     ShoppingCart.prototype.hideItems = undefined;
     ShoppingCart.prototype.listener = undefined;
     ShoppingCart.prototype.phrescoapi = undefined;
@@ -17,7 +19,6 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
     ShoppingCart.prototype.dataItem = undefined;
     ShoppingCart.prototype.categoryId = undefined;
     ShoppingCart.prototype.productId = undefined;
-    ShoppingCart.prototype.subtotalAmount = undefined;
 
     ShoppingCart.prototype.initialize = function(container, listener, phrescoapi, api) {
 		listener.subscribe("ShoppingCart",this,"onHashChange");
@@ -29,12 +30,12 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
     };
 
     ShoppingCart.prototype.setMainContent = function() {
-
 		var self = this,
 		shoppingcard_data = self.dataItem, mainContent, topH3, productContainer, backHref, shoppingCarth5,
 		checkoutcol1Div, productsDiv, checkoutcol2Div, quantityDiv, checkoutcol3Div, amountDiv, checkoutcol4, removeDiv, 
 		remProductId, checkoutrow2, checkoutvaluecol1, co_col1position1, co_product_image,
-		co_product_description, checkoutvaluecol2, checkoutvaluecol3, checkoutvaluecol4, data, clear1, subtotal, subtotal1, clear2, buttons, button1, button2, event, j, i;
+		co_product_description, checkoutvaluecol2, checkoutvaluecol3, checkoutvaluecol4, data, clear1, subtotal, clear2, buttons, button1, button2, event, j, i;
+
         mainContent = $('<div></div>');
         topH3 = $('<h3>product Checkout</h3>');
         productContainer = $('<div class="productcontainer">');
@@ -79,7 +80,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			}
 		});
 					
-		topH3.append(backHref);
+		productContainer.append(backHref);
 		productContainer.append(shoppingCarth5);
 		productContainer.append(checkoutcol1Div);
 		productContainer.append(checkoutcol2Div);
@@ -119,12 +120,12 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			}
 
 			clear1 = $('<div class="clear"></div>');
-			subtotal1 = $('<div class="subtotal_pos">SubTotal: $'+ self.totalCalc(shoppingcard_data) +'</div>'); 
+			subtotal = $('<div class="subtotal_pos">SubTotal: $'+ self.totalCalc(shoppingcard_data) +'</div>'); 
 			clear2 = $('<div class="clear"></div>'); 
 			buttons = $('<div class="checkout_buttonposition2">');
 			button1 = $('<input type="submit" value="Update Cart" class="checkout_buttonstyle" />');
 			/*$(button1).bind('click', function(event){
-				$(subtotal1).text("SubTotal: $" + self.totalCalc(shoppingcard_data));
+				$(subtotal).text("SubTotal: $" + self.totalCalc(shoppingcard_data));
                 listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
 			});*/
 			button2 = $('<input type="submit" value="Check Out" class="checkout_buttonstyle" />');
@@ -134,20 +135,16 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 				self.listener.publish(event,"OrderForm",[event.data]);
 			});
 
-			self.subtotalAmount = subtotal1;
 			event = {};
-			if (self.listener !== null && self.listener !== undefined) {
-				self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
-			}
-			
+			self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
 			buttons.append(button1);
 			buttons.append(button2);
 			productContainer.append(clear1);
-			productContainer.append(subtotal1);
+			productContainer.append(subtotal);
 			productContainer.append(clear2);
 			if(shoppingcard_data.length !== 0){
 				productContainer.append(buttons);
-			}
+			}	
 		}
                                    
 		mainContent.append(topH3);  
@@ -189,16 +186,17 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 				}
 			}
 			self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
-			self.subtotalAmount.text("SubTotal: $" + self.totalCalc(shoppingcard_data));
+			$(subtotal).text("SubTotal: $" + self.totalCalc(shoppingcard_data));
 		});
     };
 
     ShoppingCart.prototype.totalCalc = function(shoppingcard_data){
 		var totalAmount =0, i;
-		
+
 		for (i = 0; i < shoppingcard_data.length; i++) {
 			 totalAmount += Number(this.phrescoapi.productArray[i].quantity * this.phrescoapi.productArray[i].price);
 		}
+
 		return totalAmount;	
     };
 
