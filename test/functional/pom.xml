@@ -6,16 +6,7 @@
   <version>0.0.1</version>
   <packaging>jar</packaging>
   <name>JQueryWidget</name>
-  <url>http://maven.apache.org</url>
-  
-  <repositories>
-    <repository>      
-      <id>seleniumserver</id>
-      <name>seleniumserver</name>
-      <url>http://172.16.18.178:8080/nexus/content/groups/public/</url>
-    </repository>
-  </repositories>
-  
+  <url>http://maven.apache.org</url> 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
