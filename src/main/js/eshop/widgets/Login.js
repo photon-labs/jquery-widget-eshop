@@ -46,8 +46,7 @@ define( "eshop/widgets/Login", [ "jquery", "framework/Clazz", "framework/Widget"
         $(submitButton).bind('click', {categoryId:0} , function(event){
             self.hideItems = ['Login'];
             if(self.phrescoapi.userLogin() === true){
-				self.loginTest(self.phrescoapi.logindata);
-                //var obj =  self.api.doLogin(self.phrescoapi.logindata);
+                var obj =  self.api.doLogin(self.phrescoapi.logindata);
                 self.phrescoapi.hideWidget(self.hideItems);
                 self.listener.publish(event,"LoginSuccess",[event.data]);
                 self.listener.publish(event,"Navigation",[event.data]);
@@ -76,12 +75,6 @@ define( "eshop/widgets/Login", [ "jquery", "framework/Clazz", "framework/Widget"
         this.mainContent = mainContent;
 
     };
-	
-	Login.prototype.loginTest = function(logindata) {
-		var obj, self = this;
-		obj = self.api.doLogin(logindata);
-		return self.api.loginresponse.message;
-	};
 
     Login.prototype.renderUI = function() {
         this.setMainContent();

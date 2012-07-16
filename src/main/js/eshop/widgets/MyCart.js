@@ -43,17 +43,6 @@ define( "eshop/widgets/MyCart", [ "jquery", "framework/Clazz", "framework/Widget
         carticonDiv = $('<div class="carticon"><img src="images/eshop/mycart_icon.png" width="28" height="21" alt="My Cart icon"> </div>');
         
         cartheaderDiv = $('<a href="#"><div class="cartheader">My Cart </div></a>');
-		
-		$(cartheaderDiv).bind('click', {} , function(event){
-            if(self.phrescoapi.productArray.length !== 0){
-                var data;
-                self.hideItems = ['Login', 'LoginSuccess', 'MyCart', 'OrderForm', 'OrderFormView', 'OrderHistory', 'OrderSuccess', 'Products', 'ProductDetails', 'Category', 'Register', 'RegisterSuccess', 'ShoppingCart'];
-                self.phrescoapi.hideWidget(self.hideItems);
-                data = {productArray : self.phrescoapi.productArray, categoryID : null, productID : event.data.productId};
-                self.listener.publish(event,"ShoppingCart",data);
-            }
-        }); 
-		
         splitDiv = $('<div class="split"></div>');
         ItemDiv = $('<div class="mycarttext"> Item </div>');
         split2Div = $('<div class="split2"></div>');

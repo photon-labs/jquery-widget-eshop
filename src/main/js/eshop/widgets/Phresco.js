@@ -113,17 +113,16 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
                 errMessage = id+"_err";
                 errId = id+"_err_div";
                 
-                 if ($.trim(value) === "") {
+                if (value === "") {
                     text = id.split("#");
                     $(errMessage).html("please enter "+ text[1]);
                     $(errId).addClass("error");
-					$(id).val("");
                     $(id).focus();
                     return false;
                 }
                 else{
                     if(value !== "" && type === "EMAIL") {
-                        regex = /^([\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4})?$/;
+                        regex = "/^([\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4})?$/";
                         if (!regex.test(value)) {
                             $(errMessage).html("please enter valid email id ");
                             $(errId).addClass("error");
@@ -145,7 +144,7 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
                         $(errId).removeClass("error");
                     }
                      else if(value !== "" && type === "STRING"){ 
-                        character =  /^[a-zA-Z0-9\\s\^,\^.,\^#,\^(,\^)]+$/;
+                        character =  "/^[a-zA-Z0-9\\s^,^.,^#,^(,^)]+$/";
                         if (!character.test(value)) {
                             $(errMessage).html("please enter character and number only");
                             $(errId).addClass("error");
@@ -228,19 +227,18 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
                 value = $(id).val();
                 errMessage = id+"_err";
                 errId = id+"_err_div";
-                 if ($.trim(value) === "") {
+                if (value === "") {
                     text = id.split("#");
                     textmsg = text[1].split("g");
                     $(errMessage).html("Please enter " + textmsg[1]);
                     $(errId).addClass("error");
-					$(id).val("");
                     $(id).focus();
                     return false;
                 }
                 
                 else{
                     if(value !== "" && type === "EMAIL") {
-                        regex = /^([\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4})?$/;
+                        regex = "/^([\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4})?$/";
                         if (!regex.test(value)) {
                             $(errMessage).html("please enter valid email id ");
                             $(errId).addClass("error");

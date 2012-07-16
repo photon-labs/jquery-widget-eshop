@@ -25,7 +25,7 @@ define( "eshop/widgets/Register", [ "jquery", "framework/Clazz", "framework/Widg
     };
 
     Register.prototype.setMainContent = function() {
-	    var mainContent = $('<div id="maincontact">'), self = this,
+	    var mainContent = $('<div id="maincontact">'),
         selection = $('<section id="contact">'),
         divleft = $('<div id="">'),
         h3title = $('<h3> Register </h3>'),
@@ -54,12 +54,11 @@ define( "eshop/widgets/Register", [ "jquery", "framework/Clazz", "framework/Widg
         phoneDiv.append(phoneField);
 
         $(submitButton).bind('click', {categoryId:0} , function(event){
-            self.hideItems = ['Register'];
-            if(self.phrescoapi.userRegister() === true){
-				self.registerTest(self.phrescoapi.registerdata);
-                //this.api.doRegister(this.phrescoapi.registerdata);
-                self.phrescoapi.hideWidget(self.hideItems);
-                self.listener.publish(event,"RegisterSuccess",[event.data]);
+            this.hideItems = ['Register'];
+            if(this.phrescoapi.userRegister() === true){
+                this.api.doRegister(this.phrescoapi.registerdata);
+                this.phrescoapi.hideWidget(this.hideItems);
+                this.listener.publish(event,"RegisterSuccess",[event.data]);
             }
         });
             
@@ -84,13 +83,7 @@ define( "eshop/widgets/Register", [ "jquery", "framework/Clazz", "framework/Widg
         mainContent.append(selection);
         this.mainContent = mainContent;
     };
-	
-	Register.prototype.registerTest = function(registerdata) {
-		var self = this;
-		self.api.doRegister(registerdata);
-		return self.api.resgisterresponse.successMessage;
-	};
-	
+
     Register.prototype.renderUI = function() {
         this.setMainContent();
         return this.mainContent;

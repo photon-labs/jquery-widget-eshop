@@ -10,8 +10,6 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 
     ShoppingCart.prototype.mainNode = undefined;
     ShoppingCart.prototype.mainContent = undefined;
-    ShoppingCart.prototype.apiHost = undefined;
-    ShoppingCart.prototype.apiPort = undefined;
     ShoppingCart.prototype.hideItems = undefined;
     ShoppingCart.prototype.listener = undefined;
     ShoppingCart.prototype.phrescoapi = undefined;
@@ -142,9 +140,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			productContainer.append(clear1);
 			productContainer.append(subtotal);
 			productContainer.append(clear2);
-			if(shoppingcard_data.length !== 0){
-				productContainer.append(buttons);
-			}	
+			productContainer.append(buttons);
 		}
                                    
 		mainContent.append(topH3);  

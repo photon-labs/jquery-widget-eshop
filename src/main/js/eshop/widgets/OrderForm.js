@@ -29,7 +29,7 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 		company, address1, address2, city, state, country, postcode, phonenumber, fieldholder3, 
 		fieldsetpaymentoption, h6, paymentpos, visacard1, visacard2, visacard3, carddetails, fieldsetpayment, 
 		payment1, payment2, payment3, pricetag, priceblock, pricecount, subtotal, ordertotal, hint, ordercomments, 
-		fieldholder4, textarea, buttons, button1, button2, productContainer, email, 
+		fieldholder4, textarea, buttons, button1, button2, productContainer,
 		self, mainContent;
 
 		self = this;
@@ -72,7 +72,7 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 		form = $('<form id="contact" method="post" action="product_order_view_form.html">');
 		h5 = $('<h5> Customer Information</h5>');
 		fieldholder1 = $('<div class="fieldholder1">');
-		email = $('<fieldset><div id="email_err_div" class="clearfix"><label for="Email"><span>Email *</span><input type="text" name="email" id="email" placeholder="Email" class="required email" value="'+ emailbk +'" /></label><span class="help-inline" id="email_err"></span></div></fieldset>');
+		fieldset = $('<fieldset><div id="email_err_div" class="clearfix"><label for="Email"><span>Email *</span><input type="text" name="email" id="email" placeholder="Email" class="required email" value="'+ emailbk +'" /></label><span class="help-inline" id="email_err"></span></div></fieldset>');
 		billh5 = $('<h5> Billing / Delivery Informations</h5>');
 		fieldholder2 = $('<div class="fieldholder2">');
 		fieldset = $('<fieldset>');
@@ -87,7 +87,7 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 		postcode = $('<div id="postCode_err_div" class="clearfix"><label for="Postcode"><span>Postcode *</span><input type="text" name="postCode" id="postCode" placeholder="postcode" class="required postcode" value="'+ postcodebk +'"  /></label><span class="help-inline" id="postCode_err"></span></div>');
 		phonenumber = $('<div id="phoneNumber_err_div" class="clearfix"><label for="Phonenumber"> <span>Phonenumber *</span><input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phonenumber" class="required phonenumber" value="'+ phonenumberbk +'" /></label><span class="help-inline" id="phoneNumber_err"></span></div>');
         
-        fieldholder1.append(email);     
+        fieldholder1.append(fieldset);     
 		fieldset.append(firstname);
 		fieldset.append(lastname);
 		fieldset.append(company);

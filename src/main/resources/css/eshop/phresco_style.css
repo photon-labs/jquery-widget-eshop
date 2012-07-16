@@ -313,7 +313,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', end
     text-transform: uppercase;
     text-align:leftr;
     width:170px;
-    height: 35px;
+    height: 25px;
 
 }
 #content ul li .info .title2:hover {
@@ -905,7 +905,7 @@ fieldset:hover { border-color : #722549; }
 }  
 
 .pricetag {
-	float: left;
+
     color: #403B3B;
     font-size: 15px;
     font-weight: bold;
@@ -947,8 +947,6 @@ fieldset:hover { border-color : #722549; }
     text-transform: capitalize;
     text-align:center;
     background: none repeat scroll 0 0 #E7E7E7;
-	float: left;
-	width: 97%;
     }   
 .buttonposition{
     text-align:center;
@@ -1107,7 +1105,7 @@ text-decoration: none;
 -moz-box-shadow: 1px 1px 2px #666666;
 text-shadow: 1px 1px 0px #666666;
 left: -8px;
-top: -5px;
+top: -33px;
 background: -webkit-gradient(linear, 0 0, 0 100%, from(#d05759), to(#9c0c15));
 background: -moz-linear-gradient(top, #d05759, #9c0c15);
 -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#d05759, endColorStr=#9c0c15);
