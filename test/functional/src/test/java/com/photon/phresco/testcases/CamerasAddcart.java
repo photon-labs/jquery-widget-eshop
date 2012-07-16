@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import com.photon.phresco.Screens.MenuScreen;
 import com.photon.phresco.Screens.WelcomeScreen;
-import com.photon.phresco.uiconstants.JQueryWidgetData;
+import com.photon.phresco.uiconstants.WidgetData;
 import com.photon.phresco.uiconstants.UIConstants;
 import com.photon.phresco.uiconstants.TestConfig;
 import com.thoughtworks.selenium.Selenium;
@@ -16,7 +16,7 @@ public class CamerasAddcart extends TestCase {
 	
 	private UIConstants phrsc;
 	private TestConfig phr;
-	private JQueryWidgetData jqrywidg;
+	private WidgetData jqrywidg;
 	private WelcomeScreen wel;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
@@ -31,7 +31,7 @@ public class CamerasAddcart extends TestCase {
 		try {
 
 			
-			jqrywidg = new JQueryWidgetData();
+			jqrywidg = new WidgetData();
 			String serverURL = phr.PROTOCOL + "://"
 					+ phr.HOST + ":"
 					+ phr.PORT + "/";
