@@ -4,29 +4,34 @@ import java.io.IOException;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import com.photon.phresco.Screens.MenuScreen;
 import com.photon.phresco.Screens.WelcomeScreen;
+import com.photon.phresco.uiconstants.WidgetData;
 import com.photon.phresco.uiconstants.UIConstants;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.thoughtworks.selenium.Selenium;
 
-public class WelcomePage extends TestCase {
+public class CamerasAddcart extends TestCase {
 
 	
-	
+	private UIConstants phrsc;
 	private PhrescoUiConstants phr;
+	private WidgetData jqrywidg;
 	private WelcomeScreen wel;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
 	private String browserAppends;
+	String methodName;
 	//private LoginScreen loginObject;
-	
+
 
 	@Test
-	public void testWel() throws InterruptedException, IOException, Exception {
+	public void testCameras() throws InterruptedException, IOException, Exception {
 
 		try {
 
 			
+			jqrywidg = new WidgetData();
 			String serverURL = phr.PROTOCOL + "://"
 					+ phr.HOST + ":"
 					+ phr.PORT + "/";
@@ -39,6 +44,11 @@ public class WelcomePage extends TestCase {
 					browserAppends, serverURL, phr.SPEED,
 					phr.CONTEXT );
 			assertNotNull(wel);
+			MenuScreen menu = wel.menuScreen(phrsc);
+			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+			System.out.println("methodName = " + methodName);
+			menu.Cameras(methodName);
+			menu.billingInfo(jqrywidg, methodName);
 		} catch (Exception t) {
 			t.printStackTrace();
 			System.out.println("ScreenCaptured");
@@ -49,6 +59,7 @@ public class WelcomePage extends TestCase {
 
 	public void setUp() throws Exception {
 		phr = new PhrescoUiConstants();
+		phrsc = new UIConstants();
 	}
 
 	public void tearDown() {
