@@ -34,7 +34,7 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
         navUL = $('<ul></ul>'),
         categoryId = this.categoryId,
         searchCriteria = this.searchCriteria;
-		
+
         if(categoryId === undefined || categoryId === null) {
             categoryId = 1;
         } else if(categoryId === 'All Products') {
@@ -53,7 +53,7 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
             });      
         }
 
-        mainContent.append(topH3);     
+        mainContent.append(topH3);  
         mainContent.append(navUL);
         this.mainContent = mainContent;
     };
@@ -102,25 +102,22 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
     };
 
     Products.prototype.constructProductUI = function(jsonObject, navUL,categoryId, self) {
-		if(jsonObject.product !== undefined){
-			var productList = jsonObject,
-			i, product, innerLi, innerDiv1, innerDiv2, productNamelink,
-			productPriceDiv, productButtonDiv, ahref1, ahref2, data,
-			newproducts = productList.product.length;
-
+        var productList = jsonObject,
+        i, product, innerLi, innerDiv1, innerDiv2, productNamelink,
+        productPriceDiv, productButtonDiv, ahref1, ahref2, data, newproducts;
+		if(productList.product !== undefined){
+        	newproducts = productList.product.length;
 			for (i = 0; i < newproducts; i++) {
-
 				product = jsonObject.product[i];
 				innerLi = $('<li></li>');
 				innerDiv1 = $('<div class="img"><a href="javascript:void(0);"><img src="'+this.api.wsURLWithoutContext+'/images/web/'+product.image+'" alt=""></a></div>');
 				innerDiv2 = $('<div class="info"></div>');
 				productNamelink = $('<a class="title2" href="#">'+product.name+'</a>');
-
 				productPriceDiv = $('<div class="price"><span class="st">Our price:</span><strong>$'+product.listPrice+'</strong><br><span class="st2">Sell at:</span><span class="st3">$'+product.sellPrice+'</span></div></div>');
 				productButtonDiv = $('<div class="actions">');
 				ahref1 = $('<a href="#">Details</a>');
 				ahref2 = $('<a href="#">Add to cart</a>');
-
+	
 				data = {};
 				data.productId = product.id;
 				data.name = product.name;
@@ -128,9 +125,7 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
 				data.price = product.sellPrice;
 				data.image = product.image;
 				data.totalPrice = (data.quantity * product.sellPrice);
-			  
 				self.addFunction(ahref1, ahref2, productNamelink, innerDiv1, self, categoryId, data);
-				
 				productButtonDiv.append(ahref1);
 				productButtonDiv.append(ahref2);
 				innerDiv2.append(productNamelink);
@@ -140,8 +135,10 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
 				innerLi.append(innerDiv2);
 				navUL.append(innerLi);
 			}
-		}	
-	};
-
+		}
+		else{
+			navUL.append('<div style="text-align:center; padding:20px; font-size: 20px;">There is no product</div>');
+		}
+    };
     return Products;
 });
