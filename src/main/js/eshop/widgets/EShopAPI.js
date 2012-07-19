@@ -26,6 +26,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     EShopAPI.prototype.getWsConfig = function () {
         
         var url = "environment.jsp", api = this;
+		$.support.cors = true;
         $.ajax({
             url: url,
             header:"Access-Control-Allow-Headers: x-requested-with",
