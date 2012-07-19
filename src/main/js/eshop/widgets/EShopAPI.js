@@ -26,7 +26,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     EShopAPI.prototype.getWsConfig = function () {
         
         var url = "environment.jsp", api = this;
-        jQuery.support.cors = true;
+        $.support.cors = true;
         $.ajax({
             url: url,
             type: "GET",
@@ -71,10 +71,6 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     EShopAPI.prototype.getCategories = function (callback) {
 			           
 		var url = this.wsURL + '/rest/api/categories?callback=?';
-		//var url ='http://172.16.25.125:8880/eshop/rest/api/categories';
-		//alert('url  = ' + url);
-		//jQuery.support.cors = true;
-
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -151,17 +147,17 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
             if (configNodeName === type && name !== undefined && configNodeName !== "#text") {
                 configName = configNode.getAttribute("name");
                 if (configName === name) {
-                    xmlString = (new XMLSerializer()).serializeToString(configNode);
-                    json = $.xml2json(xmlString);
+                    xmlString = (new window.XMLSerializer()).serializeToString(configNode);
+                    json = $.xml2json(configNode);
                     return json;
                 } else if (name === "") {
-                    xmlString = (new XMLSerializer()).serializeToString(configNode);
-                    json = $.xml2json(xmlString);
+                    xmlString = (new window.XMLSerializer()).serializeToString(configNode);
+                    json = $.xml2json(configNode);
                     return json;
                 }
             } else if (configNodeName === type && configNodeName !== "#text") {
-                xmlString = (new XMLSerializer()).serializeToString(configNode);
-                json = $.xml2json(xmlString);
+                xmlString = (new window.XMLSerializer()).serializeToString(configNode);
+                json = $.xml2json(configNode);
                 return json;
             }
         }
