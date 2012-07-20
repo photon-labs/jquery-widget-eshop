@@ -286,7 +286,6 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
     };
 
 	Phresco.prototype.addRating = function (starId) { 
-		//alert(starId);
 		var i, j;
 		$("#starValue").val(starId);
 		for(i=1; i<= starId; i++){

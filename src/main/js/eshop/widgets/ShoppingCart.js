@@ -62,16 +62,14 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 		
 		$(backHref).bind('click', {categoryId : self.categoryId, productId : self.productId},function(event){
 
-			if((event.data.categoryId !== undefined || event.data.categoryId !== null) && 
-			   (event.data.productId === undefined || event.data.productId === null)){
+			if((event.data.categoryId !== undefined || event.data.categoryId !== null) && (event.data.productId === undefined || event.data.productId === null)){
 
 				self.hideItems = ['ShoppingCart'];
                 self.phrescoapi.hideWidget(self.hideItems);
 
                 self.listener.publish(event,"Products",[event.data]);
 
-			}else if((event.data.categoryId === undefined || event.data.categoryId === null) && 
-					(event.data.productId !== undefined || event.data.productId !== null)){
+			}else if((event.data.categoryId === undefined || event.data.categoryId === null) && (event.data.productId !== undefined || event.data.productId !== null)){
 
 				self.hideItems = ['ShoppingCart'];
                 self.phrescoapi.hideWidget(self.hideItems);
@@ -124,10 +122,6 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			clear2 = $('<div class="clear"></div>'); 
 			buttons = $('<div class="checkout_buttonposition2">');
 			button1 = $('<input type="submit" value="Update Cart" class="checkout_buttonstyle" />');
-			/*$(button1).bind('click', function(event){
-				$(subtotal).text("SubTotal: $" + self.totalCalc(shoppingcard_data));
-                listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
-			});*/
 			button2 = $('<input type="submit" value="Check Out" class="checkout_buttonstyle" />');
 			$(button2).bind('click', {categoryId:0} , function(event){
 				self.hideItems = ['ShoppingCart'];

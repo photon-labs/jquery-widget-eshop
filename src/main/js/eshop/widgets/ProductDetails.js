@@ -133,7 +133,6 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 
 			self.api.getProductReviews(ProductId, function(productReviewData){
 				productReviews = productReviewData.review.comments;
-				//console.info('review productReviews = ' , productReviews.length);
 				for (i = 0; i < productReviews.length; i++) {
 					reviewData = productReviews[i];
 					tabdesc = $('<p> '+reviewData.user +' : '+ reviewData.comment+' </p></br>');
@@ -170,7 +169,6 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 			frm.append(postreviewbutton);
 				$(postreviewbutton).bind('click', {productId : productDetails.id}, function(event){
 					data = self.phrescoapi.submitReview();
-					//console.info('data = ' , data);
 					if(data){
 						obj =  self.api.postReview(data);
 						self.listener.publish(event,"ProductDetails",[event.data]);
