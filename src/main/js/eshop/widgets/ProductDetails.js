@@ -41,7 +41,6 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 		}
 
         self.api.getProductDetails(ProductId, function(jsonObject){
-
 			if(jsonObject.message === 'Product id unavailable'){
 				return;
 			}
@@ -134,7 +133,6 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 
 			self.api.getProductReviews(ProductId, function(productReviewData){
 				productReviews = productReviewData.review.comments;
-				//console.info('review productReviews = ' , productReviews.length);
 				for (i = 0; i < productReviews.length; i++) {
 					reviewData = productReviews[i];
 					tabdesc = $('<p> '+reviewData.user +' : '+ reviewData.comment+' </p></br>');
@@ -171,18 +169,20 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 			frm.append(postreviewbutton);
 				$(postreviewbutton).bind('click', {productId : productDetails.id}, function(event){
 					data = self.phrescoapi.submitReview();
-					//console.info('data = ' , data);
 					if(data){
 						obj =  self.api.postReview(data);
 						self.listener.publish(event,"ProductDetails",[event.data]);
 					}
 				});
 			loginAlertForm = $('<label for="name"><span>Please login to post review</span></label>');
-			if(self.api.loginresponse.userId === undefined){
-				tabtext.append(loginAlertForm);
-			}else{
-				tabtext.append(frm);
-			}
+			
+			if(self.api.loginresponse){
+				if(self.api.loginresponse.userId === undefined){
+					tabtext.append(loginAlertForm);
+				}else{
+					tabtext.append(frm);
+				}
+			}	
 
 			tabwrapper.append(tab1);
 			tabwrapper.append(tab2);

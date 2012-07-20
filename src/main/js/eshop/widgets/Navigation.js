@@ -149,8 +149,6 @@ define( "eshop/widgets/Navigation", [ "jquery", "framework/Clazz", "framework/Wi
 
         this.phrescoapi.sliderWrapperShowHide(true,this.hideItems);
 
-        //this.hideItems = ['myorderLI','logoutLi'];
-        //this.phrescoapi.sliderWrapperShowHide(false,this.hideItems);
 
         this.hideItems = ['Login','Register','ProductDetails','ShoppingCart'];
         this.phrescoapi.hideWidget(this.hideItems);
