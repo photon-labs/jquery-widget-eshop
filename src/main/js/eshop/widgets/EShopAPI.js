@@ -299,7 +299,6 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };
 
     EShopAPI.prototype.doLogin = function (data) {
-        console.info("login function callled"); 
         var api = this,
         url = this.wsURL + '/rest/api/post/login?callback=?';
 		$.ajax({
