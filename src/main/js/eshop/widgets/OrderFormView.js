@@ -108,13 +108,11 @@ define( "eshop/widgets/OrderFormView", [ "jquery", "framework/Clazz", "framework
 		formrow16.append(comment);
 		
 		$(backbtn).bind('click', orderDetail , function(event){
-			//self.listener.unsubscribe("OrderFormViewHide","hideWidget");
 			self.hideItems = ['OrderFormView'];
             self.phrescoapi.hideWidget(self.hideItems);
 			self.listener.publish(event,"OrderForm",[event.data]);
 		});
 		$(submitbtn).bind('click', {categoryId:0} , function(event){
-			//self.listener.unsubscribe("OrderFormViewHide","hideWidget");
 			self.hideItems = ['OrderFormView'];
             self.phrescoapi.hideWidget(self.hideItems);
             self.phrescoapi.showOrderSuccess();

@@ -45,9 +45,7 @@ define( "eshop/widgets/Category", [ "jquery", "framework/Clazz", "framework/Widg
 			}
 		});
 
-		//var menu_class = $('<div class="menu_class"><a href="#" >More</a><ul class="the_menu"><li><a href="javascript:void(0);">Cameras</li></ul></div>');
         mainContent.append(navUL);
-		//mainContent.append(menu_class);
         this.mainContent = mainContent;
     };
 
