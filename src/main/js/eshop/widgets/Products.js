@@ -106,7 +106,7 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
         i, product, innerLi, innerDiv1, innerDiv2, productNamelink,
         productPriceDiv, productButtonDiv, ahref1, ahref2, data, newproducts;
 		if(productList.product !== undefined){
-        	newproducts = productList.product.length;
+			newproducts = productList.product.length;
 			for (i = 0; i < newproducts; i++) {
 				product = jsonObject.product[i];
 				innerLi = $('<li></li>');
