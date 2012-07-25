@@ -71,6 +71,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     EShopAPI.prototype.getCategories = function (callback) {
 			           
 		var url = this.wsURL + '/rest/api/categories?callback=?';
+
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -146,11 +147,11 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 
             if (configNodeName === type && name !== undefined && configNodeName !== "#text") {
                 configName = configNode.getAttribute("name");
-                if (configName === name) {
+                if(configName === name) {
                     xmlString = (new window.XMLSerializer()).serializeToString(configNode);
                     json = $.xml2json(configNode);
                     return json;
-                } else if (name === "") {
+                } else if(name === "") {
                     xmlString = (new window.XMLSerializer()).serializeToString(configNode);
                     json = $.xml2json(configNode);
                     return json;
@@ -293,17 +294,14 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			}
 		});
     };
 
     EShopAPI.prototype.doLogin = function (data) {
-          
+        console.info("login function callled"); 
         var api = this,
-        url = this.wsURL + '/rest/api/post/login?callback=?';
+        url = this.wsURL + '/rest/api/post/login';
 		$.ajax({
 			url: url,
 			data: data,
@@ -318,9 +316,6 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			}
 		});
     };
@@ -330,7 +325,6 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
         url = this.wsURL + '/rest/api/products/orderhistory/' + userid + '?callback=?';
 		$.ajax({
 			url: url,
-			//data: {'param1':param1},
 			header:"Access-Control-Allow-Headers: x-requested-with",
 			type: "GET",
 			dataType: "json",
@@ -339,15 +333,9 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			async: false,
 			success : function(orderResponse) {
 				api.orderhistory = orderResponse;
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			}
 		});           
     };
