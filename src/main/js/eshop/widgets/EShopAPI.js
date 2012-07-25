@@ -279,7 +279,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 
     EShopAPI.prototype.doRegister = function (data) {
         var api = this,
-        url = this.wsURL + '/rest/api/post/register?callback=?';
+        url = this.wsURL + '/rest/api/post/register';
 		$.ajax({
 			url: url,
 			data: data,
