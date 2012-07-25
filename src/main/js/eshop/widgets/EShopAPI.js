@@ -26,10 +26,9 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     EShopAPI.prototype.getWsConfig = function () {
         
         var url = "environment.jsp", api = this;
-		$.support.cors = true;
+        $.support.cors = true;
         $.ajax({
             url: url,
-            header:"Access-Control-Allow-Headers: x-requested-with",
             type: "GET",
             dataType: "json",
             crossDomain: true,
@@ -64,14 +63,14 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 				});
             },
             error : function(xhr, e, et){
-                var jo = {"status":"server error"};
+                var jo = {"status":et};
             }
         });             
     };
     
     EShopAPI.prototype.getCategories = function (callback) {
 			           
-		var url = this.wsURL + '/rest/api/categories';
+		var url = this.wsURL + '/rest/api/categories?callback=?';
 
 		$.ajax({
 			url: url,
@@ -96,7 +95,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 
 	EShopAPI.prototype.getTopsellProducts = function (callback) {
 		
-		var url = this.wsURL + '/rest/api/specialproducts';
+		var url = this.wsURL + '/rest/api/specialproducts?callback=?';
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -148,11 +147,11 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 
             if (configNodeName === type && name !== undefined && configNodeName !== "#text") {
                 configName = configNode.getAttribute("name");
-                if (configName === name) {
+                if(configName === name) {
                     xmlString = (new window.XMLSerializer()).serializeToString(configNode);
                     json = $.xml2json(configNode);
                     return json;
-                } else if (name === "") {
+                } else if(name === "") {
                     xmlString = (new window.XMLSerializer()).serializeToString(configNode);
                     json = $.xml2json(configNode);
                     return json;
@@ -204,7 +203,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			return null;
 		}
 
-		var url = this.wsURL + '/rest/api/products/' +data ;
+		var url = this.wsURL + '/rest/api/products/' +data +'?callback=?';
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -232,7 +231,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			return null;
 		}
 
-		var url = this.wsURL + '/rest/api/products/' + data +'/reviews';
+		var url = this.wsURL + '/rest/api/products/' + data +'/reviews?callback=?';
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -253,32 +252,8 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			}
 		});
     };  
-			
-    EShopAPI.prototype.postReview = function (data) {
-        var api = this,
-        url = this.wsURL + '/rest/api/product/post/review';
-		$.ajax({
-			url: url,
-			data: data,
-			header:"Access-Control-Allow-Headers: x-requested-with",
-			type: "POST",
-			dataType: "json",
-			crossDomain: true,
-			cache: true,
-			async: false,
-			success : function(response) {
-				api.loginresponse = response;
-			},
-			error : function(xhr, e, et){
-				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
-			}
-		});
-    };
-
-	EShopAPI.prototype.searchProducts = function (searchCriteria,callback) {
+		
+    EShopAPI.prototype.searchProducts = function (searchCriteria,callback) {
 		
 		var url = this.wsURL + '/rest/api/products/search/' + searchCriteria +'?callback=?';
 		$.ajax({
@@ -300,11 +275,11 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 				}
 			}
 		});
-	};
+    };
 
     EShopAPI.prototype.doRegister = function (data) {
         var api = this,
-        url = this.wsURL + '/rest/api/post/register';
+        url = this.wsURL + '/rest/api/post/register?callback=?';
 		$.ajax({
 			url: url,
 			data: data,
@@ -319,15 +294,12 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			}
 		});
     };
 
     EShopAPI.prototype.doLogin = function (data) {
-          
+        console.info("login function callled"); 
         var api = this,
         url = this.wsURL + '/rest/api/post/login';
 		$.ajax({
@@ -344,19 +316,15 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			}
 		});
     };
 
     EShopAPI.prototype.getOrderHistory = function (userid) {
 		var api = this, orderhistory,
-        url = this.wsURL + '/rest/api/products/orderhistory/' + userid;
+        url = this.wsURL + '/rest/api/products/orderhistory/' + userid + '?callback=?';
 		$.ajax({
 			url: url,
-			//data: {'param1':param1},
 			header:"Access-Control-Allow-Headers: x-requested-with",
 			type: "GET",
 			dataType: "json",
@@ -365,15 +333,9 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			async: false,
 			success : function(orderResponse) {
 				api.orderhistory = orderResponse;
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
-				/*if(callback != null) {
-					callback(jo);
-				}*/
 			}
 		});           
     };
@@ -391,7 +353,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
         data.comments = comments;
 		data.userId = userId;
 
-        $.post(this.wsURL + '/rest/api/product/post/orderdetail', data, function(response) {
+        $.post(this.wsURL + '/rest/api/product/post/orderdetail?callback=?', data, function(response) {
 		     // Do something with the request
         }, 'json');
     };
