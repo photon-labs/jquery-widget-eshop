@@ -24,16 +24,16 @@ define( "eshop/widgets/Navigation", [ "jquery", "framework/Clazz", "framework/Wi
     };
 
     Navigation.prototype.setMainContent = function() {
+        
         var self = this,
-        logtext = (self.api.loginresponse.userId !== 0 && self.api.loginresponse.userId !== undefined )?"LogOut":"Login",
-        texttLi = (self.api.loginresponse.userId !== 0 && self.api.loginresponse.userId !== undefined )?"logoutLi":"loginLi",
+        logtext = (self.api.loginresponse.message === "success" && self.api.loginresponse.userId !== undefined )?"LogOut":"Login",
+        texttLi = (self.api.loginresponse.message === "success" && self.api.loginresponse.message !== undefined )?"logoutLi":"loginLi",
         ordertext = (self.api.loginresponse.userId !== 0 && self.api.loginresponse.userId !== undefined )?"My Order":"Sign up",
         ordertextLi = (self.api.loginresponse.userId !== 0 && self.api.loginresponse.userId !== undefined )?"myorderLI":"signupLI",
         mainContent = $('<nav id="navigation"></nav>'),
         navUL = $('<ul></ul>'),
         lis = '<li class="selected" id="homeLI"><a href="#" id="aboutUs">Home</a></li>', 
         liList;
-   
         lis +=  '<li id="productsLI"><a href="#">Products</a></li>';
         lis +=  '<li id="specialsLI"><a href="#">Specials</a></li>';
         lis +=  '<li id="contactUsLI"><a href="#">Contact us</a></li>';
@@ -111,7 +111,7 @@ define( "eshop/widgets/Navigation", [ "jquery", "framework/Clazz", "framework/Wi
             } else if(event.currentTarget.id === "logoutLi"){
                 self.hideItems = ['ProductDetails','ShoppingCart','Aboutus','Contactus','OrderFormView','OrderForm','Login','OrderSuccess','Register','RegisterSuccess', 'LoginSuccess','OrderHistory'];
                 self.phrescoapi.hideWidget(self.hideItems);
-                self.api.loginresponse.userId = 0;
+                self.api.loginresponse.message = "failure";
                 self.listener.publish(event,"Navigation",[event.data]);
                 self.listener.publish(event,"Products",1); // pass the category id 1 for home page
                 self.listener.publish(event,"NewProducts",[event.data]);
