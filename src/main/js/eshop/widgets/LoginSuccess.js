@@ -46,11 +46,9 @@ define( "eshop/widgets/LoginSuccess", [ "jquery", "framework/Clazz", "framework/
         log_txtuserName_txt = $('<div class="log_txt"></div>'),
         log_txtuserName = $('<div class="log_txt_lft">Name : '+ self.api.loginresponse.userName+'</div>'),
         cleardiv = $('<div class="clear"></div>');
-        //log_txt_rhtEmail = this.createElement('<div class="log_txt_lft">'+jsonData.login.loginEmail+' name : '+jsonData.response.userName+'</div>');
 
         registrationStatus.append(statusMsg);
         log_txtEmail.append(log_txt_lftEmail);
-        //log_txtEmail.appendChild(log_txt_rhtEmail);
         log_txtuserName_txt.append(log_txtuserName);
                           
         log_txt_div.append(registrationStatus);

@@ -57,7 +57,6 @@ define( "eshop/widgets/Register", [ "jquery", "framework/Clazz", "framework/Widg
             self.hideItems = ['Register'];
             if(self.phrescoapi.userRegister() === true){
 				self.registerTest(self.phrescoapi.registerdata);
-                //this.api.doRegister(this.phrescoapi.registerdata);
                 self.phrescoapi.hideWidget(self.hideItems);
                 self.listener.publish(event,"RegisterSuccess",[event.data]);
             }

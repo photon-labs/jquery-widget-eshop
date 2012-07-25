@@ -78,9 +78,7 @@ define( "framework/Listener", [ "jquery" ], function($) {
 
         // Map the current subscription collection to a new
         // one that doesn't have the given callback.
-        //this.subscriptions[ eventType ] = $.map(
-        //this.subscriptions[ eventType ], function( subscription ){
-               $.each(this.subscriptions[ eventType ], 
+        $.each(this.subscriptions[ eventType ], 
         function( index, subscription ){ 
             // Check to see if this callback matches the
             // one we are unsubscribing. If it does, we
@@ -96,7 +94,6 @@ define( "framework/Listener", [ "jquery" ], function($) {
 
                 // Return the given subscription to keep
                 // it in the subscribers collection.
-                //return( subscription );
                 
                 var event = {
                       type: eventType,
