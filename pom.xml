@@ -11,18 +11,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+
     <build>
         <testSourceDirectory>${project.basedir}/src/test</testSourceDirectory>
+		  		<extensions>
+			<extension>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javascript-maven-plugin</artifactId>
+				<version>1.2.0.8001</version>
+			</extension>
+		</extensions>
     <sourceDirectory>src/main/js</sourceDirectory>
-    <extensions>
-      <extension>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>javascript-maven-plugin</artifactId>
-        <version>1.2.0.2000</version>
-      </extension>
-    </extensions>
+  
     <directory>do_not_checkin/target</directory>
-    <finalName>/</finalName>
+      <finalName>E-Shop</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -64,7 +66,7 @@
       <plugin>
         <groupId>com.photon.phresco.plugins</groupId>
         <artifactId>java-maven-plugin</artifactId>
-        <version>1.2.0.2000</version>
+        <version>1.2.0.8001</version>
         <extensions>true</extensions>
       </plugin>
        <plugin>
@@ -80,18 +82,12 @@
 				<argLine>-Xmx512m</argLine>
 				<warFile>${project.basedir}/do_not_checkin/build/temp/${project.build.finalName}.war</warFile>
 			</configuration>
-            </plugin>
-        <finalName>E-Shop</finalName>
+		</plugin>
+     
 		
-		<extensions>
-			<extension>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>javascript-maven-plugin</artifactId>
-				<version>1.2.0.8002-SNAPSHOT</version>
-			</extension>
-		</extensions>
+	
 		
-        <plugins>
+       
 			<!--
             <plugin>
                 <groupId>com.photon.phresco.plugins</groupId>
@@ -119,32 +115,32 @@
 					</executions>
 			</plugin>
             <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.11</version>
-        <configuration>
-            <excludes>
-                <exclude>js/**/*Test.java</exclude>
-            </excludes>
-        </configuration>
-            <executions>
-                <execution>
-                    <id>surefire-qunit</id>
-                    <goals>
-                        <goal>test</goal>
-                    </goals>
-                    <configuration>
-                        <reportsDirectory>${project.build.directory}/surefire-reports/qunit</reportsDirectory>
-                        <excludes>
-                            <exclude>none</exclude>
-                        </excludes>
-                        <includes>
-                            <include>js/**/*Test.java</include>
-                        </includes>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.11</version>
+				<configuration>
+					<excludes>
+						<exclude>js/**/*Test.java</exclude>
+					</excludes>
+				</configuration>
+					<executions>
+						<execution>
+							<id>surefire-qunit</id>
+							<goals>
+								<goal>test</goal>
+							</goals>
+							<configuration>
+								<reportsDirectory>${project.build.directory}/surefire-reports/qunit</reportsDirectory>
+								<excludes>
+									<exclude>none</exclude>
+								</excludes>
+								<includes>
+									<include>js/**/*Test.java</include>
+								</includes>
+							</configuration>
+						</execution>
+					</executions>
+			</plugin>
         </plugins>
     </build>
     <dependencies>
