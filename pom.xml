@@ -18,7 +18,7 @@
 			<extension>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>javascript-maven-plugin</artifactId>
-				<version>1.2.0.8001</version>
+				<version>1.2.0.8002-SNAPSHOT</version>
 			</extension>
 		</extensions>
     <sourceDirectory>src/main/js</sourceDirectory>
@@ -66,7 +66,7 @@
       <plugin>
         <groupId>com.photon.phresco.plugins</groupId>
         <artifactId>java-maven-plugin</artifactId>
-        <version>1.2.0.8001</version>
+        <version>1.2.0.8002-SNAPSHOT</version>
         <extensions>true</extensions>
       </plugin>
        <plugin>
@@ -83,20 +83,7 @@
 				<warFile>${project.basedir}/do_not_checkin/build/temp/${project.build.finalName}.war</warFile>
 			</configuration>
 		</plugin>
-     
-		
-	
-		
-       
-			<!--
-            <plugin>
-                <groupId>com.photon.phresco.plugins</groupId>
-                <artifactId>java-maven-plugin</artifactId>
-                <version>1.1.15000</version>
-                <extensions>true</extensions>
-            </plugin>
-			-->
-			<plugin>
+ 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 					<executions>
