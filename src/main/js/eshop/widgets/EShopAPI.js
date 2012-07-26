@@ -2,29 +2,31 @@
 
 define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", "framework/Widget" ], function($, Clazz, Widget) {
 
-	function EShopAPI() {
-	}
-
+	   function EShopAPI() {
+    }
+	
 	EShopAPI.prototype = new Clazz();
 	EShopAPI.prototype = new Widget();
 
 	EShopAPI.prototype.apiHost = undefined;
     EShopAPI.prototype.xmlDoc = undefined;
-    EShopAPI.prototype.wsURL = undefined;
+   // EShopAPI.prototype.wsURL = undefined;
     EShopAPI.prototype.wsURLWithoutContext = undefined;
     EShopAPI.prototype.productArray = undefined;
     EShopAPI.prototype.resgisterresponse = undefined;
 	EShopAPI.prototype.loginresponse = undefined;
 
-    EShopAPI.prototype.initialize = function() {
+    EShopAPI.prototype.initialize = function(config) {
 		this.productArray = [];
-		this.getWsConfig();
+		//this.getWsConfig();
 		this.resgisterresponse = {};
 		this.loginresponse = {};
+		this.wsURL = config.protocol + '://' + config.host + ':' + config.port + '/' + config.context;
+		this.wsURLWithoutContext = config.protocol + '://' + config.host + ':' + config.port + '/';
     };
 
     EShopAPI.prototype.getWsConfig = function () {
-        
+        var eshopAPI = this;
         var url = "environment.jsp", api = this;
         $.support.cors = true;
         $.ajax({
@@ -54,8 +56,8 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 						password = configdata.password,
 						urlWithoutContext = protocol + '://' + host + ':' + port,
 						url = protocol + '://' + host + ':' + port + '/' + context;
-						api.wsURL = url;
-						api.wsURLWithoutContext = urlWithoutContext;
+						eshopAPI.wsURL = url;
+						eshopAPI.wsURLWithoutContext = urlWithoutContext;
 					},
 					error : function(xhr, e, et){
 						var jo = {"status":"server error"};
@@ -69,8 +71,11 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };
     
     EShopAPI.prototype.getCategories = function (callback) {
-			           
-		var url = this.wsURL + '/rest/api/categories?callback=?';
+		var eshopAPI = this;	           
+		var url = eshopAPI.wsURL + '/rest/api/categories?callback=?';
+		//var url ='http://172.16.25.125:8880/eshop/rest/api/categories';
+		//alert('url  = ' + url);
+		//jQuery.support.cors = true;
 
 		$.ajax({
 			url: url,
@@ -94,8 +99,8 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };
 
 	EShopAPI.prototype.getTopsellProducts = function (callback) {
-		
-		var url = this.wsURL + '/rest/api/specialproducts?callback=?';
+		var eshopAPI = this;
+		var url = eshopAPI.wsURL + '/rest/api/specialproducts?callback=?';
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -147,11 +152,11 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 
             if (configNodeName === type && name !== undefined && configNodeName !== "#text") {
                 configName = configNode.getAttribute("name");
-                if(configName === name) {
+                if (configName === name) {
                     xmlString = (new window.XMLSerializer()).serializeToString(configNode);
                     json = $.xml2json(configNode);
                     return json;
-                } else if(name === "") {
+                } else if (name === "") {
                     xmlString = (new window.XMLSerializer()).serializeToString(configNode);
                     json = $.xml2json(configNode);
                     return json;
@@ -167,13 +172,13 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };
 
     EShopAPI.prototype.getAllProducts = function (categoryId, callback) {
-		
-		var url = this.wsURL + '/rest/api/categories/' + categoryId + '?callback=?';
+		var eshopAPI = this;
+		var url = eshopAPI.wsURL + '/rest/api/categories/' + categoryId + '?callback=?';
 
 		if(categoryId === 'All Products'){
-			url = this.wsURL + '/rest/api/products/?callback=?';
+			url = eshopAPI.wsURL + '/rest/api/products/?callback=?';
 		} else if(categoryId === 'Special Products') {
-			url = this.wsURL + '/rest/api/specialproducts/?callback=?';
+			url = eshopAPI.wsURL + '/rest/api/specialproducts/?callback=?';
         }
 
 		$.ajax({
@@ -203,7 +208,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			return null;
 		}
 
-		var url = this.wsURL + '/rest/api/products/' +data +'?callback=?';
+		var url = eshopAPI.wsURL + '/rest/api/products/' +data +'?callback=?';
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -226,7 +231,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };  
 
 	EShopAPI.prototype.getProductReviews = function (data,callback) {
-		
+		var eshopAPI = this;
 		if(data === null || data <= 0) {
 			return null;
 		}
@@ -254,8 +259,8 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };  
 		
     EShopAPI.prototype.searchProducts = function (searchCriteria,callback) {
-		
-		var url = this.wsURL + '/rest/api/products/search/' + searchCriteria +'?callback=?';
+		var eshopAPI = this;
+		var url = eshopAPI.wsURL + '/rest/api/products/search/' + searchCriteria +'?callback=?';
 		$.ajax({
 			url: url,
 			header:"Access-Control-Allow-Headers: x-requested-with",
@@ -278,8 +283,9 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
     };
 
     EShopAPI.prototype.doRegister = function (data) {
+		var eshopAPI = this;
         var api = this,
-        url = this.wsURL + '/rest/api/post/register';
+        url = eshopAPI.wsURL + '/rest/api/post/register?callback=?';
 		$.ajax({
 			url: url,
 			data: data,
@@ -294,13 +300,17 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
+				/*if(callback != null) {
+					callback(jo);
+				}*/
 			}
 		});
     };
 
     EShopAPI.prototype.doLogin = function (data) {
+        var eshopAPI = this;
         var api = this,
-        url = this.wsURL + '/rest/api/post/login';
+        url = eshopAPI.wsURL + '/rest/api/post/login?callback=?';
 		$.ajax({
 			url: url,
 			data: data,
@@ -315,15 +325,20 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
+				/*if(callback != null) {
+					callback(jo);
+				}*/
 			}
 		});
     };
 
     EShopAPI.prototype.getOrderHistory = function (userid) {
+		var eshopAPI = this;
 		var api = this, orderhistory,
-        url = this.wsURL + '/rest/api/products/orderhistory/' + userid + '?callback=?';
+        url = eshopAPI.wsURL + '/rest/api/products/orderhistory/' + userid + '?callback=?';
 		$.ajax({
 			url: url,
+			//data: {'param1':param1},
 			header:"Access-Control-Allow-Headers: x-requested-with",
 			type: "GET",
 			dataType: "json",
@@ -332,14 +347,21 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
 			async: false,
 			success : function(orderResponse) {
 				api.orderhistory = orderResponse;
+				/*if(callback != null) {
+					callback(jo);
+				}*/
 			},
 			error : function(xhr, e, et){
 				var jo = {"status":"server error"};
+				/*if(callback != null) {
+					callback(jo);
+				}*/
 			}
 		});           
     };
 
-     EShopAPI.prototype.postOrder = function (orderDetail, customerEmail, comments,productDetails, cartTotal, totalItem, userId) {       
+     EShopAPI.prototype.postOrder = function (orderDetail, customerEmail, comments,productDetails, cartTotal, totalItem, userId) {  
+		var eshopAPI = this;     
         var data = {}, customerInfo = {};
         data.products = productDetails;
         data.paymentMethod = "Cash on Delivery";
@@ -352,7 +374,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery-ui", "xml2json", "framework/Clazz", 
         data.comments = comments;
 		data.userId = userId;
 
-        $.post(this.wsURL + '/rest/api/product/post/orderdetail?callback=?', data, function(response) {
+        $.post(eshopAPI.wsURL + '/rest/api/product/post/orderdetail?callback=?', data, function(response) {
 		     // Do something with the request
         }, 'json');
     };

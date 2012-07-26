@@ -3,7 +3,7 @@
 // When the document is ready:
 $().ready(function() {
 
-	require(  [ "eshop/widgets/EShopAPI", "eshop/widgets/Phresco", "framework/Listener", "eshop/widgets/AboutusBootstrap", "eshop/widgets/NavigationBootstrap", "eshop/widgets/SearchBootstrap", "eshop/widgets/CategoryBootstrap", "eshop/widgets/ProductBootstrap", "eshop/widgets/OrderFormBootstrap", "eshop/widgets/OrderFormViewBootstrap", "eshop/widgets/OrderHistoryBootstrap", "eshop/widgets/MyCartBootstrap", "eshop/widgets/NewproductsBootstrap", "eshop/widgets/ProductDetailsBootstrap", "eshop/widgets/ShoppingCartBootstrap", "eshop/widgets/ContactusBootstrap", "eshop/widgets/RegisterSuccessBootstrap", "eshop/widgets/LoginBootstrap", "eshop/widgets/RegisterBootstrap", "eshop/widgets/OrderSuccessBootstrap", "eshop/widgets/LoginSuccessBootstrap"  ], function(   EShopAPI, 
+	require(  [ "eshop/widgets/EShopAPI", "eshop/widgets/Phresco", "framework/Listener", "eshop/widgets/AboutusBootstrap", "eshop/widgets/NavigationBootstrap", "eshop/widgets/SearchBootstrap", "eshop/widgets/CategoryBootstrap", "eshop/widgets/ProductBootstrap", "eshop/widgets/OrderFormBootstrap", "eshop/widgets/OrderFormViewBootstrap", "eshop/widgets/OrderHistoryBootstrap", "eshop/widgets/MyCartBootstrap", "eshop/widgets/NewproductsBootstrap", "eshop/widgets/ProductDetailsBootstrap", "eshop/widgets/ShoppingCartBootstrap", "eshop/widgets/ContactusBootstrap", "eshop/widgets/RegisterSuccessBootstrap", "eshop/widgets/LoginBootstrap", "eshop/widgets/RegisterBootstrap", "eshop/widgets/OrderSuccessBootstrap" ], function(   EShopAPI, 
 					Phresco, 
 					Listener, 
 					AboutusBootstrap, 
@@ -22,8 +22,7 @@ $().ready(function() {
 					RegisterSuccessBootstrap, 
 					LoginBootstrap, 
 					RegisterBootstrap, 
-					OrderSuccessBootstrap,
-                    LoginSuccessBootstrap) {
+					OrderSuccessBootstrap) {
 
 		var api, 
 		phresco, 
@@ -45,13 +44,12 @@ $().ready(function() {
 		registerSuccessBootstrap, 
 		loginBootstrap, 
 		registerBootstrap, 
-        loginSuccessBootstrap,
 		orderSuccessBootstrap;
 
 		listener = new Listener();
 
 		api = new EShopAPI();
-        api.initialize();
+        api.initialize(configJsonData);
 		
 		phresco = new Phresco();
 		phresco.initialize(listener, api);
@@ -106,9 +104,6 @@ $().ready(function() {
 
 		registerBootstrap = new RegisterBootstrap();
 		registerBootstrap.init(listener, api, phresco);
-        
-        loginSuccessBootstrap = new LoginSuccessBootstrap();
-		loginSuccessBootstrap.init(listener, api, phresco);
 
 		hideItems = ['ProductDetails','ShoppingCart','OrderFormView','OrderForm','Login','OrderSuccess','Aboutus','Contactus','Register','LoginSuccess','RegisterSuccess','OrderHistory'];
         phresco.hideWidget(hideItems);
