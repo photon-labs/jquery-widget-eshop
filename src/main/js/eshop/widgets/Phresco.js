@@ -134,7 +134,7 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
                         $(errId).removeClass("error");
                     }
                     else if(value !== "" && type === "TEXT"){ 
-                        character =  /^[a-zA-Z\s]+$/;
+                        character = /^[a-zA-Z\s]+$/;
                         if (!character.test(value)) {
                             $(errMessage).html("please enter character only");
                             $(errId).addClass("error");
@@ -145,7 +145,7 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
                         $(errId).removeClass("error");
                     }
                      else if(value !== "" && type === "STRING"){ 
-                        character =  /^[a-zA-Z0-9\\s\^,\^.,\^#,\^(,\^)]+$/;
+                        character = /^[a-zA-Z0-9\s\^,\^.,\^#,\^(,\^)]+$/;
                         if (!character.test(value)) {
                             $(errMessage).html("please enter character and number only");
                             $(errId).addClass("error");
@@ -156,7 +156,7 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
                         $(errId).removeClass("error");
                     }
                     else if(value !== "" && type === "NUMBER"){
-                        character =  "/^[0-9\\s^+^-]+$/"; 
+                        character = /^[0-9\s\^+\^\-]+$/;
                         if (!character.test(value)) {
                             $(errMessage).html("please enter correct format");
                             $(errId).addClass("error");
