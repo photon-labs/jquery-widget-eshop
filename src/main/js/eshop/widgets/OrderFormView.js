@@ -116,7 +116,7 @@ define( "eshop/widgets/OrderFormView", [ "jquery", "framework/Clazz", "framework
 			self.hideItems = ['OrderFormView'];
             self.phrescoapi.hideWidget(self.hideItems);
             self.phrescoapi.showOrderSuccess();
-			self.istener.publish(event,"OrderSuccess",[event.data]);
+			self.listener.publish(event,"OrderSuccess",[event.data]);
 		});
 		buttonposition2.append(backbtn);
 		buttonposition2.append(submitbtn);

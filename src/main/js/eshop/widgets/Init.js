@@ -3,7 +3,7 @@
 // When the document is ready:
 $().ready(function() {
 
-	require(  [ "eshop/widgets/EShopAPI", "eshop/widgets/Phresco", "framework/Listener", "eshop/widgets/AboutusBootstrap", "eshop/widgets/NavigationBootstrap", "eshop/widgets/SearchBootstrap", "eshop/widgets/CategoryBootstrap", "eshop/widgets/ProductBootstrap", "eshop/widgets/OrderFormBootstrap", "eshop/widgets/OrderFormViewBootstrap", "eshop/widgets/OrderHistoryBootstrap", "eshop/widgets/MyCartBootstrap", "eshop/widgets/NewproductsBootstrap", "eshop/widgets/ProductDetailsBootstrap", "eshop/widgets/ShoppingCartBootstrap", "eshop/widgets/ContactusBootstrap", "eshop/widgets/RegisterSuccessBootstrap", "eshop/widgets/LoginBootstrap", "eshop/widgets/RegisterBootstrap", "eshop/widgets/OrderSuccessBootstrap" ], function(   EShopAPI, 
+	require(  [ "eshop/widgets/EShopAPI", "eshop/widgets/Phresco", "framework/Listener", "eshop/widgets/AboutusBootstrap", "eshop/widgets/NavigationBootstrap", "eshop/widgets/SearchBootstrap", "eshop/widgets/CategoryBootstrap", "eshop/widgets/ProductBootstrap", "eshop/widgets/OrderFormBootstrap", "eshop/widgets/OrderFormViewBootstrap", "eshop/widgets/OrderHistoryBootstrap", "eshop/widgets/MyCartBootstrap", "eshop/widgets/NewproductsBootstrap", "eshop/widgets/ProductDetailsBootstrap", "eshop/widgets/ShoppingCartBootstrap", "eshop/widgets/ContactusBootstrap", "eshop/widgets/RegisterSuccessBootstrap", "eshop/widgets/LoginBootstrap", "eshop/widgets/RegisterBootstrap", "eshop/widgets/OrderSuccessBootstrap", "eshop/widgets/LoginSuccessBootstrap" ], function(   EShopAPI, 
 					Phresco, 
 					Listener, 
 					AboutusBootstrap, 
@@ -22,7 +22,8 @@ $().ready(function() {
 					RegisterSuccessBootstrap, 
 					LoginBootstrap, 
 					RegisterBootstrap, 
-					OrderSuccessBootstrap) {
+					OrderSuccessBootstrap,
+					LoginSuccessBootstrap) {
 
 		var api, 
 		phresco, 
@@ -44,12 +45,13 @@ $().ready(function() {
 		registerSuccessBootstrap, 
 		loginBootstrap, 
 		registerBootstrap, 
-		orderSuccessBootstrap;
+		orderSuccessBootstrap,
+		loginSuccessBootstrap;
 
 		listener = new Listener();
 
 		api = new EShopAPI();
-        api.initialize(configJsonData);
+        api.initialize(this.configJsonData);
 		
 		phresco = new Phresco();
 		phresco.initialize(listener, api);
@@ -101,6 +103,9 @@ $().ready(function() {
 
 		loginBootstrap = new LoginBootstrap();
 		loginBootstrap.init(listener, api, phresco);
+		
+		loginSuccessBootstrap = new LoginSuccessBootstrap();
+		loginSuccessBootstrap.init(listener, api, phresco);
 
 		registerBootstrap = new RegisterBootstrap();
 		registerBootstrap.init(listener, api, phresco);

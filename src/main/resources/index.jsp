@@ -21,38 +21,36 @@
         <link rel="stylesheet" href="css/eshop/nivo-slider.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/eshop/jquery.loadmask.css" type="text/css" />
         
-        <script type="text/javascript" src="js/org/codehaus/mojo/almond/0.0.2-alpha-1/almond-0.0.2-alpha-1.js"></script>
-<script type="text/javascript" src="js/jslibraries/files/jslib_jquery-amd/1.7.1-alpha-1/jslib_jquery-amd-1.7.1-alpha-1.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/sjcl.js"></script>
-<script type="text/javascript" src="js/framework/Listener.js"></script>
-<script type="text/javascript" src="js/framework/Clazz.js"></script>
-<script type="text/javascript" src="js/framework/Base.js"></script>
-<script type="text/javascript" src="js/framework/Widget.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Products.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/ProductsBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Register.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/RegisterBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Contactus.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/ContactusBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Search.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/SearchBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/RegisterSuccess.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/RegisterSuccessBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderSuccess.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderSuccessBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Category.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/CategoryBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Login.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/LoginBootstrap.js"></script>
-<script type="text/javascript" src="js/jslibraries/files/jslib_jsonpath-amd/0.8.0/jslib_jsonpath-amd-0.8.0.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Phresco.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/MyCart.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/MyCartBootstrap.js"></script>
-<script type="text/javascript" src="js/jslibraries/files/jslib_xml2json-amd/1.1/jslib_xml2json-amd-1.1.js"></script>
-<script type="text/javascript" src="js/jslibraries/files/jslib_jquery-ui-amd/1.8.16-alpha-1/jslib_jquery-ui-amd-1.8.16-alpha-1.js"></script>
-<script type="text/javascript" src="js/framework/Encrypt_Decrypt.js"></script>
-
-
+	<script type="text/javascript" src="js/org/codehaus/mojo/almond/0.0.2-alpha-1/almond-0.0.2-alpha-1.js"></script>
+	<script type="text/javascript" src="js/jslibraries/files/jslib_jquery-amd/1.7.1-alpha-1/jslib_jquery-amd-1.7.1-alpha-1.js"></script>
+	<script type="text/javascript" src="js/framework/Listener.js"></script>
+	<script type="text/javascript" src="js/framework/Clazz.js"></script>
+	<script type="text/javascript" src="js/framework/Base.js"></script>
+	<script type="text/javascript" src="js/framework/Widget.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Products.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/ProductsBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Register.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/RegisterBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Contactus.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/ContactusBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Search.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/SearchBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/RegisterSuccess.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/RegisterSuccessBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderSuccess.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderSuccessBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Category.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/CategoryBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Login.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/LoginBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/LoginSuccess.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/LoginSuccessBootstrap.js"></script>
+	<script type="text/javascript" src="js/jslibraries/files/jslib_jsonpath-amd/0.8.0/jslib_jsonpath-amd-0.8.0.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Phresco.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/MyCart.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/MyCartBootstrap.js"></script>
+	<script type="text/javascript" src="js/jslibraries/files/jslib_xml2json-amd/1.1/jslib_xml2json-amd-1.1.js"></script>
+	<script type="text/javascript" src="js/jslibraries/files/jslib_jquery-ui-amd/1.8.16-alpha-1/jslib_jquery-ui-amd-1.8.16-alpha-1.js"></script>
 	
 		<%
 			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");
@@ -66,27 +64,26 @@
 			var configJsonData = $.parseJSON('<%= configJson%>'); 
 		</script>
 		
-<script type="text/javascript" src="js/eshop/widgets/EShopAPI.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderFormView.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderFormViewBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/ProductDetails.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/ProductDetailsBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderForm.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderFormBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Navigation.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/NavigationBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderHistory.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/OrderHistoryBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Aboutus.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/AboutusBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/NewProducts.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/NewProductsBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/ShoppingCart.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/ShoppingCartBootstrap.js"></script>
-<script type="text/javascript" src="js/eshop/widgets/Init.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/EShopAPI.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderFormView.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderFormViewBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/ProductDetails.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/ProductDetailsBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderForm.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderFormBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Navigation.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/NavigationBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderHistory.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/OrderHistoryBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Aboutus.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/AboutusBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/NewProducts.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/NewProductsBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/ShoppingCart.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/ShoppingCartBootstrap.js"></script>
+	<script type="text/javascript" src="js/eshop/widgets/Init.js"></script>
 
     </head>
-
     <body>
         <div class="wel_come"></div>
         <div id="popup" class="loginModal" style="display:none;z-index:60000;"></div>
