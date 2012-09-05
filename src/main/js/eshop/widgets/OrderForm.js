@@ -31,7 +31,7 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 		fieldsetpaymentoption, h6, paymentpos, visacard1, visacard2, visacard3, carddetails, fieldsetpayment, 
 		payment1, payment2, payment3, pricetag, priceblock, pricecount, subtotal, ordertotal, hint, ordercomments, 
 		fieldholder4, textarea, buttons, button1, button2, productContainer, email, 
-		self, mainContent;
+		self, mainContent, backHref;
 
 		self = this;
 		if(!$.isEmptyObject(self.phrescoapi.orderDetail)){
@@ -70,6 +70,13 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
         mainContent = $('<div></div>');
         topH3 = $('<h3> Computers</h3>');
         productContainer = $('<div class="productcontainer">');
+		backHref = $('<span style="float:right;text-decoration:none;"><a class="back_buttonstyle">Back</a></span>');
+		$(backHref).bind('click', {categoryId:0} , function(event){
+			self.hideItems = ['OrderForm'];
+			self.phrescoapi.hideWidget(self.hideItems);
+			var data = {productArray : self.phrescoapi.productArray,categoryID : null,productID : null};
+			self.listener.publish(event,"ShoppingCart",data);
+		});
 		form = $('<form id="contact" method="post" action="product_order_view_form.html">');
 		h5 = $('<h5> Customer Information</h5>');
 		fieldholder1 = $('<div class="fieldholder1">');
@@ -173,7 +180,7 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 		productContainer.append(ordercomments);
 		productContainer.append(fieldholder4);
 		productContainer.append(buttons);
-
+		topH3.append(backHref);
 		mainContent.append(topH3);  
 		mainContent.append(productContainer);
 	    this.mainContent = mainContent;

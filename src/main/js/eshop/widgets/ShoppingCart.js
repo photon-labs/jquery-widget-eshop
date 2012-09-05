@@ -79,7 +79,6 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			}
 		});
 					
-		productContainer.append(backHref);
 		productContainer.append(shoppingCarth5);
 		productContainer.append(checkoutcol1Div);
 		productContainer.append(checkoutcol2Div);
@@ -141,7 +140,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 				productContainer.append(buttons);
 			}	
 		}
-                                   
+        topH3.append(backHref);                          
 		mainContent.append(topH3);  
 		mainContent.append(productContainer);
 	    this.mainContent = mainContent;
