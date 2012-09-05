@@ -12,10 +12,12 @@ define( "eshop/widgets/Contactus", [ "jquery", "framework/Clazz", "framework/Wid
     Contactus.prototype.mainContent = undefined;
     Contactus.prototype.listener = undefined;
 
-    Contactus.prototype.initialize = function(container, listener) {
+    Contactus.prototype.initialize = function(container, listener, phrescoapi) {
         listener.subscribe("Contactus",this,"onHashChange");
+		listener.subscribe("ShowContactus",this,"showWidget");
         this.mainNode = container; 
         this.listener = listener;
+		 this.phrescoapi = phrescoapi;
     };
 
     Contactus.prototype.setMainContent = function() {
@@ -41,16 +43,21 @@ define( "eshop/widgets/Contactus", [ "jquery", "framework/Clazz", "framework/Wid
 
     Contactus.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#Contactus" );
         return this.mainContent;
     };
     
     Contactus.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     Contactus.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	Contactus.prototype.showWidget = function() {
+        this.mainNode.show();
     };
 
     return Contactus;

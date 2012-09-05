@@ -17,6 +17,7 @@ define( "eshop/widgets/OrderFormView", [ "jquery", "framework/Clazz", "framework
 
     OrderFormView.prototype.initialize = function(container, listener, api, phrescoapi) {
         listener.subscribe("OrderFormView", this, "onHashChange");
+		listener.subscribe("ShowOrderFormView", this, "showWidget");
         this.mainNode = container;
         this.hideItems = [];
         this.listener = listener;
@@ -152,17 +153,22 @@ define( "eshop/widgets/OrderFormView", [ "jquery", "framework/Clazz", "framework
 
     OrderFormView.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#OrderFormView" );
         return this.mainContent;
     };
     
     OrderFormView.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+         this.showWidget();
     };
 
 	OrderFormView.prototype.hideWidget = function() {
         this.mainNode.hide();
     };
-
+	
+	OrderFormView.prototype.showWidget = function() {
+        this.mainNode.show();
+    };
+	
     return OrderFormView;
 });

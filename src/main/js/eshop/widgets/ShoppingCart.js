@@ -22,6 +22,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 
     ShoppingCart.prototype.initialize = function(container, listener, phrescoapi, api) {
 		listener.subscribe("ShoppingCart",this,"onHashChange");
+		listener.subscribe("ShowShoppingCart",this,"showWidget");
 		this.mainNode = container;
 		this.listener = listener;
         this.phrescoapi = phrescoapi;
@@ -148,6 +149,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 
     ShoppingCart.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#ShoppingCart" );
         return this.mainContent;
     };
     
@@ -156,11 +158,15 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 		this.categoryId = data.categoryID;
 		this.productId = data.productID;
         this.render(this.mainNode);
-		this.mainNode.show();
+		this.showWidget();
     };
 
 	ShoppingCart.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	ShoppingCart.prototype.showWidget = function() {
+        this.mainNode.show();
     };
 
     ShoppingCart.prototype.addFunction = function(shoppingcard_data, subtotal, checkoutvaluecol2, checkoutvaluecol4, data, self){

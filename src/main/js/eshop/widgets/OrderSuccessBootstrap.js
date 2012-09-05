@@ -13,8 +13,7 @@ define( "eshop/widgets/OrderSuccessBootstrap", [ "jquery", "eshop/widgets/OrderS
 
         if(this.container !== null ) {
             this.OrderSuccessWidget = new OrderSuccess();
-            this.OrderSuccessWidget.initialize(this.container, listener, phrescoapi);
-            this.OrderSuccessWidget.render(this.container);
+            this.OrderSuccessWidget.initialize(this.container, listener, api, phrescoapi);
         }
     };
 

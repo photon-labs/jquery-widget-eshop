@@ -16,6 +16,7 @@ define( "eshop/widgets/MyCart", [ "jquery", "framework/Clazz", "framework/Widget
 
     MyCart.prototype.initialize = function(container, listener, phrescoapi) {
         listener.subscribe("MyCart",this,"onHashChange");
+		listener.subscribe("ShowMyCart",this,"showWidget");
         this.mainNode = container;
         this.listener = listener;
         this.phrescoapi = phrescoapi;
@@ -43,6 +44,17 @@ define( "eshop/widgets/MyCart", [ "jquery", "framework/Clazz", "framework/Widget
         carticonDiv = $('<div class="carticon"><img src="images/eshop/mycart_icon.png" width="28" height="21" alt="My Cart icon"> </div>');
         
         cartheaderDiv = $('<a href="#"><div class="cartheader">My Cart </div></a>');
+		
+		$(cartheaderDiv).bind('click', {} , function(event){
+            if(self.phrescoapi.productArray.length !== 0){
+                var data;
+                self.hideItems = ['Login', 'LoginSuccess', 'MyCart', 'OrderForm', 'OrderFormView', 'OrderHistory', 'OrderSuccess', 'Products', 'ProductDetails', 'Category', 'Register', 'RegisterSuccess', 'ShoppingCart'];
+                self.phrescoapi.hideWidget(self.hideItems);
+                data = {productArray : self.phrescoapi.productArray, categoryID : null, productID : event.data.productId};
+                self.listener.publish(event,"ShoppingCart",data);
+            }
+        }); 
+		
         splitDiv = $('<div class="split"></div>');
         ItemDiv = $('<div class="mycarttext"> Item </div>');
         split2Div = $('<div class="split2"></div>');
@@ -73,11 +85,15 @@ define( "eshop/widgets/MyCart", [ "jquery", "framework/Clazz", "framework/Widget
     
     MyCart.prototype.onHashChange = function(event) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     MyCart.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	 MyCart.prototype.showWidget = function(){
+        this.mainNode.show();
     };
 
     return MyCart;

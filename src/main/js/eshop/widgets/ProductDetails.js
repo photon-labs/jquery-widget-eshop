@@ -17,6 +17,7 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 
     ProductDetails.prototype.initialize = function(container, listener, phrescoapi, api) {
         listener.subscribe("ProductDetails",this,"onHashChange");
+		listener.subscribe("ShowProductDetails", this, "showWidget");
 		this.mainNode = container;
 		this.listener = listener;
         this.phrescoapi = phrescoapi;
@@ -86,7 +87,7 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 			stockavailablity = $('<div class="stockavailablity">');
 	        availability = $('<div class="row1"><span class="st">Availability:</span><span class="st">In Stock</span></div>');
 	        quantity = $('<div class="row1"><span class="st">Quantity:</span><span class="st1"><input type="text" value="1" placeholder="0" size="1"></span></div>');
-			buttonactions = $('<div class="buttonactions"><a href="#"><img src="images/eshop/addtocart_btn_greycolor.png" width="105" height="36" alt="add to cart"></a></div>');
+			buttonactions = $('<div class="buttonactions"><a><img src="images/eshop/addtocart_btn_greycolor.png" width="105" height="36" alt="add to cart" style="cursor:pointer"></a></div>');
 			data = {};
 
 			data.productId = productDetails.id;
@@ -207,18 +208,23 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 
     ProductDetails.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#ProductDetails" );
         return this.mainContent;
     };
     
     ProductDetails.prototype.onHashChange = function(event,data) {
 		this.productId = data.productId;
         this.render(this.mainNode);
-		this.mainNode.show();
+		this.showWidget();
     };
 
     ProductDetails.prototype.hideWidget = function(){
         this.mainNode.hide();
     };
+	
+	ProductDetails.prototype.showWidget = function() {
+		this.mainNode.show();
+	};
 
 	ProductDetails.prototype.clickFunction = function(starValue, data, self){
 		$(starValue).bind('click', data , function(event){

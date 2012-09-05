@@ -20,8 +20,10 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
     Phresco.prototype.pricequantity = undefined;
     Phresco.prototype.listener = undefined;
     Phresco.prototype.api = undefined;
+	Phresco.prototype.History = {};
 
     Phresco.prototype.initialize = function(listener, api) {
+		var History;
 		this.productArray = [];
         this.orderDetail = {};
         this.register = {};
@@ -32,6 +34,13 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
         this.listener = listener;
         this.self = this;
         this.api = api;
+		this.pageHistory = [];
+		this.History.History =  History || {};
+		this.History.pathname = null;
+		this.History.previousHash = null;
+		this.History.hashCheckInterval = -1;
+		this.History.stack = [];
+		
     };
     
 	Phresco.prototype.showShoppingCart = function(data) {
@@ -375,6 +384,28 @@ define( "eshop/widgets/Phresco", [ "jquery", "framework/Clazz", "framework/Widge
             self.listener.unsubscribe(this + "Hide","hideWidget");
         });
     };
+
+	Phresco.prototype.navigateToPath = function(pathname) {
+		document.location.hash = pathname;
+	};
+	
+	Phresco.prototype.historyback = function(){
+		var urlhide, hidestring, hidepage = [], url, arrayofstring, showpage, self = this;
+		$(window).bind("hashChange", function(e, newHash, oldHash) {
+			if(oldHash !== ""){
+				hidepage =[oldHash];
+				self.hideWidget(hidepage);
+				self.listener.publish(null, "Show"+newHash, [null]);
+				if(newHash === "Products" || newHash === "ProductDetails" || newHash === "ShoppingCart" || newHash === "OrderForm" || newHash === "OrderFormView" || newHash === "OrderHistory" || newHash === "OrderSuccess") {
+					$("#slider").css("display","block");
+					$("#wrapper").css("display","block");
+					self.listener.publish(null, "ShowMyCart", [null]);
+					self.listener.publish(null, "ShowNewProducts", [null]);
+				}
+			}	
+		});
+		$(window).hashChange();
+	};
 
     return Phresco;
 });

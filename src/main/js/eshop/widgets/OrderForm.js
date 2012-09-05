@@ -16,6 +16,7 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 
     OrderForm.prototype.initialize = function(container, listener, phrescoapi) {
         listener.subscribe("OrderForm", this, "onHashChange");
+		listener.subscribe("ShowOrderForm",this,"showWidget");
         this.mainNode = container;
         this.listener = listener;
         this.phrescoapi = phrescoapi;
@@ -180,17 +181,21 @@ define( "eshop/widgets/OrderForm", [ "jquery", "framework/Clazz", "framework/Wid
 
     OrderForm.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#OrderForm" );
         return this.mainContent;
     };
     
     OrderForm.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-		this.mainNode.show();
+		this.showWidget();
     };
 
 	OrderForm.prototype.hideWidget = function(){
         this.mainNode.hide();
     };
-
+	
+	OrderForm.prototype.showWidget = function() {
+        this.mainNode.show();
+    };
     return OrderForm;
 });

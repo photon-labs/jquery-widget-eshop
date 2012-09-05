@@ -20,6 +20,7 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
 
     Products.prototype.initialize = function(container, listener, phrescoapi, api) {
         listener.subscribe("Products",this,"onHashChange");
+		listener.subscribe("ShowProducts", this, "showWidget");
         this.listener = listener;
         this.mainNode = container;
         this.phrescoapi = phrescoapi;
@@ -60,18 +61,23 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
 
     Products.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#Products" );
         return this.mainContent;
     };
     
-    Products.prototype.onHashChange = function(event,data) {
+    Products.prototype.onHashChange = function(event,data) { 
         this.categoryId = data.categoryId;
         this.searchCriteria = data.searchCriteria;
         this.render(this.mainNode);
-		this.mainNode.show();
+		this.showWidget();
     };
 
     Products.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	Products.prototype.showWidget = function() {
+        this.mainNode.show();
     };
 
     Products.prototype.addFunction = function(ahref1, ahref2, productNamelink, innerDiv1, self, categoryId, data){
@@ -112,11 +118,11 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
 				innerLi = $('<li></li>');
 				innerDiv1 = $('<div class="img"><a href="javascript:void(0);"><img src="'+this.api.wsURLWithoutContext+'/images/web/'+product.image+'" alt=""></a></div>');
 				innerDiv2 = $('<div class="info"></div>');
-				productNamelink = $('<a class="title2" href="#">'+product.name+'</a>');
+				productNamelink = $('<a class="title2" >'+product.name+'</a>');
 				productPriceDiv = $('<div class="price"><span class="st">Our price:</span><strong>$'+product.listPrice+'</strong><br><span class="st2">Sell at:</span><span class="st3">$'+product.sellPrice+'</span></div></div>');
 				productButtonDiv = $('<div class="actions">');
-				ahref1 = $('<a href="#">Details</a>');
-				ahref2 = $('<a href="#">Add to cart</a>');
+				ahref1 = $('<a style="cursor:pointer">Details</a>');
+				ahref2 = $('<a style="cursor:pointer">Add to cart</a>');
 	
 				data = {};
 				data.productId = product.id;

@@ -16,6 +16,7 @@ define( "eshop/widgets/RegisterSuccess", [ "jquery", "framework/Clazz", "framewo
 
     RegisterSuccess.prototype.initialize = function(container, listener, api, phrescoapi) {
         listener.subscribe("RegisterSuccess",this,"onHashChange");
+		listener.subscribe("ShowRegisterSuccess",this,"showWidget");
         this.mainNode = container; 
         this.listener = listener;
         this.api = api; 
@@ -70,17 +71,22 @@ define( "eshop/widgets/RegisterSuccess", [ "jquery", "framework/Clazz", "framewo
     RegisterSuccess.prototype.renderUI = function() {
         this.setMainContent();
         this.mainContent.show();
+		this.phrescoapi.navigateToPath( "#RegisterSuccess" );
         return this.mainContent;
     };
     
     RegisterSuccess.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     RegisterSuccess.prototype.hideWidget = function(){
         this.mainNode.hide();
     };
+	
+	RegisterSuccess.prototype.showWidget = function() {
+		this.mainNode.show();
+	};
 
     return RegisterSuccess;
 });

@@ -17,6 +17,7 @@ define( "eshop/widgets/Navigation", [ "jquery", "framework/Clazz", "framework/Wi
 
     Navigation.prototype.initialize = function(container, listener, phrescoapi, api) {
         listener.subscribe("Navigation", this, "onHashChange");
+		 listener.subscribe("ShowNavigation", this, "showWidget");
         this.listener = listener; 
         this.mainNode = container;
         this.phrescoapi = phrescoapi;
@@ -32,17 +33,17 @@ define( "eshop/widgets/Navigation", [ "jquery", "framework/Clazz", "framework/Wi
         ordertextLi = (self.api.loginresponse.userId !== 0 && self.api.loginresponse.userId !== undefined )?"myorderLI":"signupLI",
         mainContent = $('<nav id="navigation"></nav>'),
         navUL = $('<ul></ul>'),
-        lis = '<li class="selected" id="homeLI"><a href="#" id="aboutUs">Home</a></li>', 
+        lis = '<li class="selected" id="homeLI"><a id="aboutUs" style="cursor:pointer">Home</a></li>', 
         liList;
-        lis +=  '<li id="productsLI"><a href="#">Products</a></li>';
-        lis +=  '<li id="specialsLI"><a href="#">Specials</a></li>';
-        lis +=  '<li id="contactUsLI"><a href="#">Contact us</a></li>';
-        lis +=  '<li id="aboutUsLI"><a href="#">About us</a></li>';
+        lis +=  '<li id="productsLI"><a style="cursor:pointer">Products</a></li>';
+        lis +=  '<li id="specialsLI"><a style="cursor:pointer">Specials</a></li>';
+        lis +=  '<li id="contactUsLI"><a style="cursor:pointer">Contact us</a></li>';
+        lis +=  '<li id="aboutUsLI"><a style="cursor:pointer">About us</a></li>';
 
-        lis +=  '<li id="'+ ordertextLi +'"><a href="#">'+ ordertext +'</a></li>';
-        lis +=  '<li id="'+ texttLi +'"><a href="#">'+ logtext +'</a></li>';
-        lis +=  '<li id="myorderLI"><a href="#" style="display: none;>My Order</a></li>'; 
-        lis +=  '<li id="logoutLi"><a href="#" style="display: none;">Log Out</a></li>';
+        lis +=  '<li id="'+ ordertextLi +'"><a style="cursor:pointer">'+ ordertext +'</a></li>';
+        lis +=  '<li id="'+ texttLi +'"><a style="cursor:pointer">'+ logtext +'</a></li>';
+        lis +=  '<li id="myorderLI"><a style="display: none; cursor:pointer">My Order</a></li>'; 
+        lis +=  '<li id="logoutLi"><a style="display: none; cursor:pointer">Log Out</a></li>';
         
         liList = $(lis);
         navUL.append(liList);
@@ -127,11 +128,15 @@ define( "eshop/widgets/Navigation", [ "jquery", "framework/Clazz", "framework/Wi
     
     Navigation.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     Navigation.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	 Navigation.prototype.showWidget = function(){
+        this.mainNode.show();
     };
 
     Navigation.prototype.removeStyle = function(){

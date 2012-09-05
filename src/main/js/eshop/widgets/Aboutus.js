@@ -12,10 +12,12 @@ define( "eshop/widgets/Aboutus", [ "jquery", "framework/Clazz", "framework/Widge
     Aboutus.prototype.mainContent = undefined;
     Aboutus.prototype.listener = undefined;
 
-    Aboutus.prototype.initialize = function(container, listener) {
+    Aboutus.prototype.initialize = function(container, listener, phrescoapi) {
         listener.subscribe("Aboutus", this, "onHashChange");
+		listener.subscribe("ShowAboutus", this, "showWidget");
         this.mainNode = container;
         this.listener = listener;
+		this.phrescoapi = phrescoapi;
     };
 
     Aboutus.prototype.setMainContent = function() {
@@ -43,16 +45,21 @@ define( "eshop/widgets/Aboutus", [ "jquery", "framework/Clazz", "framework/Widge
 
     Aboutus.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#Aboutus" );
         return this.mainContent;
     };
             
     Aboutus.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     Aboutus.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	Aboutus.prototype.showWidget = function() {
+        this.mainNode.show();
     };
     
     return Aboutus;

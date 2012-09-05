@@ -51,6 +51,7 @@
 	<script type="text/javascript" src="js/eshop/widgets/MyCartBootstrap.js"></script>
 	<script type="text/javascript" src="js/jslibraries/files/jslib_xml2json-amd/1.1/jslib_xml2json-amd-1.1.js"></script>
 	<script type="text/javascript" src="js/jslibraries/files/jslib_jquery-ui-amd/1.8.16-alpha-1/jslib_jquery-ui-amd-1.8.16-alpha-1.js"></script>
+	<script type="text/javascript" src="js/jslibraries/files/history/jslib_jquery.hashable/1.0.0/jslib_jquery.hashable-1.0.0.js"></script>
 	
 		<%
 			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");

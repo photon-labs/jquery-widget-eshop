@@ -14,7 +14,6 @@ define( "eshop/widgets/SearchBootstrap", [ "jquery", "eshop/widgets/Search" ], f
         if(this.container !== null ) {
             this.searchWidget = new Search();
             this.searchWidget.initialize(this.container, listener, phrescoapi);
-            this.searchWidget.render(this.container);
         }
     };
 

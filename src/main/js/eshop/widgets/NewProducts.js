@@ -17,6 +17,7 @@ define( "eshop/widgets/Newproducts", [ "jquery", "framework/Clazz", "framework/W
     
     Newproducts.prototype.initialize = function(container, listener, api, phrescoapi) {
         listener.subscribe("NewProducts",this,"onHashChange");
+		listener.subscribe("ShowNewProducts",this,"showWidget");
         this.mainNode = container;
         this.listener = listener;
         this.hideItms = [];
@@ -39,8 +40,8 @@ define( "eshop/widgets/Newproducts", [ "jquery", "framework/Clazz", "framework/W
                 innerLi = $('<li></li>');
                 innerDiv1 = $('<div class="img"><a href="javascript:void(0);"><img src="' + self.api.wsURLWithoutContext + '/images/web/' + product.image + '" alt=""></a></div>');
                 innerDiv2 = $('<div class="info">');
-                ahref = $('<a class="title2" href="#">' + product.name + '</a><div class="price"><span class="special">Sell at:</span><span class="special">$' + product.sellPrice + '</span></div>');
-                pricebtton = $('<div class="pricebtn"><a class="addtocart_buttonstyle" href="#">Add to cart</a></div>');
+                ahref = $('<a class="title2">' + product.name + '</a><div class="price"><span class="special">Sell at:</span><span class="special">$' + product.sellPrice + '</span></div>');
+                pricebtton = $('<div class="pricebtn"><a class="addtocart_buttonstyle">Add to cart</a></div>');
                 data = {};
 
                 data.productId = product.id;
@@ -72,12 +73,16 @@ define( "eshop/widgets/Newproducts", [ "jquery", "framework/Clazz", "framework/W
     
     Newproducts.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     Newproducts.prototype.hideWidget = function(){
         this.mainNode.hide();
     };
+	
+	Newproducts.prototype.showWidget = function() {
+		this.mainNode.show();
+	};
 
     Newproducts.prototype.addFunction = function(pricebtton, data, self, innerDiv1){
        $(pricebtton).bind('click', data , function(event){

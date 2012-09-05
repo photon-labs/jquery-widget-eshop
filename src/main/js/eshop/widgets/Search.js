@@ -15,6 +15,7 @@ define( "eshop/widgets/Search", [ "jquery", "framework/Clazz", "framework/Widget
 
     Search.prototype.initialize = function(container, listener, phrescoapi) {
         listener.subscribe("Search",this,"onHashChange");
+		listener.subscribe("ShowSearch",this,"showWidget");
         this.listener = listener;
         this.phrescoapi = phrescoapi;
         this.mainNode =container;
@@ -48,12 +49,16 @@ define( "eshop/widgets/Search", [ "jquery", "framework/Clazz", "framework/Widget
 
     Search.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     Search.prototype.hideWidget = function(){
         this.mainNode.hide();
     };
+	
+	Search.prototype.showWidget = function() {
+		this.mainNode.show();
+	};
 
     return Search;
 });

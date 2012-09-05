@@ -19,6 +19,7 @@ define( "eshop/widgets/LoginSuccess", [ "jquery", "framework/Clazz", "framework/
 
     LoginSuccess.prototype.initialize = function(container, listener, api, phrescoapi) {
         listener.subscribe("LoginSuccess", this, "onHashChange");
+		listener.subscribe("ShowLoginSuccess", this, "showWidget");
         this.mainNode = container;
         this.hideItems = [];
         this.listener = listener;
@@ -73,16 +74,21 @@ define( "eshop/widgets/LoginSuccess", [ "jquery", "framework/Clazz", "framework/
 
     LoginSuccess.prototype.renderUI = function() {
         this.setMainContent();
+		this.phrescoapi.navigateToPath( "#LoginSuccess" );
         return this.mainContent;
     };
     
     LoginSuccess.prototype.onHashChange = function(data) {
         this.render(this.mainNode);
-        this.mainNode.show();
+        this.showWidget();
     };
 
     LoginSuccess.prototype.hideWidget = function(){
         this.mainNode.hide();
+    };
+	
+	LoginSuccess.prototype.showWidget = function() {
+        this.mainNode.show();
     };
 
     return LoginSuccess;

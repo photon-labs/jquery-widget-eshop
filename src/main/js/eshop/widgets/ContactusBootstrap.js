@@ -8,13 +8,12 @@ define( "eshop/widgets/ContactusBootstrap", [ "jquery", "eshop/widgets/Contactus
     ContactusBootstrap.prototype.container = undefined;
     ContactusBootstrap.prototype.contactusWidget = undefined;
 
-    ContactusBootstrap.prototype.init = function(listener, api) {
+    ContactusBootstrap.prototype.init = function(listener, api, phrescoapi) {
         this.container = $("eshop\\:contactus-widget"); 
 
         if(this.container !== null ) {
             this.contactusWidget = new Contactus();
-            this.contactusWidget.initialize(this.container, listener);
-            this.contactusWidget.render(this.container);
+            this.contactusWidget.initialize(this.container, listener, phrescoapi);
         }
     };
 
