@@ -1,0 +1,10 @@
+<environment>
+           <Browser>googlechrome</Browser>
+		   <Server>
+              <context>testjquery</context>
+              <protocol>http</protocol>
+              <host>localhost</host>
+              <port>8888</port>
+           </Server>
+         
+</environment>
