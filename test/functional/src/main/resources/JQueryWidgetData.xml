@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+<phresco>
+<jquerywidget>
+     <billingInfoPage>
+	           <billInfoCommentsValue>First order</billInfoCommentsValue>
+	           <billInfoFirstNameValue>John</billInfoFirstNameValue>
+	           <billInfoPhoneNumberValue>+1 212-398-2449</billInfoPhoneNumberValue>
+	           <billInfoStateValue>Boston</billInfoStateValue>
+	           <billInfoLastNameValue>David</billInfoLastNameValue>
+	           <billInfoPostCodeValue>10019</billInfoPostCodeValue>
+	           <billInfoCityValue>NewJersey city</billInfoCityValue>
+	           <billInfoAddress2Value>Newyork</billInfoAddress2Value>
+	           <billInfoAddress1Value>USA</billInfoAddress1Value>
+	           <billInfoCompanyValue>Photon</billInfoCompanyValue>
+	           <billInfoEmailValue>Phresco@PhotonInfotech.net</billInfoEmailValue>
+	 </billingInfoPage>    
+	 <cardInfoPage>      
+	           <cardInfoNameOnCardValue>JohnDavid</cardInfoNameOnCardValue>
+	           <cardInfoCardNumberValue>235967841</cardInfoCardNumberValue>
+	           <cardInfoSecurityNumberValue>5836</cardInfoSecurityNumberValue>
+	 </cardInfoPage>
+</jquerywidget>
+</phresco>
+</environment>
