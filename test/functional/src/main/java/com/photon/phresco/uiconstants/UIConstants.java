@@ -6,8 +6,7 @@ import java.lang.reflect.Field;
 public class UIConstants {
 	
 
-	private ReadXMLFile readXml;
-
+private ReadXMLFile readXml;
 	
 	public String TELEVISION = "televisiontab";
 	public String COMPUTERS = "computerstab";

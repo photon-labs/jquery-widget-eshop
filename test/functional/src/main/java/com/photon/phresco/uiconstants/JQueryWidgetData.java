@@ -2,7 +2,7 @@ package com.photon.phresco.uiconstants;
 
 import java.lang.reflect.Field;
 
-public class WidgetData {
+public class JQueryWidgetData {
 
 	private ReadXMLFile readXml;
 
@@ -22,7 +22,7 @@ public class WidgetData {
 	public String FIRSTNAME_VALUE="billInfoFirstNameValue";
 	public String EMAIL_VALUE="billInfoEmailValue";
 	
-	public WidgetData() {
+	public JQueryWidgetData() {
 		try {
 			readXml = new ReadXMLFile();
 			readXml.loadJqueryWidgetData();

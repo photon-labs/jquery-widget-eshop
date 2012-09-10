@@ -19,10 +19,10 @@ public class ReadXMLFile {
 	private static Element eElement;
 	private Log log = LogFactory.getLog(getClass());
 	private static final String phrsc = "./src/main/resources/phresco-env-config.Xml";
-	private static final String jquerywidgdata = "./src/main/resources/WidgetData.xml";
+//	private static final String yuiwidgdata = "./src/main/resources/YUIWidgetData.xml";
 	private static final String constants = "./src/main/resources/UIConstants.xml";
 	private static final String UsrInfConst="./src/main/resources/UserInfo.xml";
-	
+	private static final String jqueryWidget="./src/main/resources/JQueryWidgetData.xml";
 	
 	public ReadXMLFile() throws ScreenException {
 		log.info("@ReadXMLFile Constructor::loading *****PhrescoUIConstants******");
@@ -41,7 +41,7 @@ public class ReadXMLFile {
 			/*System.out.println("Root element :"
 					+ doc.getDocumentElement().getNodeName());*/
 			NodeList nList = doc.getElementsByTagName("environment");
-			System.out.println("-----------------------");
+			
 
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -57,18 +57,25 @@ public class ReadXMLFile {
 		}
 	}
 	
-	public void loadJqueryWidgetData() throws ScreenException {
-    	loadPhrescoConstansts(jquerywidgdata);
+	/*public void loadYuiWidgetData() throws ScreenException {
+    	loadPhrescoConstansts(yuiwidgdata);
 	}
 	public void loadUIConstants() throws ScreenException {
     	loadPhrescoConstansts(constants);
-	}
+	}*/
 
 	public void loadUserInfoConstants() throws ScreenException {
 		loadPhrescoConstansts(UsrInfConst);
 		
 	}
-	
+	public void loadJqueryWidgetData() throws ScreenException {
+		loadPhrescoConstansts(jqueryWidget);
+		
+	}
+	public void loadUIConstants() throws ScreenException {
+    	loadPhrescoConstansts(constants);
+	}
+
 	public String getValue(String elementName) {
 
 		NodeList nlList = eElement.getElementsByTagName(elementName).item(0)
