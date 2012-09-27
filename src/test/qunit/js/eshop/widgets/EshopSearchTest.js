@@ -126,7 +126,7 @@ require ( [ "jquery", "./Products", "./EShopAPI", "./WSConfig", "qunit" ] , func
 		notEqual(output1.html(), output2.html(), "Search test case with different characters -- Test case passed");
 	}); 
 	
-	testSearchWithEmptyKeyword("Test search with empty keyword" , function() {
+	/* testSearchWithEmptyKeyword("Test search with empty keyword" , function() {
 	
 		// Setup view and call method under test
 		productsobj = new Products();
@@ -185,7 +185,7 @@ require ( [ "jquery", "./Products", "./EShopAPI", "./WSConfig", "qunit" ] , func
         mainContent.append(navUL);
 		output2 = mainContent.append(navUL);
 		notEqual(output1.html(), output2.html(), "Search test case with empty keyword - Test case passed");
-	});
+	}); */
 	
 	testSearchWithSpclChar("Test search with Special Character" , function() {
 	
@@ -248,7 +248,7 @@ require ( [ "jquery", "./Products", "./EShopAPI", "./WSConfig", "qunit" ] , func
 		notEqual(output1.html(), output2.html(), "Search test case with special characters - Test case passed");
 	});
 	
-	testSearchWithEmptySpclChar("Test search with empty & special characters" , function() {
+	/* testSearchWithEmptySpclChar("Test search with empty & special characters" , function() {
 	
 		// Setup view and call method under test
 		productsobj = new Products();
@@ -307,7 +307,7 @@ require ( [ "jquery", "./Products", "./EShopAPI", "./WSConfig", "qunit" ] , func
         mainContent.append(navUL);
 		output2 = mainContent.append(navUL);
 		equal(output1.html(), output2.html(), "Search test case with empty & special characters - Test case passed");
-	});
+	}); */
 	
 	testSearchWithSameAlphaNumChar("Test search with Same Alphanumeric Characters " , function() {
 	

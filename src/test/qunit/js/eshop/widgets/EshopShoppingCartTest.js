@@ -49,7 +49,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		checkoutcol4 = $(' <div class="checkoutcol4">');
 		removeDiv = $('<div class="co_col1position2">Remove Item</div> ');
 		checkoutcol4.append(removeDiv);
-		topH3.append(backHref);
+		productContainer.append(backHref);
 		productContainer.append(shoppingCarth5);
 		productContainer.append(checkoutcol1Div);
 		productContainer.append(checkoutcol2Div);
@@ -124,7 +124,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		equal(output1.html(), output2.html(), "Test Shopping cart - Test case passed"); 
 	});
 	
-	/* testShoppingCartFailure("Test Shopping cart - mismatch case", function() {
+	 testShoppingCartFailure("Test Shopping cart - mismatch case", function() {
 		
 		var shoppingcart, shoppingcard_data = {}, productArray = [], mainContent, topH3, productContainer, backHref, shoppingCarth5,
 		checkoutcol1Div, productsDiv, checkoutcol2Div, quantityDiv, checkoutcol3Div, amountDiv, checkoutcol4, removeDiv, 
@@ -237,7 +237,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		mainContent.append(productContainer);
 	    output2 = mainContent;
 		notEqual(output1.html(), output2.html(), "Test Shopping cart - mismatch case - test passed"); 
-	}); */
+	});
 	
 	testShoppingCartWithDiffData("Test Shopping cart  with different data", function() {
 		
@@ -287,7 +287,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		checkoutcol4 = $(' <div class="checkoutcol4">');
 		removeDiv = $('<div class="co_col1position2">Remove Item</div> ');
 		checkoutcol4.append(removeDiv);
-		topH3.append(backHref);
+		productContainer.append(backHref);
 		productContainer.append(shoppingCarth5);
 		productContainer.append(checkoutcol1Div);
 		productContainer.append(checkoutcol2Div);
@@ -411,7 +411,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		checkoutcol4 = $(' <div class="checkoutcol4">');
 		removeDiv = $('<div class="co_col1position2">Remove Item</div> ');
 		checkoutcol4.append(removeDiv);
-		topH3.append(backHref);
+		productContainer.append(backHref);
 		productContainer.append(shoppingCarth5);
 		productContainer.append(checkoutcol1Div);
 		productContainer.append(checkoutcol2Div);

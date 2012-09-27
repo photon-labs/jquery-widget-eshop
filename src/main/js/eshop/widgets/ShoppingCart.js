@@ -130,7 +130,9 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			});
 
 			event = {};
-			self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
+            if (self.listener !== null && self.listener !== undefined) {
+                self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
+            }
 			buttons.append(button1);
 			buttons.append(button2);
 			productContainer.append(clear1);
