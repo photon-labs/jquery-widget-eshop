@@ -39,19 +39,15 @@ require(  [ "jquery", "./RegisterSuccess", "./EShopAPI", "./Phresco", "qunit" ],
         userStatus = $('<div class="log_txt"></div>');
         userstatusMsg = $('<div class="log_txt_lft">User Status :' + resgisterresponse1.message+ ' </div>');
         log_txtfname = $('<div class="log_txt">');
-        log_txt_lftfname = $('<div class="log_txt_lft">Name : </div>');
-        log_txt_rhtfname = $('<div class="log_txt_lft">' + register1.firstName + register1.lastName + '</div>');
+        log_txt_lftfname = $('<div class="log_txt_lft">Name :' + register1.firstName + register1.lastName + ' </div>');
+        
         log_txtEmail = $('<div class="log_txt">');
-        log_txt_lftEmail = $('<div class="log_txt_lft">Email : </div>');
-        log_txt_rhtEmail = $('<div class="log_txt_lft">' + register1.email + '</div>');
+        log_txt_lftEmail = $('<div class="log_txt_lft">Email : ' + register1.email + ' </div>');
         cleardiv = $('<div class="clear"></div>');     
-
         registrationStatus.append(statusMsg);
         userStatus.append(userstatusMsg);
         log_txtfname.append(log_txt_lftfname);
-        log_txtfname.append(log_txt_rhtfname);
         log_txtEmail.append(log_txt_lftEmail);
-        log_txtEmail.append(log_txt_rhtEmail);
         log_txt_div.append(registrationStatus);
         log_txt_div.append(userStatus);
         log_txt_div.append(log_txtfname);
@@ -105,20 +101,16 @@ require(  [ "jquery", "./RegisterSuccess", "./EShopAPI", "./Phresco", "qunit" ],
         statusMsg = $('<div class="log_txt_lft">Registration Status :' + resgisterresponse1.successMessage+ '</div>');
         userStatus = $('<div class="log_txt"></div>');
         userstatusMsg = $('<div class="log_txt_lft">User Status :' + resgisterresponse1.message+ ' </div>');
-        log_txtfname = $('<div class="log_txt">');
-        log_txt_lftfname = $('<div class="log_txt_lft">Name : </div>');
-        log_txt_rhtfname = $('<div class="log_txt_lft">' + register1.firstName + register1.lastName + '</div>');
+        log_txtfname = $('<div class="log_txt2">');
+        log_txt_lftfname = $('<div class="log_txt_lft">Name :' + register1.firstName + register1.lastName + ' </div>');
+        
         log_txtEmail = $('<div class="log_txt">');
-        log_txt_lftEmail = $('<div class="log_txt_lft">Email : </div>');
-        log_txt_rhtEmail = $('<div class="log_txt_lft">' + register1.email + '</div>');
+        log_txt_lftEmail = $('<div class="log_txt_lft">Email : ' + register1.email + ' </div>');
         cleardiv = $('<div class="clear"></div>');     
-
         registrationStatus.append(statusMsg);
         userStatus.append(userstatusMsg);
         log_txtfname.append(log_txt_lftfname);
-        log_txtfname.append(log_txt_rhtfname);
         log_txtEmail.append(log_txt_lftEmail);
-        log_txtEmail.append(log_txt_rhtEmail);
         log_txt_div.append(registrationStatus);
         log_txt_div.append(userStatus);
         log_txt_div.append(log_txtfname);
@@ -135,6 +127,6 @@ require(  [ "jquery", "./RegisterSuccess", "./EShopAPI", "./Phresco", "qunit" ],
         contactus.append(selection);
         mainContent.append(contactus);
 		output2 = mainContent;
-		equal(output1.html(), output2.html(), "Test RegisterSuccess for failure case");
+		notEqual(output1.html(), output2.html(), "Test RegisterSuccess for success case");
 	});
 });

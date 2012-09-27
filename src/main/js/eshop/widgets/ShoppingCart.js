@@ -22,7 +22,6 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 
     ShoppingCart.prototype.initialize = function(container, listener, phrescoapi, api) {
 		listener.subscribe("ShoppingCart",this,"onHashChange");
-		listener.subscribe("ShowShoppingCart",this,"showWidget");
 		this.mainNode = container;
 		this.listener = listener;
         this.phrescoapi = phrescoapi;
@@ -79,6 +78,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			}
 		});
 					
+		productContainer.append(backHref);
 		productContainer.append(shoppingCarth5);
 		productContainer.append(checkoutcol1Div);
 		productContainer.append(checkoutcol2Div);
@@ -130,7 +130,9 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 			});
 
 			event = {};
-			self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
+            if (self.listener !== null && self.listener !== undefined) {
+                self.listener.publish(event,"MyCart",[self.phrescoapi.productArray]);
+            }
 			buttons.append(button1);
 			buttons.append(button2);
 			productContainer.append(clear1);
@@ -140,7 +142,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 				productContainer.append(buttons);
 			}	
 		}
-        topH3.append(backHref);                          
+                                   
 		mainContent.append(topH3);  
 		mainContent.append(productContainer);
 	    this.mainContent = mainContent;
@@ -148,7 +150,6 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 
     ShoppingCart.prototype.renderUI = function() {
         this.setMainContent();
-		this.phrescoapi.navigateToPath( "#ShoppingCart" );
         return this.mainContent;
     };
     
@@ -157,15 +158,11 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 		this.categoryId = data.categoryID;
 		this.productId = data.productID;
         this.render(this.mainNode);
-		this.showWidget();
+		this.mainNode.show();
     };
 
 	ShoppingCart.prototype.hideWidget = function(){
         this.mainNode.hide();
-    };
-	
-	ShoppingCart.prototype.showWidget = function() {
-        this.mainNode.show();
     };
 
     ShoppingCart.prototype.addFunction = function(shoppingcard_data, subtotal, checkoutvaluecol2, checkoutvaluecol4, data, self){

@@ -88,6 +88,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery", "framework/Clazz", "framework/Widg
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+            async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -114,6 +115,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery", "framework/Clazz", "framework/Widg
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+            async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
@@ -165,6 +167,7 @@ define( "eshop/widgets/EShopAPI", [ "jquery", "framework/Clazz", "framework/Widg
 			dataType: "json",
 			crossDomain: true,
 			cache: true,
+            async: false,
 			success : function(jo, e, xhr) {
 				if(callback !== null) {
 					callback(jo);
