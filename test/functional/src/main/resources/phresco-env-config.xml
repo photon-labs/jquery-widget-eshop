@@ -1,10 +1,11 @@
 <environment>
-           <Browser>googlechrome</Browser>
+           <Browser>firefox</Browser>
 		   <Server>
-              <context>testjquery</context>
-              <protocol>http</protocol>
-              <host>localhost</host>
-              <port>8888</port>
+              <context>html5widget</context>
+               <protocol>http</protocol>
+               <host>172.16.17.180</host>
+               <port>8080</port>
+              <resolution>640x960</resolution>
            </Server>
          
 </environment>
