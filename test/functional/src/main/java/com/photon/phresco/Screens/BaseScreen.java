@@ -75,7 +75,8 @@ public class BaseScreen {
 						.usingAnyFreePort().build();			
 				log.info("-------------***LAUNCHING GOOGLECHROME***--------------");						
 				driver=new ChromeDriver(chromeService);
-				driver.manage().window().maximize();
+				//driver.manage().window().maximize();
+				windowResize();
 				driver.navigate().to(applicationURL+applicationContext);		
 
 			} catch (Exception e) {
@@ -85,6 +86,7 @@ public class BaseScreen {
 		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 			log.info("---------------***LAUNCHING INTERNET EXPLORE***-----------");
 			driver = new InternetExplorerDriver();
+			windowResize();
 			driver.navigate().to(applicationURL + applicationContext);
 		
 
@@ -92,7 +94,6 @@ public class BaseScreen {
 			log.info("-------------***LAUNCHING FIREFOX***--------------");
 			driver = new FirefoxDriver();
 			//driver.manage().window().maximize();
-			// windowMaximizeFirefox();
 			windowResize();
 			driver.navigate().to(applicationURL + applicationContext);
 
@@ -130,9 +131,13 @@ public class BaseScreen {
 	 * Dimension dim = new Dimension((int) screenSize.getWidth(), (int)
 	 * screenSize.getHeight()); driver.manage().window().setSize(dim); }
 	 */
-	public static void windowResize(){
-		phrsc = new PhrescoUiConstants();		
-		String resolution = phrsc.RESOLUTION;
+	
+	public static void windowResize()
+	{
+		phrsc = new PhrescoUiConstants();
+		String resolution = phrsc.RESOLUTION;		
+		if(resolution!=null)
+		{
 		String[] tokens = resolution.split("x");
 		String resolutionX=tokens[0];
 		String resolutionY=tokens[1];		
@@ -140,7 +145,12 @@ public class BaseScreen {
 		int y= Integer.parseInt(resolutionY);
 		Dimension screenResolution = new Dimension(x,y);
 		driver.manage().window().setSize(screenResolution);
+		}
+		else{
+			driver.manage().window().maximize();
+		}
 	}
+	
 	public void closeBrowser() {
 		log.info("-------------***BROWSER CLOSING***--------------");
 		if (driver != null) {
