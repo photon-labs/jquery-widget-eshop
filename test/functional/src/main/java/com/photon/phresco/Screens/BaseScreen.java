@@ -13,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,7 @@ import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenException;
 import com.photon.phresco.uiconstants.JQueryWidgetData;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
 
@@ -35,12 +37,13 @@ import com.photon.phresco.uiconstants.UIConstants;
 
 public class BaseScreen {
 
-	private WebDriver driver;
+	private static WebDriver driver;
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
 	private WebElement element;	
 	private JQueryWidgetData jQueryWidgetData;
 	private UIConstants uiConstants;
+	private static PhrescoUiConstants phrsc;
 
 	// private Log log = LogFactory.getLog(getClass());
 
@@ -72,7 +75,8 @@ public class BaseScreen {
 						.usingAnyFreePort().build();			
 				log.info("-------------***LAUNCHING GOOGLECHROME***--------------");						
 				driver=new ChromeDriver(chromeService);
-				driver.manage().window().maximize();
+				//driver.manage().window().maximize();
+				windowResize();
 				driver.navigate().to(applicationURL+applicationContext);		
 
 			} catch (Exception e) {
@@ -82,14 +86,15 @@ public class BaseScreen {
 		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 			log.info("---------------***LAUNCHING INTERNET EXPLORE***-----------");
 			driver = new InternetExplorerDriver();
+			windowResize();
 			driver.navigate().to(applicationURL + applicationContext);
 		
 
 		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 			log.info("-------------***LAUNCHING FIREFOX***--------------");
 			driver = new FirefoxDriver();
-			driver.manage().window().maximize();
-			// windowMaximizeFirefox();
+			//driver.manage().window().maximize();
+			windowResize();
 			driver.navigate().to(applicationURL + applicationContext);
 
 		}
@@ -126,7 +131,26 @@ public class BaseScreen {
 	 * Dimension dim = new Dimension((int) screenSize.getWidth(), (int)
 	 * screenSize.getHeight()); driver.manage().window().setSize(dim); }
 	 */
-
+	
+	public static void windowResize()
+	{
+		phrsc = new PhrescoUiConstants();
+		String resolution = phrsc.RESOLUTION;		
+		if(resolution!=null)
+		{
+		String[] tokens = resolution.split("x");
+		String resolutionX=tokens[0];
+		String resolutionY=tokens[1];		
+		int x= Integer.parseInt(resolutionX);
+		int y= Integer.parseInt(resolutionY);
+		Dimension screenResolution = new Dimension(x,y);
+		driver.manage().window().setSize(screenResolution);
+		}
+		else{
+			driver.manage().window().maximize();
+		}
+	}
+	
 	public void closeBrowser() {
 		log.info("-------------***BROWSER CLOSING***--------------");
 		if (driver != null) {
@@ -209,7 +233,7 @@ public class BaseScreen {
 		try {
 			log.info("Entering:--------waitForElementPresent()--------");
 			By by = By.xpath(locator);
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, 15);
 			log.info("Waiting:--------One second----------");
 			wait.until(presenceOfElementLocated(by));
 		}
@@ -251,40 +275,40 @@ public class BaseScreen {
 		}
 		waitForElementPresent(this.uiConstants.EMAIL, methodName);
 		getXpathWebElement(this.uiConstants.EMAIL);
-		System.out.println("----element ---------->1" + element);
-
-		element.sendKeys(jQueryWidgetData.EMAIL_VALUE);
+		System.out.println("----element ---------->1" + element);		
+		
+		sendKeys(jQueryWidgetData.EMAIL_VALUE);
 		getIdWebElement(this.uiConstants.FIRSTNAME);
 		System.out.println("----element-------------> 2" + element);
-		element.sendKeys(jQueryWidgetData.FIRSTNAME_VALUE);
+		sendKeys(jQueryWidgetData.FIRSTNAME_VALUE);
 		getIdWebElement(this.uiConstants.LASTNAME);
-		element.sendKeys(jQueryWidgetData.LASTNAME_VALUE);
+		sendKeys(jQueryWidgetData.LASTNAME_VALUE);
 		getIdWebElement(this.uiConstants.COMPANY);
-		element.sendKeys(this.uiConstants.COMPANY);
+		sendKeys(this.uiConstants.COMPANY);
 		getIdWebElement(this.uiConstants.ADDRESS1);
-		element.sendKeys(jQueryWidgetData.ADDRESS1_VALUE);
+		sendKeys(jQueryWidgetData.ADDRESS1_VALUE);
 		getIdWebElement(this.uiConstants.ADDRESS2);
-		element.sendKeys(jQueryWidgetData.ADDRESS2_VALUE);
+		sendKeys(jQueryWidgetData.ADDRESS2_VALUE);
 		getIdWebElement(this.uiConstants.CITY);
-		element.sendKeys(jQueryWidgetData.CITY_VALUE);
+		sendKeys(jQueryWidgetData.CITY_VALUE);
 		getIdWebElement(this.uiConstants.STATE);
-		element.sendKeys(jQueryWidgetData.STATE_VALUE);
+		sendKeys(jQueryWidgetData.STATE_VALUE);
 		getIdWebElement(this.uiConstants.POSTALCODE);
-		element.sendKeys(jQueryWidgetData.POSTALCODE_VALUE);
+		sendKeys(jQueryWidgetData.POSTALCODE_VALUE);
 		getIdWebElement(this.uiConstants.PHONENUMBER);
-		element.sendKeys(jQueryWidgetData.PHONENUMBER_VALUE);
+		sendKeys(jQueryWidgetData.PHONENUMBER_VALUE);
 		getIdWebElement(this.uiConstants.CARDNUMBER);
-		element.sendKeys(jQueryWidgetData.CARDNUMBER_VALUE);
+		sendKeys(jQueryWidgetData.CARDNUMBER_VALUE);
 		getIdWebElement(this.uiConstants.SECURITYNUMBER);
-		element.sendKeys(jQueryWidgetData.SECURITYNUMBER_VALUE);
+		sendKeys(jQueryWidgetData.SECURITYNUMBER_VALUE);
 		getIdWebElement(this.uiConstants.NAMEONCARD);
-		element.sendKeys(jQueryWidgetData.NAMEONCARD_VALUE);
+		sendKeys(jQueryWidgetData.NAMEONCARD_VALUE);
 		waitForElementPresent(this.uiConstants.REVIEWORDER, methodName);
 		getXpathWebElement(this.uiConstants.REVIEWORDER);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.SUBMITORDER, methodName);
 		getXpathWebElement(this.uiConstants.SUBMITORDER);
-		element.click();
+		click();
 
 	}
 
@@ -298,16 +322,16 @@ public class BaseScreen {
 		log.info("Entering :***************Television()***********Start:");
 		waitForElementPresent(this.uiConstants.TELEVISION, methodName);
 		getXpathWebElement(this.uiConstants.TELEVISION);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.PROD1_DETAILS, methodName);
 		getXpathWebElement(this.uiConstants.PROD1_DETAILS);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.DET_ADDTOCART, methodName);
 		getXpathWebElement(this.uiConstants.DET_ADDTOCART);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.CHECKOUT, methodName);
 		getXpathWebElement(this.uiConstants.CHECKOUT);
-		element.click();
+		click();
 	}
 
 	public void Computers(String methodName) throws Exception {
@@ -319,16 +343,16 @@ public class BaseScreen {
 		}
 		waitForElementPresent(this.uiConstants.COMPUTERS, methodName);
 		getXpathWebElement(this.uiConstants.COMPUTERS);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.PROD1_DETAILS, methodName);
 		getXpathWebElement(this.uiConstants.PROD1_DETAILS);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.DET_ADDTOCART, methodName);
 		getXpathWebElement(this.uiConstants.DET_ADDTOCART);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.CHECKOUT, methodName);
 		getXpathWebElement(this.uiConstants.CHECKOUT);
-		element.click();
+		click();
 
 	}
 
@@ -491,9 +515,9 @@ public class BaseScreen {
 					.getMethodName();
 			;
 		}
-		waitForElementPresent(this.uiConstants.MORE, methodName);
+		/*waitForElementPresent(this.uiConstants.MORE, methodName);
 		getXpathWebElement(this.uiConstants.MORE);
-		element.click();
+		element.click();*/
 		waitForElementPresent(this.uiConstants.ACCESSORIES, methodName);
 		getXpathWebElement(this.uiConstants.ACCESSORIES);
 		element.click();
