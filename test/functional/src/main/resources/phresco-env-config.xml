@@ -1,11 +1,11 @@
 <environment>
-           <Browser>firefox</Browser>
+           <Browser>googlechrome</Browser>
 		   <Server>
-              <context>html5widget</context>
+              <context>jqueryeshop</context>
                <protocol>http</protocol>
-               <host>172.16.17.180</host>
-               <port>8080</port>
-              <resolution>640x960</resolution>
+               <host>172.16.26.139</host>
+               <port>8090</port>
+              <resolution></resolution>
            </Server>
          
 </environment>

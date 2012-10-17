@@ -233,7 +233,7 @@ public class BaseScreen {
 		try {
 			log.info("Entering:--------waitForElementPresent()--------");
 			By by = By.xpath(locator);
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, 15);
 			log.info("Waiting:--------One second----------");
 			wait.until(presenceOfElementLocated(by));
 		}
@@ -275,40 +275,40 @@ public class BaseScreen {
 		}
 		waitForElementPresent(this.uiConstants.EMAIL, methodName);
 		getXpathWebElement(this.uiConstants.EMAIL);
-		System.out.println("----element ---------->1" + element);
-
-		element.sendKeys(jQueryWidgetData.EMAIL_VALUE);
+		System.out.println("----element ---------->1" + element);		
+		
+		sendKeys(jQueryWidgetData.EMAIL_VALUE);
 		getIdWebElement(this.uiConstants.FIRSTNAME);
 		System.out.println("----element-------------> 2" + element);
-		element.sendKeys(jQueryWidgetData.FIRSTNAME_VALUE);
+		sendKeys(jQueryWidgetData.FIRSTNAME_VALUE);
 		getIdWebElement(this.uiConstants.LASTNAME);
-		element.sendKeys(jQueryWidgetData.LASTNAME_VALUE);
+		sendKeys(jQueryWidgetData.LASTNAME_VALUE);
 		getIdWebElement(this.uiConstants.COMPANY);
-		element.sendKeys(this.uiConstants.COMPANY);
+		sendKeys(this.uiConstants.COMPANY);
 		getIdWebElement(this.uiConstants.ADDRESS1);
-		element.sendKeys(jQueryWidgetData.ADDRESS1_VALUE);
+		sendKeys(jQueryWidgetData.ADDRESS1_VALUE);
 		getIdWebElement(this.uiConstants.ADDRESS2);
-		element.sendKeys(jQueryWidgetData.ADDRESS2_VALUE);
+		sendKeys(jQueryWidgetData.ADDRESS2_VALUE);
 		getIdWebElement(this.uiConstants.CITY);
-		element.sendKeys(jQueryWidgetData.CITY_VALUE);
+		sendKeys(jQueryWidgetData.CITY_VALUE);
 		getIdWebElement(this.uiConstants.STATE);
-		element.sendKeys(jQueryWidgetData.STATE_VALUE);
+		sendKeys(jQueryWidgetData.STATE_VALUE);
 		getIdWebElement(this.uiConstants.POSTALCODE);
-		element.sendKeys(jQueryWidgetData.POSTALCODE_VALUE);
+		sendKeys(jQueryWidgetData.POSTALCODE_VALUE);
 		getIdWebElement(this.uiConstants.PHONENUMBER);
-		element.sendKeys(jQueryWidgetData.PHONENUMBER_VALUE);
+		sendKeys(jQueryWidgetData.PHONENUMBER_VALUE);
 		getIdWebElement(this.uiConstants.CARDNUMBER);
-		element.sendKeys(jQueryWidgetData.CARDNUMBER_VALUE);
+		sendKeys(jQueryWidgetData.CARDNUMBER_VALUE);
 		getIdWebElement(this.uiConstants.SECURITYNUMBER);
-		element.sendKeys(jQueryWidgetData.SECURITYNUMBER_VALUE);
+		sendKeys(jQueryWidgetData.SECURITYNUMBER_VALUE);
 		getIdWebElement(this.uiConstants.NAMEONCARD);
-		element.sendKeys(jQueryWidgetData.NAMEONCARD_VALUE);
+		sendKeys(jQueryWidgetData.NAMEONCARD_VALUE);
 		waitForElementPresent(this.uiConstants.REVIEWORDER, methodName);
 		getXpathWebElement(this.uiConstants.REVIEWORDER);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.SUBMITORDER, methodName);
 		getXpathWebElement(this.uiConstants.SUBMITORDER);
-		element.click();
+		click();
 
 	}
 
@@ -322,16 +322,16 @@ public class BaseScreen {
 		log.info("Entering :***************Television()***********Start:");
 		waitForElementPresent(this.uiConstants.TELEVISION, methodName);
 		getXpathWebElement(this.uiConstants.TELEVISION);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.PROD1_DETAILS, methodName);
 		getXpathWebElement(this.uiConstants.PROD1_DETAILS);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.DET_ADDTOCART, methodName);
 		getXpathWebElement(this.uiConstants.DET_ADDTOCART);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.CHECKOUT, methodName);
 		getXpathWebElement(this.uiConstants.CHECKOUT);
-		element.click();
+		click();
 	}
 
 	public void Computers(String methodName) throws Exception {
@@ -343,16 +343,16 @@ public class BaseScreen {
 		}
 		waitForElementPresent(this.uiConstants.COMPUTERS, methodName);
 		getXpathWebElement(this.uiConstants.COMPUTERS);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.PROD1_DETAILS, methodName);
 		getXpathWebElement(this.uiConstants.PROD1_DETAILS);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.DET_ADDTOCART, methodName);
 		getXpathWebElement(this.uiConstants.DET_ADDTOCART);
-		element.click();
+		click();
 		waitForElementPresent(this.uiConstants.CHECKOUT, methodName);
 		getXpathWebElement(this.uiConstants.CHECKOUT);
-		element.click();
+		click();
 
 	}
 
@@ -515,9 +515,9 @@ public class BaseScreen {
 					.getMethodName();
 			;
 		}
-		waitForElementPresent(this.uiConstants.MORE, methodName);
+		/*waitForElementPresent(this.uiConstants.MORE, methodName);
 		getXpathWebElement(this.uiConstants.MORE);
-		element.click();
+		element.click();*/
 		waitForElementPresent(this.uiConstants.ACCESSORIES, methodName);
 		getXpathWebElement(this.uiConstants.ACCESSORIES);
 		element.click();
