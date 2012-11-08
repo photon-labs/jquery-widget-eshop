@@ -5,7 +5,7 @@
     <artifactId>PHR_jquerywidget</artifactId>
     <packaging>js</packaging>
     <name>PHR_jquerywidget</name>
-    <version>1.2.4.1003-SNAPSHOT</version>
+    <version>1.2.4.1004-SNAPSHOT</version>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
 			<extension>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>javascript-maven-plugin</artifactId>
-				<version>1.2.4.1003-SNAPSHOT</version>
+				<version>1.2.4.1004-SNAPSHOT</version>
 			</extension>
 		</extensions>
     <sourceDirectory>src/main/java</sourceDirectory>
@@ -66,7 +66,7 @@
       <plugin>
         <groupId>com.photon.phresco.plugins</groupId>
         <artifactId>java-maven-plugin</artifactId>
-        <version>1.2.4.1003-SNAPSHOT</version>
+        <version>1.2.4.1004-SNAPSHOT</version>
         <extensions>true</extensions>
       </plugin>
        <plugin>
