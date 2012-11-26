@@ -11,7 +11,7 @@
 	
 		<!-- filter to copy the contents from the base directory -->
 		<fileSet>
-			<directory>${basedir}/target/classes</directory>
+			<directory>do_not_checkin/target/classes</directory>
 			<outputDirectory>/WEB-INF/classes</outputDirectory>
 			<excludes>
 			    <exclude>/js/**</exclude>
@@ -24,7 +24,7 @@
 		</fileSet>
 		
 		<fileSet>
-			<directory>${basedir}/target/classes</directory>
+			<directory>do_not_checkin/target/classes</directory>
 			<outputDirectory>/</outputDirectory>
 			<includes>
 			    <include>/js/**</include>
@@ -38,12 +38,12 @@
 	
 		<!-- filter to copy the contents from the base directory -->
 		<fileSet>
-			<directory>${basedir}/src/main/webapp</directory>
+			<directory>src/main/webapp</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
 		
 		<fileSet>
-			<directory>${basedir}/target</directory>
+			<directory>do_not_checkin/target</directory>
 			<outputDirectory>/WEB-INF</outputDirectory>
 			<includes>
 			    <include>/lib/**</include>
@@ -51,7 +51,34 @@
 		</fileSet>
 		
 		<fileSet>
-			<directory>${basedir}/src/main/resources</directory>
+			<directory>src/main/webapp/WEB-INF</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+			    <include>web.xml</include>
+			</includes>
+			<excludes>
+			    <exclude>/js/**</exclude>
+			</excludes>
+		</fileSet>
+		
+		<fileSet>
+			<directory>${basedir}/do_not_checkin/target/jstest/overlays</directory>
+			<outputDirectory>/lib</outputDirectory>
+			<includes>
+			    <include>/jslibraries/**</include>
+			</includes>
+		</fileSet>
+		
+		<fileSet>
+			<directory>${basedir}/do_not_checkin/target/jstest/overlays/net.awired.js</directory>
+			<outputDirectory>/lib</outputDirectory>
+			<includes>
+			    <include>/almond/*.js</include>
+			</includes>
+		</fileSet>
+		
+		<fileSet>
+			<directory>src/main/resources</directory>
 			<outputDirectory>/WEB-INF/classes</outputDirectory>
 			<excludes>
 			    <exclude>/js/**</exclude>
@@ -63,7 +90,7 @@
 		</fileSet>
 		
 		<fileSet>
-			<directory>${basedir}/src/main/resources</directory>
+			<directory>src/main/resources</directory>
 			<outputDirectory>/resources</outputDirectory>
 			<includes>
 			    <include>*.xml</include>
