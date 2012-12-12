@@ -16,13 +16,13 @@ import com.photon.phresco.selenium.util.ScreenException;
 
 public class ReadXMLFile {
 
-	private static Element eElement;
+	private  Element eElement;
 	private Log log = LogFactory.getLog(getClass());
-	private static final String phrsc = "./src/main/resources/phresco-env-config.Xml";
-//	private static final String yuiwidgdata = "./src/main/resources/YUIWidgetData.xml";
-	private static final String constants = "./src/main/resources/UIConstants.xml";
-	private static final String UsrInfConst="./src/main/resources/UserInfo.xml";
-	private static final String jqueryWidget="./src/main/resources/JQueryWidgetData.xml";
+	private  final String phrsc = "./src/main/resources/phresco-env-config.Xml";
+//	private  final String yuiwidgdata = "./src/main/resources/YUIWidgetData.xml";
+	private  final String constants = "./src/main/resources/UIConstants.xml";
+	private  final String UsrInfConst="./src/main/resources/UserInfo.xml";
+	private  final String jqueryWidget="./src/main/resources/JQueryWidgetData.xml";
 	
 	public ReadXMLFile() throws ScreenException {
 		log.info("@ReadXMLFile Constructor::loading *****PhrescoUIConstants******");

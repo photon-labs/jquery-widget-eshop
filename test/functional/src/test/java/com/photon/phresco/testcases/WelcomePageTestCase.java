@@ -2,35 +2,47 @@ package com.photon.phresco.testcases;
 
 import java.io.IOException;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
-public class WelcomePage {
+public class WelcomePageTestCase {
 
-	private static UIConstants uiConstants;
-	private static PhrescoUiConstants phrescoUIConstants;
-	private static WelcomeScreen welcomeScreen;
-	private static String methodName;
-	private static String selectedBrowser;
-	private static JQueryWidgetData jqueryWidgetConstants;
+	private  UIConstants uiConstants;
+	private  PhrescoUiConstants phrescoUIConstants;
+	private  WelcomeScreen welcomeScreen;
+	private  String methodName;
+	private  String selectedBrowser;
+	private  JQueryWidgetData jqueryWidgetConstants;
 
 	// private Log log = LogFactory.getLog(getClass());
-
-	@BeforeClass
-	public static void setUp() throws Exception {
+	@Parameters(value = { "browser", "platform" })
+	@BeforeTest
+	public  void setUp(String browser, String platform) throws Exception {
 		try {
 			phrescoUIConstants = new PhrescoUiConstants();
 			uiConstants = new UIConstants();
 			// assertNotNull(uiConstants);
 			jqueryWidgetConstants = new JQueryWidgetData();
-			launchingBrowser();
+			String selectedBrowser = browser;
+			String selectedPlatform = platform;
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+	       Reporter.log("Selected Browser to execute testcases--->>"
+					+ selectedBrowser);
+	       String applicationURL = phrescoUIConstants.PROTOCOL + "://"
+					+ phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT
+					+ "/";
+			welcomeScreen = new WelcomeScreen(selectedBrowser,selectedPlatform, applicationURL,
+					phrescoUIConstants.CONTEXT, jqueryWidgetConstants, uiConstants);
 			// menuScreen = welcomeScreen.menuScreen(uiConstants);
 			
 		} catch (Exception exception) {
@@ -38,20 +50,20 @@ public class WelcomePage {
 		}
 	}
 
-	public static void launchingBrowser() throws Exception {
+	/*public  void launchingBrowser() throws Exception {
 		try {
 			String applicationURL = phrescoUIConstants.PROTOCOL + "://"
 					+ phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT
 					+ "/";
 			selectedBrowser = phrescoUIConstants.BROWSER;
-			welcomeScreen = new WelcomeScreen(selectedBrowser, applicationURL,
+			welcomeScreen = new WelcomeScreen(selectedBrowser,selectedPlatform, applicationURL,
 					phrescoUIConstants.CONTEXT, jqueryWidgetConstants, uiConstants);
 		} catch (Exception exception) {
 			exception.printStackTrace();
 
 		}
 
-	}
+	}*/
 
 	@Test
 	public void testWelcomePageScreen() throws InterruptedException,
@@ -152,7 +164,7 @@ public class WelcomePage {
 		}
 	}
 
-	@Test
+@Test
 	public void testToVerifyTheMP3PlayersAddToCart()
 			throws InterruptedException, IOException, Exception {
 		try {
@@ -234,9 +246,24 @@ public class WelcomePage {
 
 		}
 	}
+	@Test
+	public void testToVerifyTheZFailureScenario()
+			throws InterruptedException, IOException, Exception {
+		try {
+			System.out
+					.println("---------testToVerifyTheComputersAddToCart()-------------");
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.Computers(methodName);
+			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.Registration(methodName);
+		} catch (Exception t) {
+			t.printStackTrace();
 
-	@AfterClass
-	public static void tearDown() {
+		}
+	}
+	@AfterTest
+	public  void tearDown() {
 		welcomeScreen.closeBrowser();
 	}
 
