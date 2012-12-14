@@ -24,9 +24,9 @@
 			<version>6.5.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server</artifactId>
-			<version>2.21.0</version>
+			 <groupId>org.seleniumhq.selenium</groupId>
+ <artifactId>selenium-server-standalone</artifactId>
+ <version>2.26.0</version>
 		</dependency>
 			<dependency>
 				<groupId>com.opera</groupId>
@@ -110,10 +110,9 @@
 							<markersDirectory>lib</markersDirectory>
 						<artifactItems>
 								<artifactItem>
-							
-												<groupId>org.seleniumhq.selenium</groupId>
-												<artifactId>selenium-server</artifactId>
-												<version>2.21.0</version>
+										 <groupId>org.seleniumhq.selenium</groupId>
+                                         <artifactId>selenium-server-standalone</artifactId>
+                                         <version>2.26.0</version>
 												<overWrite>false</overWrite>
 											    <outputDirectory>${project.basedir}/lib</outputDirectory>
 		
