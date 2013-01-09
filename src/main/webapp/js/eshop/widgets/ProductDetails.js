@@ -49,7 +49,7 @@ define( "eshop/widgets/ProductDetails", [ "jquery", "framework/Clazz", "framewor
 			productname = $('<h4>'+ productDetails.name +'</h4>');
 		    productimageholder = $('<div class="productimageholder" style="position: relative;">');
 			detailImage = "images/eshop/"+productDetails.image;
-	        productimage=$('<img src="' + self.api.wsURLWithoutContext + '/images/web/' + productDetails.image + '" alt="" width="200" height="200" >');
+	        productimage=$('<img src="' + self.api.wsURL + '/images/web/' + productDetails.image + '" alt="" width="200" height="200" >');
 			productimageholder.append(productimage);
 			
 			productdetail_info = $('<div class="productdetail_info">');

@@ -93,7 +93,7 @@ define( "eshop/widgets/ShoppingCart", [ "jquery", "framework/Clazz", "framework/
 				checkoutrow2= $('<div class="chectoutrow2">');
 		        checkoutvaluecol1= $('<div class="checkoutvaluecol1">'); 
 		        co_col1position1= $('<div class="co_col1position1">');
-		        co_product_image= $('<div class="co_product_image"><img src="' + self.api.wsURLWithoutContext + '/images/web/' + shoppingcard_data[j].image + '" width="120" height="120" alt="' + self.api.wsURLWithoutContext + '/images/web/' + shoppingcard_data[j].image + '"></div>');
+		        co_product_image= $('<div class="co_product_image"><img src="' + self.api.wsURL + '/images/web/' + shoppingcard_data[j].image + '" width="120" height="120" alt="' + self.api.wsURL + '/images/web/' + shoppingcard_data[j].image + '"></div>');
 		        co_product_description= $('<div class="co_product_description">' + shoppingcard_data[j].name + '</div>');
 				co_col1position1.append(co_product_image);
 				co_col1position1.append(co_product_description);

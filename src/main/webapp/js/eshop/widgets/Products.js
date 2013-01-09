@@ -116,7 +116,7 @@ define( "eshop/widgets/Products", [ "jquery", "framework/Clazz", "framework/Widg
 			for (i = 0; i < newproducts; i++) {
 				product = jsonObject.product[i];
 				innerLi = $('<li></li>');
-				innerDiv1 = $('<div class="img"><a href="javascript:void(0);"><img src="'+this.api.wsURLWithoutContext+'/images/web/'+product.image+'" alt=""></a></div>');
+				innerDiv1 = $('<div class="img"><a href="javascript:void(0);"><img src="'+this.api.wsURL+'/images/web/'+product.image+'" alt=""></a></div>');
 				innerDiv2 = $('<div class="info"></div>');
 				productNamelink = $('<a class="title2" href="#">'+product.name+'</a>');
 				productPriceDiv = $('<div class="price"><span class="st">Our price:</span><strong>$'+product.listPrice+'</strong><br><span class="st2">Sell at:</span><span class="st3">$'+product.sellPrice+'</span></div></div>');
