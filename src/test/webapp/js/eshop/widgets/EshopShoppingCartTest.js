@@ -13,17 +13,18 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		var shoppingcart, shoppingcard_data = {}, productArray = [], mainContent, topH3, productContainer, backHref, shoppingCarth5,
 		checkoutcol1Div, productsDiv, checkoutcol2Div, quantityDiv, checkoutcol3Div, amountDiv, checkoutcol4, removeDiv, 
 		remProductId, checkoutrow2, checkoutvaluecol1, co_col1position1, co_product_image, subtotalAmount,
-		co_product_description, checkoutvaluecol2, checkoutvaluecol3, checkoutvaluecol4, data, clear1, subtotal, subtotal1, clear2, buttons, button1, button2, event, j, i, self = this, api, phrescoapi, output1, output2;
+		co_product_description, checkoutvaluecol2, checkoutvaluecol3, checkoutvaluecol4, data, clear1, subtotal, subtotal1, clear2, buttons, button1, button2, event, j, i, self = this, api, phrescoapi, output1, output2, wsURL;
 		
 		shoppingcard_data = [{image : "product/bb_mobile_24.png",name:"BlackBerry Torch 9800 ", productId : 24, quantity : 1, price: 512},{image : "product/nokia_mobile_26.png", name:"Nokia C6-01 ", productId : 26, quantity : 1, price: 273}];
 		productArray = [{image : "product/bb_mobile_24.png",name:"BlackBerry Torch 9800 ", productId : 24, quantity : 1, price: 512},{image : "product/nokia_mobile_26.png", name:"Nokia C6-01 ", productId : 26, quantity : 1, price: 273}];
 		
 		
 		shoppingcart = new  ShoppingCart();
-		api = new EShopAPI();
 		phrescoapi = new Phresco();
 		wsconfig = new WSConfig();
-		api.wsURL = wsconfig.WSConfigurl;
+		wsURL = wsconfig.WSConfigurl;
+		api = new EShopAPI();
+		api.initialize(wsURL); 
 		
 		shoppingcart.api = api;
 		phrescoapi.productArray = productArray;
@@ -64,7 +65,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 				checkoutrow2= $('<div class="chectoutrow2">');
 		        checkoutvaluecol1= $('<div class="checkoutvaluecol1">'); 
 		        co_col1position1= $('<div class="co_col1position1">');
-		        co_product_image= $('<div class="co_product_image"><img src="' + api.wsURLWithoutContext + '/images/web/' + shoppingcard_data[j].image + '" width="120" height="120" alt="' + api.wsURLWithoutContext + '/images/web/' + shoppingcard_data[j].image + '"></div>');
+		        co_product_image= $('<div class="co_product_image"><img src="' + api.wsURLWithoutContext + 'eshop/images/web/' + shoppingcard_data[j].image + '" width="120" height="120" alt="' + api.wsURLWithoutContext + 'eshop/images/web/' + shoppingcard_data[j].image + '"></div>');
 		        co_product_description= $('<div class="co_product_description">' + shoppingcard_data[j].name + '</div>');
 				co_col1position1.append(co_product_image);
 				co_col1position1.append(co_product_description);
