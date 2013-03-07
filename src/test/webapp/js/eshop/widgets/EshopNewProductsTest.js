@@ -10,10 +10,12 @@ require([ "jquery", "eshop/widgets/Newproducts", "eshop/widgets/EShopAPI", "esho
 		
 		newProduct = new Newproducts();
 		wsconfig = new WSConfig();
-		wsURL = wsconfig.WSConfigurl;
-		api = new EShopAPI();
-		api.initialize(wsURL); 
-		newProduct.api = api;
+		wsconfig.getEnvironment(function(wsURL){
+			api = new EShopAPI();
+			api.initialize(wsURL); 
+			newProduct.api = api;
+		
+		});
 		
 		setTimeout(function() {
 			 start();

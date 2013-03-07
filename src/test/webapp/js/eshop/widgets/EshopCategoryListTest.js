@@ -9,16 +9,18 @@ require([ "jquery", "eshop/widgets/WSConfig", "eshop/widgets/EShopAPI",  "eshop/
 	 */
 	 module("Category.js;Category");
 	asyncTest("category-widget unite test case passed.", function() {
-
 		var category, initeObj, listener, api, phresco, mainContent, currentName, currentID, navUL, output1, output2, wsconfig, wsURL;
 
 		// Setup view and call method under test
+		
 		category = new Category();
 		wsconfig = new WSConfig();
-		wsURL = wsconfig.WSConfigurl;
-		api = new EShopAPI();
-		api.initialize(wsURL); 
-		category.api = api;
+		api = new EShopAPI();		
+		
+		wsconfig.getEnvironment(function(data){
+			api.initialize(data); 
+			category.api = api;
+		});	
 		
 		setTimeout(function() {
 			 start();

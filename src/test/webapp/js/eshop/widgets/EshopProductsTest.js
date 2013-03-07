@@ -9,12 +9,13 @@ require ( [ "jquery", "eshop/widgets/Products", "eshop/widgets/EShopAPI", "eshop
 		// Setup view and call method under test
 		productsobj = new Products();
 		wsconfig = new WSConfig();
-		wsURL = wsconfig.WSConfigurl;
-		api = new EShopAPI();
-		api.initialize(wsURL); 
-		productsobj.api = api;
-		productsobj.categoryId =1;
-		productsobj.searchCriteria =undefined;
+		wsconfig.getEnvironment(function(wsURL) {
+			api = new EShopAPI();
+			api.initialize(wsURL); 
+			productsobj.api = api;
+			productsobj.categoryId =1;
+			productsobj.searchCriteria =undefined;
+		});
 		
 		setTimeout(function() {
 			 start();
@@ -65,7 +66,7 @@ require ( [ "jquery", "eshop/widgets/Products", "eshop/widgets/EShopAPI", "eshop
 			mainContent.append(navUL);
 			output2 = mainContent.append(navUL);
 			equal(output1.html(), output2.html(), "Products List with same category Id --Test case passed");
-		}, 1000);
+		}, 1500);
 	});
 	
 	asyncTest(" Test products using different category Id " , function() {
@@ -73,12 +74,13 @@ require ( [ "jquery", "eshop/widgets/Products", "eshop/widgets/EShopAPI", "eshop
 		// Setup view and call method under test
 		productsobj = new Products();
 		wsconfig = new WSConfig();
-		wsURL = wsconfig.WSConfigurl;
-		api = new EShopAPI();
-		api.initialize(wsURL); 
-		productsobj.api = api;
-		productsobj.categoryId =1;
-		productsobj.searchCriteria =undefined;
+		wsconfig.getEnvironment(function(wsURL) {
+			api = new EShopAPI();
+			api.initialize(wsURL); 
+			productsobj.api = api;
+			productsobj.categoryId =1;
+			productsobj.searchCriteria =undefined;
+		});
 		
 		setTimeout(function() {
 			start();
@@ -128,6 +130,6 @@ require ( [ "jquery", "eshop/widgets/Products", "eshop/widgets/EShopAPI", "eshop
 			mainContent.append(navUL);
 			output2 = mainContent.append(navUL);
 			equal(output1.html(), output2.html(), "Products List with different category Id -- Test case passed");
-		}, 1000);
+		}, 1500);
 	});
 });

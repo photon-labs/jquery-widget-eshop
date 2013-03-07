@@ -15,11 +15,13 @@ require([ "jquery", "eshop/widgets/ProductDetails", "eshop/widgets/EShopAPI", "e
 		
 		productdetail = new ProductDetails();
 		wsconfig = new WSConfig();
-		wsURL = wsconfig.WSConfigurl;
-		api = new EShopAPI();
-		api.initialize(wsURL); 
-		productdetail.api = api;
-		productdetail.productId = 12;
+		wsconfig.getEnvironment(function(wsURL) {
+			api = new EShopAPI();
+			api.initialize(wsURL); 
+			productdetail.api = api;
+			productdetail.productId = 12;
+		});
+		
 		
 		setTimeout(function() {
 			 start();
@@ -150,7 +152,7 @@ require([ "jquery", "eshop/widgets/ProductDetails", "eshop/widgets/EShopAPI", "e
 			
 			output2 = mainContent;
 			equal(output1.html(), output2.html(), "Test Product details with same ProductID - Test case passed"); 
-		}, 1000);
+		}, 1500);
 	});
 	
 	asyncTest("Test Product details with different Product ID.", function() {
@@ -163,11 +165,13 @@ require([ "jquery", "eshop/widgets/ProductDetails", "eshop/widgets/EShopAPI", "e
 		
 		productdetail = new ProductDetails();
 		wsconfig = new WSConfig();
-		wsURL = wsconfig.WSConfigurl;
-		api = new EShopAPI();
-		api.initialize(wsURL); 
-		productdetail.api = api;
-		productdetail.productId = 12;
+		wsconfig.getEnvironment(function(wsURL) {
+			api = new EShopAPI();
+			api.initialize(wsURL); 
+			productdetail.api = api;
+			productdetail.productId = 12;
+		});
+		
 		setTimeout(function() {
 			 start();
 			output1 = productdetail.testRenderUI();
@@ -295,7 +299,7 @@ require([ "jquery", "eshop/widgets/ProductDetails", "eshop/widgets/EShopAPI", "e
 			output2 = mainContent;
 
 			equal(output1.html(), output2.html(), "Test Product details with different ProductID - Test case passed "); 
-		}, 1000);
+		}, 1500);
 	});
 });
 	
