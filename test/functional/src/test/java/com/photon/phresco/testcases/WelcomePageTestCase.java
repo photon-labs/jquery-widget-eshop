@@ -2,7 +2,6 @@ package com.photon.phresco.testcases;
 
 import java.io.IOException;
 
-
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
@@ -11,7 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.photon.phresco.Screens.WelcomeScreen;
-import com.photon.phresco.uiconstants.YUIWidgetData;
+import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
@@ -22,7 +21,7 @@ public class WelcomePageTestCase {
 	private  WelcomeScreen welcomeScreen;
 	private  String methodName;
 	private  String selectedBrowser;
-	private  YUIWidgetData yuiWidgetConstants;
+	private  JQueryWidgetData jqueryWidgetConstants;
 
 	// private Log log = LogFactory.getLog(getClass());
 	@Parameters(value = { "browser", "platform" })
@@ -32,7 +31,7 @@ public class WelcomePageTestCase {
 			phrescoUIConstants = new PhrescoUiConstants();
 			uiConstants = new UIConstants();
 			// assertNotNull(uiConstants);
-			yuiWidgetConstants = new YUIWidgetData();
+			jqueryWidgetConstants = new JQueryWidgetData();
 			String selectedBrowser = browser;
 			String selectedPlatform = platform;
 			methodName = Thread.currentThread().getStackTrace()[1]
@@ -43,7 +42,7 @@ public class WelcomePageTestCase {
 					+ phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT
 					+ "/";
 			welcomeScreen = new WelcomeScreen(selectedBrowser,selectedPlatform, applicationURL,
-					phrescoUIConstants.CONTEXT, yuiWidgetConstants, uiConstants);
+					phrescoUIConstants.CONTEXT, jqueryWidgetConstants, uiConstants);
 			// menuScreen = welcomeScreen.menuScreen(uiConstants);
 			
 		} catch (Exception exception) {

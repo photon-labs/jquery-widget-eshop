@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.photon.phresco</groupId>
-  <artifactId>test</artifactId>
+  <artifactId>HTML5-JqueryWidget_Eshop</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
-  <name>test</name>
+  <name>HTML5-JqueryWidget_Eshop</name>
   <url>http://maven.apache.org</url> 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,11 +22,6 @@
  <artifactId>selenium-server-standalone</artifactId>
  <version>2.30.0</version>
 		</dependency>
-			<dependency>
-	<groupId>org.seleniumhq.selenium</groupId>
-	<artifactId>selenium-htmlunit-driver</artifactId>
-	<version>2.29.1</version>
-</dependency>
 			<dependency>
 				<groupId>com.opera</groupId>
 				<artifactId>operadriver</artifactId>
@@ -108,14 +103,6 @@
 										 <groupId>org.seleniumhq.selenium</groupId>
                                          <artifactId>selenium-server-standalone</artifactId>
                                          <version>2.30.0</version>
-												<overWrite>false</overWrite>
-											    <outputDirectory>${project.basedir}/lib</outputDirectory>
-		
-								  </artifactItem>
-								  <artifactItem>
-										       	<groupId>org.seleniumhq.selenium</groupId>
-												<artifactId>selenium-htmlunit-driver</artifactId>
-												<version>2.29.1</version>
 												<overWrite>false</overWrite>
 											    <outputDirectory>${project.basedir}/lib</outputDirectory>
 		
