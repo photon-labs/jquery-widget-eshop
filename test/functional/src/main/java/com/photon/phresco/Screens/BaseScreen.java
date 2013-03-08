@@ -36,7 +36,7 @@ import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenActionFailedException;
 import com.photon.phresco.selenium.util.ScreenException;
-import com.photon.phresco.uiconstants.JQueryWidgetData;
+import com.photon.phresco.uiconstants.YUIWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
@@ -49,7 +49,7 @@ public class BaseScreen {
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
 	private WebElement element;	
-	private JQueryWidgetData jQueryWidgetData;
+	private YUIWidgetData YUIWidgetData;
 	private UIConstants uiConstants;
 	private  PhrescoUiConstants phrsc;
 	DesiredCapabilities capabilities;
@@ -62,10 +62,10 @@ public class BaseScreen {
 
 	public BaseScreen(String selectedBrowser,String selectedPlatform, String applicationURL,
 			String applicationContext, 
-			JQueryWidgetData jQueryWidgetData, UIConstants uiConstants)
+			YUIWidgetData YUIWidgetData, UIConstants uiConstants)
 					throws AWTException, IOException, ScreenActionFailedException {
 	
-		this.jQueryWidgetData = jQueryWidgetData;
+		this.YUIWidgetData = YUIWidgetData;
 		this.uiConstants = uiConstants;
 		try {
 			instantiateBrowser(selectedBrowser, selectedPlatform, applicationURL, applicationContext);
@@ -150,9 +150,14 @@ public class BaseScreen {
 			// break;
 			// driver = new RemoteWebDriver(server, capabilities);
 
-		} else {
+		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_HEADLESS)) {
+			log.info("-------------***LAUNCHING HTMLUNIT DRIVER***--------------");
+			capabilities = new DesiredCapabilities();
+			capabilities.setBrowserName("htmlunit");
+			System.out.println("-----------checking in HTMLUNIT_DRIVER-------");
+		}else {
 			throw new ScreenException(
-					"------Only FireFox,InternetExplore and Chrome works-----------");
+					"------Only FireFox,InternetExplore ,Chrome and htmlUnit works-----------");
 		}
 
 		/**
@@ -173,7 +178,7 @@ public class BaseScreen {
 			// break;
 		}
 		driver = new RemoteWebDriver(server, capabilities);
-		windowResize();
+		//windowResize();
 		driver.get(applicationURL + applicationContext);
 		 //driver.manage().window().maximize();
 		// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -330,31 +335,31 @@ public class BaseScreen {
   
     	waitForElementPresent(uiConstants.REG_FIRSTNAME,methodName);
     	getXpathWebElement(uiConstants.REG_FIRSTNAME);
-    	element.sendKeys(this.jQueryWidgetData.REG_FIRSTNAME_VALUE);
+    	element.sendKeys(this.YUIWidgetData.REG_FIRSTNAME_VALUE);
     	
     	waitForElementPresent(uiConstants.REG_LASTNAME,methodName);
     	getXpathWebElement(uiConstants.REG_LASTNAME);
-    	element.sendKeys(this.jQueryWidgetData.REG_LASTNAME_VALUE);
+    	element.sendKeys(this.YUIWidgetData.REG_LASTNAME_VALUE);
     
     	waitForElementPresent(uiConstants.REG_EMAIL,methodName);
     	getXpathWebElement(uiConstants.REG_EMAIL);
-    	element.sendKeys(this.jQueryWidgetData.REG_EMAIL_VALUE);
+    	element.sendKeys(this.YUIWidgetData.REG_EMAIL_VALUE);
     	
     	waitForElementPresent(uiConstants.REG_PASSWORD,methodName);
     	getXpathWebElement(uiConstants.REG_PASSWORD);
-    	element.sendKeys(this.jQueryWidgetData.REG_PASSWORD_VALUE);
+    	element.sendKeys(this.YUIWidgetData.REG_PASSWORD_VALUE);
     	
     	
     	waitForElementPresent(uiConstants.REG_PHONENUMBER,methodName);
     	getXpathWebElement(uiConstants.REG_PHONENUMBER);
-    	element.sendKeys(this.jQueryWidgetData.REG_PHONENUMBER);
+    	element.sendKeys(this.YUIWidgetData.REG_PHONENUMBER);
     
     	
     	waitForElementPresent(uiConstants.REG_SUBMIT_BUTTON,methodName);
     	getXpathWebElement(uiConstants.REG_SUBMIT_BUTTON);
     	element.click();
     	Thread.sleep(2000);
-    	isTextPresent(jQueryWidgetData.REG_SUCCESS_MSG);
+    	isTextPresent(YUIWidgetData.REG_SUCCESS_MSG);
     	
 }
     
@@ -371,32 +376,32 @@ public class BaseScreen {
 		getXpathWebElement(this.uiConstants.EMAIL);
 		System.out.println("----element ---------->1" + element);		
 		
-		sendKeys(jQueryWidgetData.EMAIL_VALUE);
+		sendKeys(YUIWidgetData.EMAIL_VALUE);
 		getIdWebElement(this.uiConstants.FIRSTNAME);
 		System.out.println("----element-------------> 2" + element);
-		sendKeys(jQueryWidgetData.FIRSTNAME_VALUE);
+		sendKeys(YUIWidgetData.FIRSTNAME_VALUE);
 		getIdWebElement(this.uiConstants.LASTNAME);
-		sendKeys(jQueryWidgetData.LASTNAME_VALUE);
+		sendKeys(YUIWidgetData.LASTNAME_VALUE);
 		getIdWebElement(this.uiConstants.COMPANY);
 		sendKeys(this.uiConstants.COMPANY);
 		getIdWebElement(this.uiConstants.ADDRESS1);
-		sendKeys(jQueryWidgetData.ADDRESS1_VALUE);
+		sendKeys(YUIWidgetData.ADDRESS1_VALUE);
 		getIdWebElement(this.uiConstants.ADDRESS2);
-		sendKeys(jQueryWidgetData.ADDRESS2_VALUE);
+		sendKeys(YUIWidgetData.ADDRESS2_VALUE);
 		getIdWebElement(this.uiConstants.CITY);
-		sendKeys(jQueryWidgetData.CITY_VALUE);
+		sendKeys(YUIWidgetData.CITY_VALUE);
 		getIdWebElement(this.uiConstants.STATE);
-		sendKeys(jQueryWidgetData.STATE_VALUE);
+		sendKeys(YUIWidgetData.STATE_VALUE);
 		getIdWebElement(this.uiConstants.POSTALCODE);
-		sendKeys(jQueryWidgetData.POSTALCODE_VALUE);
+		sendKeys(YUIWidgetData.POSTALCODE_VALUE);
 		getIdWebElement(this.uiConstants.PHONENUMBER);
-		sendKeys(jQueryWidgetData.PHONENUMBER_VALUE);
+		sendKeys(YUIWidgetData.PHONENUMBER_VALUE);
 		getIdWebElement(this.uiConstants.CARDNUMBER);
-		sendKeys(jQueryWidgetData.CARDNUMBER_VALUE);
+		sendKeys(YUIWidgetData.CARDNUMBER_VALUE);
 		getIdWebElement(this.uiConstants.SECURITYNUMBER);
-		sendKeys(jQueryWidgetData.SECURITYNUMBER_VALUE);
+		sendKeys(YUIWidgetData.SECURITYNUMBER_VALUE);
 		getIdWebElement(this.uiConstants.NAMEONCARD);
-		sendKeys(jQueryWidgetData.NAMEONCARD_VALUE);
+		sendKeys(YUIWidgetData.NAMEONCARD_VALUE);
 		waitForElementPresent(this.uiConstants.REVIEWORDER, methodName);
 		getXpathWebElement(this.uiConstants.REVIEWORDER);
 		click();

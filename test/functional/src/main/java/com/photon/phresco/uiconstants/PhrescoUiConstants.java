@@ -11,6 +11,14 @@ public class PhrescoUiConstants {
 	public String PROTOCOL = "protocol";
 	public String PORT = "port";
 	public String RESOLUTION="Resolution";
+	/*public String ADMIN="admin_username";
+	public String DEPLOY="deploy_dir";
+	public String ADD_CONTEXT="additional_context";
+	public String ADMINPWD="admin_password";
+	public String VERSION ="version";
+	public String CERTIFICATE="certificate";
+	public String TYPE="type";
+	public String REMOTE="remoteDeployment";*/
 
 	public PhrescoUiConstants() {
 		try {
