@@ -20,7 +20,7 @@
 <environment>
            <Browser>firefox</Browser>
 		   <Server>
-              <context>html5widget</context>
+              <context>testingfun</context>
                <protocol>http</protocol>
                <host>172.16.17.180</host>
                <port>8080</port>
