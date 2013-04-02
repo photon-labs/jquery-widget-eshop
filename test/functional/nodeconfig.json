@@ -25,6 +25,14 @@
           "browserName": "opera",
           "maxInstances": 5,
           "seleniumProtocol": "WebDriver"
+        },
+        {
+          "platform": "MAC",
+          "browserName": "iPhone",
+          "maxInstances": 5,
+		  "port": "3001",
+		  "seleniumProtocol": "WebDriver"
+		  
         }
       ],
   "configuration":

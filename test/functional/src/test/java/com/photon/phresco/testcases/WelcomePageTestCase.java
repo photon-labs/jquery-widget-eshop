@@ -96,7 +96,7 @@ public class WelcomePageTestCase {
 		}
 	}
 
-	@Test
+	/*@Test
 	public void testToVerifyTheCamerasAddToCart() throws InterruptedException,
 			IOException, Exception {
 		try {
@@ -261,7 +261,7 @@ public class WelcomePageTestCase {
 			t.printStackTrace();
 
 		}
-	}
+	}*/
 	@AfterTest
 	public  void tearDown() {
 		welcomeScreen.closeBrowser();
