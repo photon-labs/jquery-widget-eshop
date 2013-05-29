@@ -8,7 +8,7 @@ require(  [ "jquery", "eshop/widgets/Navigation", "eshop/widgets/EShopAPI", "esh
 	 * Test that the setMainContent method sets the text in the Navigation
 	 */
 	  module("Navigation.js;Navigation");
-	test("Test Navigation with login same data.", function() {
+	test("Test Navigation without login same data.", function() {
 	
 		var navigation, api, phrescoapi, self = this, output1, output2, loginresponse = {}, logtext, texttLi, ordertext, ordertextLi, mainContent, navUL, lis, liList;
 		
