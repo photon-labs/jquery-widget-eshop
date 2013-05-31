@@ -39,7 +39,7 @@ public class ReadXMLFile {
 //	private  final String yuiwidgdata = "./src/main/resources/YUIWidgetData.xml";
 	private  final String constants = "./src/main/resources/UIConstants.xml";
 	private  final String UsrInfConst="./src/main/resources/UserInfo.xml";
-	private  final String jqueryWidget="./src/main/resources/JQueryWidgetData.xml";
+	
 	
 	public ReadXMLFile() throws ScreenException {
 		log.info("@ReadXMLFile Constructor::loading *****PhrescoUIConstants******");
@@ -85,10 +85,7 @@ public class ReadXMLFile {
 		loadPhrescoConstansts(UsrInfConst);
 		
 	}
-	public void loadJqueryWidgetData() throws ScreenException {
-		loadPhrescoConstansts(jqueryWidget);
-		
-	}
+	
 	public void loadUIConstants() throws ScreenException {
     	loadPhrescoConstansts(constants);
 	}

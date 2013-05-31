@@ -26,6 +26,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.photon.phresco.model.Jquerywidgetsdata.Jquerywidget;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
@@ -55,11 +56,11 @@ public class WelcomePageTestCase {
 					.getMethodName();
 	       Reporter.log("Selected Browser to execute testcases--->>"
 					+ selectedBrowser);
-	       String applicationURL = phrescoUIConstants.PROTOCOL + "://"
-					+ phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT
+	       String applicationURL = phrescoUIConstants.getProtocol() + "://"
+					+ phrescoUIConstants.getHost() + ":" + phrescoUIConstants.getPort()
 					+ "/";
 			welcomeScreen = new WelcomeScreen(selectedBrowser,selectedPlatform, applicationURL,
-					phrescoUIConstants.CONTEXT, jqueryWidgetConstants, uiConstants);
+					phrescoUIConstants.getContext(), jqueryWidgetConstants, uiConstants);
 			// menuScreen = welcomeScreen.menuScreen(uiConstants);
 			
 		} catch (Exception exception) {
@@ -96,8 +97,8 @@ public class WelcomePageTestCase {
 		}
 	}
 
-	@Test
-	public void testToVerifyTheAudioDevicesAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheAudioDevicesAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -105,16 +106,17 @@ public class WelcomePageTestCase {
 					.println("---------testToVerifyTheAudioDevicesAddToCart()-------------");
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
+			
 			welcomeScreen.AudioDevices(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheCamerasAddToCart() throws InterruptedException,
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheCamerasAddToCart(Jquerywidget jquerywidget) throws InterruptedException,
 			IOException, Exception {
 		try {
 
@@ -123,15 +125,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.Cameras(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheVideoGamesAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheVideoGamesAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -140,15 +142,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.VideoGames(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheTelevisionAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheTelevisionAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -157,15 +159,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.Television(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheTabletsAddToCart() throws InterruptedException,
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheTabletsAddToCart(Jquerywidget jquerywidget) throws InterruptedException,
 			IOException, Exception {
 		try {
 
@@ -174,15 +176,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.Tablets(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-@Test
-	public void testToVerifyTheMP3PlayersAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheMP3PlayersAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -191,15 +193,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.MP3Players(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheMoviesAndMusicAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheMoviesAndMusicAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -208,15 +210,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.MoviesnMusic(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheMobilePhonesAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheMobilePhonesAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -225,15 +227,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.MobilePhones(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheAccessoriesAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheAccessoriesAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 			System.out
@@ -241,15 +243,15 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.Accessories(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheComputersAddToCart()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheComputersAddToCart(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 			System.out
@@ -257,14 +259,14 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.Computers(methodName);
-			welcomeScreen.billingInfo(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
-	@Test
-	public void testToVerifyTheZFailureScenario()
+	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheZFailureScenario(Jquerywidget jquerywidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 			System.out
@@ -272,13 +274,30 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			welcomeScreen.Computers(methodName);
-			welcomeScreen.billingInfo(methodName);
-			welcomeScreen.Registration(methodName);
+			welcomeScreen.billingInfo(methodName,jquerywidget);
+			welcomeScreen.Registration(methodName,jquerywidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
+	
+	@Test
+	public void testFailureScripts()
+			throws InterruptedException, IOException, Exception {
+		try {
+			System.out
+					.println("---------testFailureScripts()-------------");
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.Failure(methodName);
+			
+		} catch (Exception t) {
+			t.printStackTrace();
+
+		}
+	}
+	
 	@AfterTest
 	public  void tearDown() {
 		welcomeScreen.closeBrowser();
