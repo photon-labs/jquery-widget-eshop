@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    PHR_jquerywidget
+    PHR_HTML5YUIWidget
 
     Copyright (C) 1999-2013 Photon Infotech Inc.
 
@@ -18,35 +18,64 @@
     limitations under the License.
 
 -->
-<environment>
-<phresco>
-<jquerywidget>
-     <registration>
-              <firstname>Phresco</firstname>
-               <lastname>Tester</lastname>
-               <email>PhrescoTester@photoninfotech.com</email>
-               <password>Phresco</password>
-               <phonenumber>5555555555</phonenumber>
-               <reg_text-msg>Success</reg_text-msg>
-      </registration>
-     <billingInfoPage>
-	           <billInfoCommentsValue>First order</billInfoCommentsValue>
-	           <billInfoFirstNameValue>John</billInfoFirstNameValue>
-	           <billInfoPhoneNumberValue>+1 212-398-2449</billInfoPhoneNumberValue>
-	           <billInfoStateValue>Boston</billInfoStateValue>
-	           <billInfoLastNameValue>David</billInfoLastNameValue>
-	           <billInfoPostCodeValue>10019</billInfoPostCodeValue>
-	           <billInfoCityValue>NewJersey city</billInfoCityValue>
-	           <billInfoAddress2Value>Newyork</billInfoAddress2Value>
-	           <billInfoAddress1Value>USA</billInfoAddress1Value>
-	           <billInfoCompanyValue>Photon</billInfoCompanyValue>
-	           <billInfoEmailValue>Phresco@PhotonInfotech.net</billInfoEmailValue>
-	 </billingInfoPage>    
-	 <cardInfoPage>      
-	           <cardInfoNameOnCardValue>JohnDavid</cardInfoNameOnCardValue>
-	           <cardInfoCardNumberValue>235967841</cardInfoCardNumberValue>
-	           <cardInfoSecurityNumberValue>5836</cardInfoSecurityNumberValue>
-	 </cardInfoPage>
-</jquerywidget>
-</phresco>
-</environment>
+<jquerywidgetsdata>
+
+	<jquerywidget>
+	     <registration>
+	              <firstname>Phresco</firstname>
+	               <lastname>Tester</lastname>
+	               <email>PhrescoTester@photoninfotech.com</email>
+	               <password>Phresco</password>
+	               <phonenumber>5555555555</phonenumber>
+	               <reg_text-msg>Success</reg_text-msg>
+	      </registration>
+	     <billingInfoPage>
+		           <billInfoCommentsValue>First order</billInfoCommentsValue>
+		           <billInfoFirstNameValue>John</billInfoFirstNameValue>
+		           <billInfoPhoneNumberValue>+1 212-398-2449</billInfoPhoneNumberValue>
+		           <billInfoStateValue>Boston</billInfoStateValue>
+		           <billInfoLastNameValue>David</billInfoLastNameValue>
+		           <billInfoPostCodeValue>10019</billInfoPostCodeValue>
+		           <billInfoCityValue>NewJersey city</billInfoCityValue>
+		           <billInfoAddress2Value>Newyork</billInfoAddress2Value>
+		           <billInfoAddress1Value>USA</billInfoAddress1Value>
+		           <billInfoCompanyValue>Photon</billInfoCompanyValue>
+		           <billInfoEmailValue>Phresco@PhotonInfotech.net</billInfoEmailValue>
+		 </billingInfoPage>    
+		 <cardInfoPage>      
+		           <cardInfoNameOnCardValue>JohnDavid</cardInfoNameOnCardValue>
+		           <cardInfoCardNumberValue>235967841</cardInfoCardNumberValue>
+		           <cardInfoSecurityNumberValue>5836</cardInfoSecurityNumberValue>
+		 </cardInfoPage>
+	</jquerywidget>
+
+	<jquerywidget>
+	     <registration>
+	              <firstname>Photon</firstname>
+	               <lastname>Developer</lastname>
+	               <email>PhotonDeveloper@photoninfotech.com</email>
+	               <password>Photon</password>
+	               <phonenumber>1111111</phonenumber>
+	               <reg_text-msg>Success</reg_text-msg>
+	      </registration>
+	     <billingInfoPage>
+		           <billInfoCommentsValue>Second order</billInfoCommentsValue>
+		           <billInfoFirstNameValue>John</billInfoFirstNameValue>
+		           <billInfoPhoneNumberValue>+1 212-398-2449</billInfoPhoneNumberValue>
+		           <billInfoStateValue>Boston</billInfoStateValue>
+		           <billInfoLastNameValue>David</billInfoLastNameValue>
+		           <billInfoPostCodeValue>10019</billInfoPostCodeValue>
+		           <billInfoCityValue>Steeles Avenue East</billInfoCityValue>
+		           <billInfoAddress2Value>Markham</billInfoAddress2Value>
+		           <billInfoAddress1Value>CANADA</billInfoAddress1Value>
+		           <billInfoCompanyValue>Photon</billInfoCompanyValue>
+		           <billInfoEmailValue>Phresco@PhotonInfotech.net</billInfoEmailValue>
+		 </billingInfoPage>    
+		 <cardInfoPage>      
+		           <cardInfoNameOnCardValue>DavidJohn</cardInfoNameOnCardValue>
+		           <cardInfoCardNumberValue>159876314</cardInfoCardNumberValue>
+		           <cardInfoSecurityNumberValue>2587</cardInfoSecurityNumberValue>
+		 </cardInfoPage>
+	</jquerywidget>
+
+</jquerywidgetsdata>
