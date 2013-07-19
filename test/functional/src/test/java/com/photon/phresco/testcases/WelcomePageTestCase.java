@@ -282,7 +282,7 @@ public class WelcomePageTestCase {
 		}
 	}
 	
-	@Test
+/*	@Test
 	public void testFailureScripts()
 			throws InterruptedException, IOException, Exception {
 		try {
@@ -296,7 +296,7 @@ public class WelcomePageTestCase {
 			t.printStackTrace();
 
 		}
-	}
+	}*/
 	
 	@AfterTest
 	public  void tearDown() {

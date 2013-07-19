@@ -326,24 +326,25 @@ public class BaseScreen {
 		}
 
 		catch (Exception e) {
-			log.info("presenceOfElementLocated" + e.getMessage());
-
-			WebDriver augmentedDriver = new Augmenter().augment(driver);
-			File screenshot = ((TakesScreenshot) augmentedDriver)
-					.getScreenshotAs(OutputType.FILE);
-
-			try {
-
-				FileUtils.copyFile(screenshot,
-						new File(GetCurrentDir.getCurrentDirectory() + "\\"
-								+ methodName + ".png"));
-			} catch (Exception e1) {
-				log.info("presenceOfElementLocated" + e1.getMessage());
-			}
+			captureScreenShot(methodName);
 			Assert.assertNull(e);
 
 		}
 	}
+	public void captureScreenShot(String methodName) {
+        log.info("ENTERING IN CAPTURE SCREENSHOT ");
+        WebDriver augmentedDriver = new Augmenter().augment(driver);
+        File screenshot = ((TakesScreenshot) augmentedDriver)
+                        .getScreenshotAs(OutputType.FILE);
+        try {
+
+                FileUtils.copyFile(screenshot,
+                                new File(GetCurrentDir.getCurrentDirectory()
+                                                + File.separator + methodName + ".png"));
+        } catch (Exception e1) {
+                log.info("EXCEPTION IN CAPTURE SCREENSHOT " + e1.getMessage());
+        }
+}
 
 	Function<WebDriver, WebElement> presenceOfElementLocated(final By locator) {
 		log.info("Entering:------presenceOfElementLocated()-----Start");
@@ -397,7 +398,7 @@ public class BaseScreen {
 		getXpathWebElement(uiConstants.getRegSubmitButton());
 		element.click();
 		Thread.sleep(2000);
-		isTextPresent(jQueryWidgetData.getRegSuccessMsg());
+		isTextPresent(jQueryWidgetData.getRegSuccessMsg(),methodName);
 
 	}
 
@@ -703,17 +704,23 @@ public class BaseScreen {
 
 	}
 
-	public void isTextPresent(String text) {
-		if (text != null) {
-			boolean value = driver.findElement(By.tagName("body")).getText()
-					.contains(text);
-			Assert.assertTrue(value);
-
-		} else {
+	public void isTextPresent(String text,String methodName) {
+		if (text!= null){
+			log.info("ENTERING TEXT PRESENT");
+		boolean value=driver.findElement(By.tagName("body")).getText().contains(text);	
+		if(!value){
+			captureScreenShot(methodName);
+		}
+		Assert.assertTrue(value);   
+	    
+	    }
+		else
+		{
+			
 			throw new RuntimeException("---- Text not existed----");
 		}
-
 	}
+
 
 	public void sendKeys(String text) throws ScreenException {
 		log.info("Entering:********enterText operation start********");
