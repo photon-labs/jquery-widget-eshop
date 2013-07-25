@@ -27,7 +27,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.photon.phresco.model.Jquerywidgetsdata.Jquerywidget;
-import com.photon.phresco.Screens.WelcomeScreen;
+import com.photon.phresco.screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
@@ -68,21 +68,6 @@ public class WelcomePageTestCase {
 		}
 	}
 
-	/*public  void launchingBrowser() throws Exception {
-		try {
-			String applicationURL = phrescoUIConstants.PROTOCOL + "://"
-					+ phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT
-					+ "/";
-			selectedBrowser = phrescoUIConstants.BROWSER;
-			welcomeScreen = new WelcomeScreen(selectedBrowser,selectedPlatform, applicationURL,
-					phrescoUIConstants.CONTEXT, jqueryWidgetConstants, uiConstants);
-		} catch (Exception exception) {
-			exception.printStackTrace();
-
-		}
-
-	}*/
-
 	@Test
 	public void testWelcomePageScreen() throws InterruptedException,
 			IOException, Exception {
@@ -90,7 +75,6 @@ public class WelcomePageTestCase {
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
 			Assert.assertNotNull(welcomeScreen);
-			// Thread.sleep(10000);
 		} catch (Exception t) {
 			t.printStackTrace();
 
@@ -260,38 +244,6 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.Computers(methodName);
 			welcomeScreen.billingInfo(methodName,jquerywidget);
-		} catch (Exception t) {
-			t.printStackTrace();
-
-		}
-	}
-	@Test(dataProvider = "jquerywidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
-	public void testToVerifyTheZFailureScenario(Jquerywidget jquerywidget)
-			throws InterruptedException, IOException, Exception {
-		try {
-			System.out
-					.println("---------testToVerifyTheComputersAddToCart()-------------");
-			methodName = Thread.currentThread().getStackTrace()[1]
-					.getMethodName();
-			welcomeScreen.Computers(methodName);
-			welcomeScreen.billingInfo(methodName,jquerywidget);
-			welcomeScreen.Registration(methodName,jquerywidget);
-		} catch (Exception t) {
-			t.printStackTrace();
-
-		}
-	}
-	
-	@Test
-	public void testFailureScripts()
-			throws InterruptedException, IOException, Exception {
-		try {
-			System.out
-					.println("---------testFailureScripts()-------------");
-			methodName = Thread.currentThread().getStackTrace()[1]
-					.getMethodName();
-			welcomeScreen.Failure(methodName);
-			
 		} catch (Exception t) {
 			t.printStackTrace();
 

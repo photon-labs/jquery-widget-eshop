@@ -18,11 +18,8 @@
     limitations under the License.
 
 -->
-<environment>
-<phresco>
-<yuiwidget>
+
+<userInfo>
  <userName></userName>
  <passWord></passWord>
-</yuiwidget>
-</phresco>
-</environment>
+</userInfo>

@@ -12,7 +12,7 @@
 		</classes>
 	</test> 
 
-	 <test name="VerifyWelcomePageOngooglechrome" junit="false"
+	<test name="VerifyWelcomePageOngooglechrome" junit="false"
 		preserve-order="true">
 		<parameter name="jquerywidgetdataXml" value="/JQueryWidgetData.xml" />
 		<parameter name="browser" value="googlechrome" />
@@ -20,7 +20,7 @@
 		<classes>
 			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
 		</classes>
-	</test>
+	</test> 
 	
 		
 </suite>
