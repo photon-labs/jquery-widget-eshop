@@ -2,17 +2,7 @@
 <suite name="WelcomePageTestSuite" parallel="tests"
 	thread-count="5" verbose="3">
 
-
-	 <test name="VerifyWelcomePageOngooglechrome" junit="false"
-		preserve-order="true">
-		<parameter name="jquerywidgetdataXml" value="/JQueryWidgetData.xml" />
-		<parameter name="browser" value="googlechrome" />
-		<parameter name="platform" value="WINDOWS" />
-		<classes>
-			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
-		</classes>
-	</test>
-		<test name="VerifyWelcomePageOnFirefox" junit="false"
+      <test name="VerifyWelcomePageOnFirefox" junit="false"
 		preserve-order="true">
 		<parameter name="jquerywidgetdataXml" value="/JQueryWidgetData.xml" />
 		<parameter name="browser" value="firefox" />
@@ -20,7 +10,18 @@
 		<classes>
 			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
 		</classes>
-	</test>
+	</test> 
+
+	<test name="VerifyWelcomePageOngooglechrome" junit="false"
+		preserve-order="true">
+		<parameter name="jquerywidgetdataXml" value="/JQueryWidgetData.xml" />
+		<parameter name="browser" value="googlechrome" />
+		<parameter name="platform" value="WINDOWS" />
+		<classes>
+			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
+		</classes>
+	</test> 
+	
 		
 </suite>
  

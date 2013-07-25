@@ -61,7 +61,7 @@ public class JQueryWidgetData {
 				}
 			}
 		} catch (Exception localException) {
-			log.info("Exception in MerchandisingUIData"
+			log.info("Exception in JQueryWidgetData"
 					+ localException.getMessage());
 		}
 	}
