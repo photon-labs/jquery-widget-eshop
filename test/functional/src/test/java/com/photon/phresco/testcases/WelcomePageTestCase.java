@@ -26,8 +26,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.model.Jquerywidgetsdata.Jquerywidget;
-import com.photon.phresco.screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
