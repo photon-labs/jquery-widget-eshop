@@ -177,6 +177,7 @@ public class BaseScreen {
 			capabilities.setCapability(CapabilityType.PLATFORM, Platform.MAC);
 		}
 		driver = new RemoteWebDriver(server, capabilities);
+		windowResize();
 		driver.navigate().to(applicationURL + applicationContext);
 
 	}
@@ -402,7 +403,7 @@ public class BaseScreen {
 	 *            The text to be passed as value for the Text field in the UI
 	 */
 	public void sendKeys(String text) throws Exception {
-		log.info("ENTERING VALUES IN TEXTBOX OPERATION OR SENDKEYS");
+		log.info("ENTERING VALUES IN TEXTBOX ");
 		try {
 			clear();
 			element.sendKeys(text);
