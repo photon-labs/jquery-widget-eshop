@@ -20,7 +20,6 @@ package com.photon.phresco.testcases;
 import java.io.IOException;
 
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -28,10 +27,10 @@ import org.testng.annotations.Test;
 
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.model.Jquerywidgetsdata.Jquerywidget;
-import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
+@SuppressWarnings("unused")
 public class WelcomePageTestCase {
 
 	private  UIConstants uiConstants;
@@ -39,7 +38,6 @@ public class WelcomePageTestCase {
 	private  WelcomeScreen welcomeScreen;
 	private  String methodName;
 	private  String selectedBrowser;
-	private  JQueryWidgetData jqueryWidgetConstants;
 
 	// private Log log = LogFactory.getLog(getClass());
 	@Parameters(value = { "browser", "platform" })
@@ -48,20 +46,15 @@ public class WelcomePageTestCase {
 		try {
 			phrescoUIConstants = new PhrescoUiConstants();
 			uiConstants = new UIConstants();
-			// assertNotNull(uiConstants);
-			jqueryWidgetConstants = new JQueryWidgetData();
 			String selectedBrowser = browser;
 			String selectedPlatform = platform;
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
-	       Reporter.log("Selected Browser to execute testcases--->>"
-					+ selectedBrowser);
 	       String applicationURL = phrescoUIConstants.getProtocol() + "://"
 					+ phrescoUIConstants.getHost() + ":" + phrescoUIConstants.getPort()
 					+ "/";
 			welcomeScreen = new WelcomeScreen(selectedBrowser,selectedPlatform, applicationURL,
-					phrescoUIConstants.getContext(), jqueryWidgetConstants, uiConstants);
-			// menuScreen = welcomeScreen.menuScreen(uiConstants);
+					phrescoUIConstants.getContext(),  uiConstants);
 			
 		} catch (Exception exception) {
 			exception.printStackTrace();

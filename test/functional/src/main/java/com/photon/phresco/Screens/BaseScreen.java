@@ -51,7 +51,6 @@ import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenActionFailedException;
 import com.photon.phresco.selenium.util.ScreenException;
-import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
@@ -61,7 +60,6 @@ public class BaseScreen {
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
 	private WebElement element;
-	private JQueryWidgetData jQueryWidgetData;
 	private UIConstants uiConstants;
 	private PhrescoUiConstants phrsc;
 	DesiredCapabilities capabilities;
@@ -73,11 +71,9 @@ public class BaseScreen {
 	}
 
 	public BaseScreen(String selectedBrowser, String selectedPlatform,
-			String applicationURL, String applicationContext,
-			JQueryWidgetData jQueryWidgetData, UIConstants uiConstants)
+			String applicationURL, String applicationContext, UIConstants uiConstants)
 			throws AWTException, IOException, ScreenActionFailedException {
 
-		this.jQueryWidgetData = jQueryWidgetData;
 		this.uiConstants = uiConstants;
 		try {
 			instantiateBrowser(selectedBrowser, selectedPlatform,
@@ -177,7 +173,6 @@ public class BaseScreen {
 			capabilities.setCapability(CapabilityType.PLATFORM, Platform.MAC);
 		}
 		driver = new RemoteWebDriver(server, capabilities);
-		windowResize();
 		driver.navigate().to(applicationURL + applicationContext);
 
 	}
@@ -403,7 +398,7 @@ public class BaseScreen {
 	 *            The text to be passed as value for the Text field in the UI
 	 */
 	public void sendKeys(String text) throws Exception {
-		log.info("ENTERING VALUES IN TEXTBOX ");
+		log.info("ENTERING VALUES IN TEXTBOX OPERATION OR SENDKEYS");
 		try {
 			clear();
 			element.sendKeys(text);
@@ -464,8 +459,6 @@ public class BaseScreen {
 		waitForElementPresent(uiConstants.getRegSubmitButton(), methodName);
 		getXpathWebElement(uiConstants.getRegSubmitButton());
 		click();
-		Thread.sleep(2000);
-		isTextPresent(jQueryWidgetData.getRegSuccessMsg(), methodName);
 
 	}
 
