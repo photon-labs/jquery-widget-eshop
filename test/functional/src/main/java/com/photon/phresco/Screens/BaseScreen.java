@@ -51,7 +51,6 @@ import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenActionFailedException;
 import com.photon.phresco.selenium.util.ScreenException;
-import com.photon.phresco.uiconstants.JQueryWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
@@ -61,7 +60,6 @@ public class BaseScreen {
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
 	private WebElement element;
-	private JQueryWidgetData jQueryWidgetData;
 	private UIConstants uiConstants;
 	private PhrescoUiConstants phrsc;
 	DesiredCapabilities capabilities;
@@ -73,11 +71,9 @@ public class BaseScreen {
 	}
 
 	public BaseScreen(String selectedBrowser, String selectedPlatform,
-			String applicationURL, String applicationContext,
-			JQueryWidgetData jQueryWidgetData, UIConstants uiConstants)
+			String applicationURL, String applicationContext, UIConstants uiConstants)
 			throws AWTException, IOException, ScreenActionFailedException {
 
-		this.jQueryWidgetData = jQueryWidgetData;
 		this.uiConstants = uiConstants;
 		try {
 			instantiateBrowser(selectedBrowser, selectedPlatform,
@@ -463,8 +459,6 @@ public class BaseScreen {
 		waitForElementPresent(uiConstants.getRegSubmitButton(), methodName);
 		getXpathWebElement(uiConstants.getRegSubmitButton());
 		click();
-		Thread.sleep(2000);
-		isTextPresent(jQueryWidgetData.getRegSuccessMsg(), methodName);
 
 	}
 
