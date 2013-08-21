@@ -134,7 +134,7 @@
                     <description></description>
                     <key>configurations</key>
                     <multiple>false</multiple>
-                    <value>Webservice</value>
+                    <value>Webservice Configuration</value>
                     <sort>false</sort>
                     <show>true</show>
                 </parameter>
@@ -159,7 +159,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>JqueryMultichannel	</value>
+                    <value>JqueryMultieShop</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>

@@ -47,7 +47,7 @@
                         <value key="webservice" dependency="loadContextUrl">Web Services</value>
                     </possibleValues>
                     <multiple>false</multiple>
-                    <value>webservice</value>
+                    <value>server</value>
                     <sort>false</sort>
                     <show>false</show>
                     <dependency>configurations,testName</dependency>
@@ -132,7 +132,7 @@
                     <description></description>
                     <key>configurations</key>
                     <multiple>false</multiple>
-                    <value>Webservice</value>
+                    <value>serviceEshop</value>
                     <sort>false</sort>
                     <show>true</show>
                 </parameter>
@@ -157,7 +157,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>JqueryMultichannel</value>
+                    <value>JqueryMultieShop</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>
