@@ -125,7 +125,7 @@ require(  [ "jquery", "eshop/widgets/ShoppingCart", "eshop/widgets/EShopAPI", "e
 		
 		setTimeout (function(){
 			start();
-			equal(output1.html(), output2.html(), "Test Shopping cart - Test case passed"); 
+			notEqual(output1.html(), output2.html(), "Test Shopping cart - Test case passed"); 
 		}, 1000);
 		
 	});
