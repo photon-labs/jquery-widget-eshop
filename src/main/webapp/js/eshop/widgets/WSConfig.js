@@ -10,7 +10,6 @@ define( "eshop/widgets/WSConfig", [ "jquery" ], function($) {
 	WSConfig.prototype.context = undefined;
 	WSConfig.prototype.protocol = undefined;
 	WSConfig.prototype.WSConfigurl = {};
-	var serviceName = "eshopService";
 	
 	WSConfig.prototype.getEnvironment = function(callback) {
 		var self = this;
@@ -18,14 +17,11 @@ define( "eshop/widgets/WSConfig", [ "jquery" ], function($) {
 			$(data).find("environment").each(function() {
 			var env = $(this).attr('name');
 				$(this).find("WebService").each(function() {
-					var configServiceName = $(this).attr("name");
-					if (configServiceName === serviceName) {
-						self.WSConfigurl.host = $(this).find("host").text();
-						self.WSConfigurl.port = $(this).find("port").text();
-						self.WSConfigurl.context = $(this).find("context").text();
-						self.WSConfigurl.protocol = $(this).find("protocol").text();
-						callback(self.WSConfigurl); 
-					}
+					self.WSConfigurl.host = $(this).find("host").text();
+					self.WSConfigurl.port = $(this).find("port").text();
+					self.WSConfigurl.context = $(this).find("context").text();
+					self.WSConfigurl.protocol = $(this).find("protocol").text();
+					callback(self.WSConfigurl); 
 				});
 			});	
 		});
