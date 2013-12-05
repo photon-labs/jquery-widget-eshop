@@ -48,7 +48,7 @@
                         <value key="database" dependency="dbContextUrls">Database</value>
                     </possibleValues>
                     <multiple>false</multiple>
-                    <value>webservice</value>
+                    <value>server</value>
                     <sort>false</sort>
                     <show>false</show>
                     <dependency>configurations,testName</dependency>
@@ -94,7 +94,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>JqueryMultichannel	</value>
+                    <value>JqueryMultichannel</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>
